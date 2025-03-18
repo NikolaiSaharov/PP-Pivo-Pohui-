@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -192,10 +192,10 @@ namespace CHOTOPOHOZEENASPOTIK
             {
                 var card = new Card
                 {
-                    Width = 200,
+                    Width = 176,
                     Height = 250,
-                    Margin = new Thickness(10),
-                    Background = new SolidColorBrush(Color.FromRgb(47, 47, 47))
+                    Margin = new Thickness(5),
+                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0909"))
                 };
 
                 var grid = new Grid();
@@ -206,7 +206,25 @@ namespace CHOTOPOHOZEENASPOTIK
                 {
                     Source = new System.Windows.Media.Imaging.BitmapImage(
                         new Uri("pack://application:,,,/CHOTOPOHOZEENASPOTIK;component/Images/placeholder.jpg")),
-                    Stretch = Stretch.UniformToFill
+                    Stretch = Stretch.UniformToFill,
+                    Width = 176,
+                    Height = 176
+                };
+
+                var button = new Button
+                {
+                    Style = (Style)FindResource("MaterialDesignFlatButton"),
+                    Width = 40,
+                    Height = 40,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Margin = new Thickness(0, 5, 5, 0),
+                    Padding = new Thickness(0),
+                    Content = new PackIcon
+                    {
+                        Kind = PackIconKind.DotsVertical,
+                        Foreground = Brushes.White
+                    }
                 };
 
                 var stackPanel = new StackPanel { Margin = new Thickness(8) };
@@ -215,14 +233,20 @@ namespace CHOTOPOHOZEENASPOTIK
                 {
                     Text = trackNames[i],
                     Style = (Style)FindResource("MaterialDesignBody1TextBlock"),
-                    Foreground = Brushes.White
+                    Foreground = Brushes.White,
+                    FontSize = 14,
+                    FontFamily = new FontFamily("Inter"),
+                    FontWeight = FontWeights.Bold
                 };
 
                 var artistBlock = new TextBlock
                 {
                     Text = artists[i],
                     Style = (Style)FindResource("MaterialDesignCaptionTextBlock"),
-                    Foreground = Brushes.Gray
+                    Foreground = Brushes.Gray,
+                    FontSize = 14,
+                    FontFamily = new FontFamily("Inter"),
+                    FontWeight = FontWeights.Bold
                 };
 
                 stackPanel.Children.Add(titleBlock);
@@ -232,6 +256,7 @@ namespace CHOTOPOHOZEENASPOTIK
                 Grid.SetRow(stackPanel, 1);
 
                 grid.Children.Add(image);
+                grid.Children.Add(button);
                 grid.Children.Add(stackPanel);
 
                 card.Content = grid;
@@ -239,6 +264,7 @@ namespace CHOTOPOHOZEENASPOTIK
                 TracksContainer.Children.Add(card);
             }
         }
+
 
         private void InitializePlayerControls()
         {
@@ -310,22 +336,25 @@ namespace CHOTOPOHOZEENASPOTIK
             var button = sender as Button;
             if (button == null) return;
 
-            // Сброс цвета всех кнопок
+            // Сброс цвета фона и текста всех кнопок
             foreach (var child in ((UniformGrid)button.Parent).Children)
             {
                 if (child is Button btn)
                 {
+                    btn.Background = Brushes.Transparent;
                     btn.Foreground = Brushes.Gray;
                 }
             }
 
-            // Установка цвета выбранной кнопки
+            // Установка цвета фона и текста выбранной кнопки
+            button.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9BC2DB"));
             button.Foreground = Brushes.White;
 
             // Фильтрация контента
             string filter = button.Content.ToString();
             FilterTracks(filter);
         }
+
 
         private void FilterTracks(string filter)
         {
@@ -357,6 +386,11 @@ namespace CHOTOPOHOZEENASPOTIK
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             ShowSection("Плейлист");
+        }
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            // Здесь будет логика обновления времени воспроизведения
+            // Пока оставим пустым, так как нет реального плеера
         }
     }
 }
