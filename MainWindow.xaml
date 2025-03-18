@@ -364,15 +364,7 @@
                                 </Button.Template>
                             </Button>
 
-                            <!-- Круглая кнопка "+" -->
-                            <Button Width="43" Height="43"
-        Margin="10,0,0,0"
-        Background="Transparent" 
-                                BorderBrush="Transparent"
-                                Padding="0">
-                                <Image Source="pack://application:,,,/Images/plus.jpg" 
-                                    Width="35" Height="35"/>
-                            </Button>
+                           
 
                             <!-- Добавленная кнопка (пример) -->
                             <Button Width="43" Height="43"
@@ -387,7 +379,16 @@
                                     </ControlTemplate>
                                 </Button.Template>
                                 <Image Source="pack://application:,,,/Images/restart.jpg"
-Height="25" Width="25"/>
+Height="23" Width="23"/>
+                            </Button>
+                            <!-- Круглая кнопка "+" -->
+                            <Button Width="43" Height="43"
+Margin="10,0,0,0"
+Background="Transparent" 
+                        BorderBrush="Transparent"
+                        Padding="0">
+                                <Image Source="pack://application:,,,/Images/plus.jpg" 
+                            Width="35" Height="35"/>
                             </Button>
                         </StackPanel>
                     </StackPanel>
