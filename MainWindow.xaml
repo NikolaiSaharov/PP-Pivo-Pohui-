@@ -16,12 +16,23 @@
 
 
     <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#171717"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            CornerRadius="15"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
 
@@ -391,40 +402,46 @@ Height="25" Width="25"/>
 
                     <!-- Кнопки переключения категорий -->
                     <Border Grid.Row="0" Background="Black">
-                        <UniformGrid Rows="1" Margin="0">
+                        <UniformGrid Rows="1" Columns="6" Margin="0">
                             <Button Content="Все"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="White"
-                                    Background="#FF1F1F1F"
-                                    Click="FilterButton_Click"/>
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="30"
+                Foreground="White"
+                Background="#171717"
+                Click="FilterButton_Click"
+                Margin="0,0,200,0"/>
                             <Button Content="Музыка"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="Gray"
-                                    Click="FilterButton_Click"/>
-                            <Button Content="Клипы"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="Gray"
-                                    Click="FilterButton_Click"/>
-                            <Button Content="Подкасты"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="Gray"
-                                    Click="FilterButton_Click"/>
-                            <Button Content="Аудио книги"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="Gray"
-                                    Click="FilterButton_Click"/>
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="30"
+                Foreground="Gray"
+                Click="FilterButton_Click"
+                Margin="-195,0,371,0"/>
                             <Button Content="Посты"
-                                    Style="{StaticResource MaterialDesignFlatButton}"
-                                    Height="30"
-                                    Foreground="Gray"
-                                    Click="FilterButton_Click"/>
+                Style="{StaticResource RoundedButtonStyle}"
+                Foreground="Gray"
+                Click="FilterButton_Click"
+                Margin="-366,0,530,0"/>
+                            <Button Content="Клипы"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="30"
+                Foreground="Gray"
+                Click="FilterButton_Click"
+                Margin="-525,0,694,0"/>
+                            <Button Content="Подкасты"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="30"
+                Foreground="Gray"
+                Click="FilterButton_Click"
+                Margin="-689,0,865,0"/>
+                            <Button Content="Аудио книги"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="30"
+                Foreground="Gray"
+                Click="FilterButton_Click"
+                Margin="-860,0,1036,0"/>
                         </UniformGrid>
                     </Border>
+
 
                     <!-- Прокручиваемый контент нижнего фрейма -->
                     <ScrollViewer Grid.Row="1" Background="#090909" Margin="0,0,0,-100">
@@ -563,7 +580,7 @@ Height="25" Width="25"/>
                 <Border Grid.Column="0" Background="Black" />
 
                 <!-- Плеер -->
-                <Grid Grid.Column="1" Background="#090909" Height="70" Width="1000" VerticalAlignment="Top" Margin="225,18,225,0">
+                <Grid Grid.Column="1" Background="#090909" Height="70" Width="1000" VerticalAlignment="Top" Margin="225,10,225,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="250"/>
                         <ColumnDefinition Width="*"/>
@@ -639,14 +656,15 @@ Width="18" Height="18"/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="1:20" Foreground="#FF808080"
-                                 VerticalAlignment="Center" Margin="10,0"/>
+         VerticalAlignment="Top" Margin="10,-5,10,0"/>
 
                             <Slider Value="30" Maximum="100"
-                               Style="{StaticResource MaterialDesignSlider}" Grid.ColumnSpan="3" Margin="42,0,42,0" Height="20" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+       Style="{StaticResource MaterialDesignSlider}" Grid.ColumnSpan="3" Margin="42,-7,42,0" Height="30" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
 
                             <TextBlock Grid.Column="2" Text="3:20" Foreground="#FF808080"
-                                 VerticalAlignment="Center" Margin="10,0"/>
+         VerticalAlignment="Top" Margin="10,-5,10,0"/>
                         </Grid>
+
                     </Grid>
 
                     <!-- Правые контролы -->
