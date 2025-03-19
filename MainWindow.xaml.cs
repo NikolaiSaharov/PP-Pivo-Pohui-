@@ -85,11 +85,11 @@ namespace CHOTOPOHOZEENASPOTIK
             {
                 // Открываем панель
                 infoPanelAnimation.From = 0;
-                infoPanelAnimation.To = 240;
+                infoPanelAnimation.To = 385; // Установите ширину панели
 
                 // Анимация для контента
                 contentMarginAnimation.From = mainContent.Margin;
-                contentMarginAnimation.To = new Thickness(0, 0, 240, 0);
+                contentMarginAnimation.To = new Thickness(0, 0, 355, 0); // Сдвигаем контент влево
 
                 // Поворачиваем иконку
                 var icon = ((Button)sender).Content as PackIcon;
@@ -98,18 +98,19 @@ namespace CHOTOPOHOZEENASPOTIK
                     icon.Kind = PackIconKind.ChevronRight;
                 }
 
+                InfoPanel.Visibility = Visibility.Visible; // Делаем панель видимой
                 InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
                 mainContent.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
             }
             else
             {
                 // Закрываем панель
-                infoPanelAnimation.From = 240;
+                infoPanelAnimation.From = 385;
                 infoPanelAnimation.To = 0;
 
                 // Анимация для контента
                 contentMarginAnimation.From = mainContent.Margin;
-                contentMarginAnimation.To = new Thickness(0);
+                contentMarginAnimation.To = new Thickness(0); // Возвращаем контент на место
 
                 // Возвращаем иконку
                 var icon = ((Button)sender).Content as PackIcon;
@@ -121,9 +122,14 @@ namespace CHOTOPOHOZEENASPOTIK
                 InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
                 mainContent.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
             }
-            
+
             isInfoPanelExpanded = !isInfoPanelExpanded;
         }
+
+
+
+
+
 
         private void InfoPanel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -337,7 +343,7 @@ namespace CHOTOPOHOZEENASPOTIK
             if (button == null) return;
 
             // Сброс цвета фона и текста всех кнопок
-            foreach (var child in ((UniformGrid)button.Parent).Children)
+            foreach (var child in ((Grid)button.Parent).Children)
             {
                 if (child is Button btn)
                 {
