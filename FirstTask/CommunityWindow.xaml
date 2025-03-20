@@ -6,6 +6,10 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" Background="Black">
     <Grid Height="600" Opacity="0.9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="87*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="2*"/>
@@ -53,7 +57,7 @@
             </EventTrigger>
         </Grid.Triggers>
 
-        <Grid Height="50" Width="275" VerticalAlignment="Top" Margin="0,53,0,0">
+        <Grid Height="50" Width="275" VerticalAlignment="Top" Margin="502,53,67,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -63,7 +67,7 @@
             <Image Height="50" Width="55" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/прайм лого.png" Grid.Column="1"/>
             <Image Height="50" Width="55" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/логотип.png" Grid.Column="2"/>
         </Grid>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock Text="Подписка Community" FontFamily="Inter Bold" FontSize="32" Margin="0,0,0,7" HorizontalAlignment="Center" Foreground="White"/>
 
             <TextBlock Text="Подписка Community открывает все функции приложения и убирает рекламу. В бесплатной версии приложения могут присутствовать ограничения и реклама." 
@@ -79,7 +83,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Style="{DynamicResource RoundedButtonStyle}" Content="Подробнее" Width="175" Height="44" FontSize="13" FontFamily="Inter Bold" Background="#202020" Margin="0,13,7,0" />
                 <Button Style="{DynamicResource RoundedButtonStyle}" Content="Активировать" Width="175" Height="44" FontSize="13" FontFamily="Inter Bold" Background="#202020" Margin="7,13,7,0" />
-                <Button Style="{DynamicResource RoundedButtonStyle}" Content="Пропустить" Width="175" Height="44" FontSize="13" FontFamily="Inter Bold" Background="#202020" Margin="7,13,0,0" />
+                <Button x:Name="skipBtn" Style="{DynamicResource RoundedButtonStyle}" Content="Пропустить" Width="175" Height="44" FontSize="13" FontFamily="Inter Bold" Background="#202020" Margin="7,13,0,0" Click="skipBtn_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

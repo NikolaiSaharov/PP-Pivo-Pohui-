@@ -35,3 +35,9 @@ C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\Fir
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.pdb
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\CommunityWindow.baml
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\CommunityWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Planet.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Planet.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.baml

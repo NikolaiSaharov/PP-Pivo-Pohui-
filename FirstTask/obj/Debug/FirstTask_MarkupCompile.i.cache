@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\App.xaml
-7-1876542890
+10-1679660290
 
-12105341830
+15521907630
 16-96400649
-LoginWindow.xaml;MainPageWindow.xaml;CommunityWindow.xaml;PhoneEntryWindow.xaml;ProfileWindow.xaml;RegistrationWindow.xaml;StartWindow.xaml;
+LoginWindow.xaml;MainPageWindow.xaml;CommunityWindow.xaml;MainWindow.xaml;PhoneEntryWindow.xaml;Planet.xaml;ProfileWindow.xaml;RegistrationWindow.xaml;Samples.xaml;StartWindow.xaml;
 
-False
+True
 

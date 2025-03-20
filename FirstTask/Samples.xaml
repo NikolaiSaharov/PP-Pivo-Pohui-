@@ -1,0 +1,189 @@
+﻿<Page x:Class="CHOTOPOHOZEENASPOTIK.Samples"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:CHOTOPOHOZEENASPOTIK"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1787"
+      Background="Transparent"
+      Title="Samples">
+
+    <Grid>
+
+        <!-- ScrollViewer for cards -->
+        <ScrollViewer x:Name="MainScrollViewer"  VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto"
+                       HorizontalAlignment="Center" Width="510">
+            <StackPanel x:Name="CardStackPanel" HorizontalAlignment="Center">
+                <!-- Card Template for all cards -->
+                <Border x:Name="FirstCard" Margin="0,35,5,20" Padding="2" CornerRadius="19.6" Height="754" Width="424">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#3D4EAE" Offset="0"/>
+                            <GradientStop Color="#9A53FF" Offset="0.5"/>
+                            <GradientStop Color="#3D4EAE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+                            <StackPanel Orientation="Horizontal" Height="66" Width="300">
+                                <Border Width="66" Height="66" Background="#d3d3d3" CornerRadius="5"/>
+                                <StackPanel Margin="5,0,0,0" VerticalAlignment="Center" Height="64" Width="229">
+                                    <TextBlock Text="Название 1" Foreground="White" FontSize="22.4" FontWeight="Bold" Height="32" Width="228"/>
+                                    <TextBlock Text="Описание 1" Foreground="#c0c0c0" FontSize="14.5" Opacity="0.7" Height="32"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <Image Source="images/Logo.jpg" Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Width="180.5" Height="43.57" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10"
+                                Background="Black" BorderThickness="1" Click="Button_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="25">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <TextBlock Text="Фрагмент сингла" Foreground="White" FontSize="17.19" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Width="27" Height="26" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,28,10,0"
+                                Background="#6A47FF" BorderBrush="White" BorderThickness="1">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="1" CornerRadius="18">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="17" Width="17"/>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- Second Card -->
+                <Border x:Name="SecondCard" Margin="0,35,5,20" Padding="2" CornerRadius="19.6" Height="754" Width="424">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#3D4EAE" Offset="0"/>
+                            <GradientStop Color="#9A53FF" Offset="0.5"/>
+                            <GradientStop Color="#3D4EAE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+                            <StackPanel Orientation="Horizontal" Height="66" Width="300">
+                                <Border Width="66" Height="66" Background="#d3d3d3" CornerRadius="5"/>
+                                <StackPanel Margin="5,0,0,0" VerticalAlignment="Center" Height="64" Width="229">
+                                    <TextBlock Text="Название 2" Foreground="White" FontSize="22.4" FontWeight="Bold" Height="32" Width="228"/>
+                                    <TextBlock Text="Описание 2" Foreground="#c0c0c0" FontSize="14.5" Opacity="0.7" Height="32"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <Image Source="images/Logo.jpg" Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Width="180.5" Height="43.57" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10"
+                                Background="Black" BorderThickness="1">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="25">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <TextBlock Text="Фрагмент сингла" Foreground="White" FontSize="17.19" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Width="27" Height="26" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,28,10,0"
+                                Background="#6A47FF" BorderBrush="White" BorderThickness="1">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="1" CornerRadius="18">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="17" Width="17"/>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- Third Card -->
+                <Border x:Name="ThirdCard" Margin="0,35,5,100" Padding="2" CornerRadius="19.6" Height="754" Width="424">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#3D4EAE" Offset="0"/>
+                            <GradientStop Color="#9A53FF" Offset="0.5"/>
+                            <GradientStop Color="#3D4EAE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+                            <StackPanel Orientation="Horizontal" Height="66" Width="300">
+                                <Border Width="66" Height="66" Background="#d3d3d3" CornerRadius="5"/>
+                                <StackPanel Margin="5,0,0,0" VerticalAlignment="Center" Height="64" Width="229">
+                                    <TextBlock Text="Название 3" Foreground="White" FontSize="22.4" FontWeight="Bold" Height="32" Width="228"/>
+                                    <TextBlock Text="Описание 3" Foreground="#c0c0c0" FontSize="14.5" Opacity="0.7" Height="32"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <Image Source="images/Logo.jpg" Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Width="180.5" Height="43.57" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10"
+                                Background="Black" BorderThickness="1">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="25">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <TextBlock Text="Фрагмент сингла" Foreground="White" FontSize="17.19" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button Width="27" Height="26" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,28,10,0"
+                                Background="#6A47FF" BorderBrush="White" BorderThickness="1">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="1" CornerRadius="18">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <materialDesign:PackIcon Kind="Plus" Foreground="White" Height="17" Width="17"/>
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Vertical" Margin="1150,35,0,0">
+            <!-- Кнопка вверх -->
+            <Button x:Name="UpArrowButton" Width="45" Height="45" Margin="0,0,0,17" Background="#2A2A72" Click="UpArrowButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <materialDesign:PackIcon Kind="ArrowUp" Foreground="White" Width="35" Height="35"/>
+            </Button>
+
+            <!-- Кнопка вниз -->
+            <Button x:Name="DownArrowButton" Width="45" Height="45" Margin="0,17,0,0" Background="#2A2A72" Click="DownArrowButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <materialDesign:PackIcon Kind="ArrowDown" Foreground="White" Width="35" Height="35" VerticalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+
+
+    </Grid>
+</Page>
