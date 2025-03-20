@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\startwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\startwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\mainpagewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\mainpagewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\phoneentrywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\phoneentrywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\profilewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\profilewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StartWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\StartWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\StartWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\StartWindow.xaml",
+              "RelativeToolTip": "FirstTask\\StartWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:59:14.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPageWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainPageWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\MainPageWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainPageWindow.xaml",
+              "RelativeToolTip": "FirstTask\\MainPageWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:51:27.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\LoginWindow.xaml",
+              "RelativeToolTip": "FirstTask\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:47:56.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PhoneEntryWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\PhoneEntryWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\PhoneEntryWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\PhoneEntryWindow.xaml",
+              "RelativeToolTip": "FirstTask\\PhoneEntryWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:42:51.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProfileWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\ProfileWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\ProfileWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\ProfileWindow.xaml",
+              "RelativeToolTip": "FirstTask\\ProfileWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:46:55.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainWindow.xaml",
+              "RelativeToolTip": "FirstTask\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:23:38.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegistrationWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\RegistrationWindow.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\RegistrationWindow.xaml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\RegistrationWindow.xaml",
+              "RelativeToolTip": "FirstTask\\RegistrationWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-18T12:35:39.495Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
