@@ -181,5 +181,10 @@ namespace CHOTOPOHOZEENASPOTIK
             Close();
             communityWindow.Show(); 
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

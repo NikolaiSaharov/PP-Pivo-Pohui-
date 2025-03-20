@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\",
+  "WorkspaceRootPath": "C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\startwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\startwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\mainpagewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\mainpagewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\phoneentrywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\phoneentrywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\firsttask\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\registrationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\ovtsu\\source\\repos\\pp-pivo-pohui-\\firsttask\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\lenovo\\source\\repos\\firsttask\\firsttask\\profilewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\profilewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|c:\\users\\ovtsu\\source\\repos\\pp-pivo-pohui-\\firsttask\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFE75C7-9B77-403B-9737-841635359E02}|FirstTask\\FirstTask.csproj|solutionrelative:firsttask\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,86 +74,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StartWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\StartWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\StartWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\StartWindow.xaml",
-              "RelativeToolTip": "FirstTask\\StartWindow.xaml",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\ovtsu\\Source\\Repos\\PP-Pivo-Pohui-\\FirstTask\\App.xaml",
+              "RelativeDocumentMoniker": "FirstTask\\App.xaml",
+              "ToolTip": "C:\\Users\\ovtsu\\Source\\Repos\\PP-Pivo-Pohui-\\FirstTask\\App.xaml",
+              "RelativeToolTip": "FirstTask\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:59:14.99Z",
+              "WhenOpened": "2025-03-20T15:24:08.504Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainPageWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainPageWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\MainPageWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainPageWindow.xaml",
-              "RelativeToolTip": "FirstTask\\MainPageWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:51:27.733Z",
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\FirstTask\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FirstTask\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\FirstTask\\MainWindow.xaml.cs",
+              "RelativeToolTip": "FirstTask\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAA5wLoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:22:54.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\LoginWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\LoginWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\LoginWindow.xaml",
-              "RelativeToolTip": "FirstTask\\LoginWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:47:56.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PhoneEntryWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\PhoneEntryWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\PhoneEntryWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\PhoneEntryWindow.xaml",
-              "RelativeToolTip": "FirstTask\\PhoneEntryWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:42:51.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProfileWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\ProfileWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\ProfileWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\ProfileWindow.xaml",
-              "RelativeToolTip": "FirstTask\\ProfileWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:46:55.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\FirstTask\\MainWindow.xaml",
               "RelativeDocumentMoniker": "FirstTask\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\ovtsu\\source\\repos\\PP-Pivo-Pohui-\\FirstTask\\MainWindow.xaml",
               "RelativeToolTip": "FirstTask\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-18T12:23:38.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegistrationWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\RegistrationWindow.xaml",
-              "RelativeDocumentMoniker": "FirstTask\\RegistrationWindow.xaml",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\FirstTask\\FirstTask\\RegistrationWindow.xaml",
-              "RelativeToolTip": "FirstTask\\RegistrationWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-18T12:35:39.495Z",
               "EditorCaption": ""
             }
           ]

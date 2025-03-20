@@ -102,24 +102,43 @@
                                Width="10" Height="21" Margin="30,5,0,5"/>
                 </Button>
 
-                <!-- Иконка облака и текст -->
-                <StackPanel Grid.Column="2" Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center" Margin="280,0,0,0">
-                    <Image Source="pack://application:,,,/Images/logo.jpg"
-                               Height="33" Width="30"/>
-                    <TextBox materialDesign:HintAssist.Hint="Что будем слушать?"
-                                 Margin="8,0,0,0"
+                <!-- Поле поиска -->
+                <Border Grid.Column="2" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Margin="150,0,0,0"
+                        Padding="10,5"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#9A5401C5" Offset="0.0"/>
+                            <GradientStop Color="#9A9901A1" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#2A5301C5" Offset="0.0"/>
+                            <GradientStop Color="#2A9801A2" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/Images/logo.jpg"
+                                 Height="30" Width="30"/>
+                        <TextBox materialDesign:HintAssist.Hint="Что будем слушать?"
+                                 Margin="20,0,0,0"
                                  VerticalAlignment="Center"
                                  Foreground="White"
-                                 FontSize="16"
+                                 FontSize="14"
+                                 FontWeight="Medium"
                                  Background="Transparent"
                                  BorderThickness="0"
                                  CaretBrush="White"
                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
                                  Style="{StaticResource MaterialDesignTextBox}"
-                                 Width="164" Height="36"/>
-                </StackPanel>
+                                 Width="300"/>
+                    </StackPanel>
+                </Border>
 
                 <!-- Правые элементы -->
                 <StackPanel Grid.Column="3" Orientation="Horizontal"
