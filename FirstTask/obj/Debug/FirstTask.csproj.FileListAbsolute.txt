@@ -41,3 +41,10 @@ C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\Fir
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.g.cs
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Planet.baml
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\PlaylistPage.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\PlaylistPage.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\TrackControl.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\TrackControl.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\EqualizerControl.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\EqualizerControl.baml

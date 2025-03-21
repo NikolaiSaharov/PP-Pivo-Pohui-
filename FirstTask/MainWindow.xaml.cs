@@ -8,6 +8,7 @@ using MaterialDesignThemes.Wpf;
 using System.Windows.Controls.Primitives;
 using FirstTask;
 using System.Windows.Navigation;
+using System.Windows.Input;
 
 namespace CHOTOPOHOZEENASPOTIK
 {
@@ -51,6 +52,68 @@ namespace CHOTOPOHOZEENASPOTIK
                 RightPanel.Width = 300; // Фиксируем ширину панели (можно настроить)
             };
         }
+        private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // Если панель уже полностью открыта, не выполняем анимацию
+            if (isInfoPanelExpanded) return;
+
+            double panelWidth = 363; // Ширина панели
+            double partialOpenOffset = panelWidth - 40; // Выдвигаем на 40 пикселей от левого края
+
+            // Анимация для выдвижения информационной панели
+            var infoPanelAnimation = new DoubleAnimation
+            {
+                From = panelWidth, // Начальное положение за правым краем
+                To = partialOpenOffset, // Конечное положение — 40 пикселей от левого края
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            InfoPanel.Visibility = Visibility.Visible;
+            InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
+
+            // Анимация для смещения контента влево (если нужно)
+            var contentMarginAnimation = new ThicknessAnimation
+            {
+                From = PlanetFrame.Margin,
+                To = new Thickness(0, 0, 40, 0), // Смещаем контент на 40 пикселей
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+        }
+
+        private void ToggleInfoButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // Если панель уже полностью открыта, не выполняем анимацию
+            if (isInfoPanelExpanded) return;
+
+            double panelWidth = 363; // Ширина панели
+
+            // Анимация для возвращения информационной панели в исходное положение
+            var infoPanelAnimation = new DoubleAnimation
+            {
+                From = InfoPanelTransform.X, // Текущее положение
+                To = 500, // Возвращаем панель за правый край
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
+
+            // Анимация для возвращения контента в исходное положение
+            var contentMarginAnimation = new ThicknessAnimation
+            {
+                From = PlanetFrame.Margin,
+                To = new Thickness(0), // Возвращаем контент в исходное положение
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+        }
+
 
         // Обработчик кнопки переключения панели справа
         private void ToggleRightPanel_Click(object sender, RoutedEventArgs e) // Переименовал для ясности
@@ -78,25 +141,30 @@ namespace CHOTOPOHOZEENASPOTIK
 
             if (!isRightPanelExpanded)
             {
+                // Анимация для появления панели справа налево
                 rightPanelAnimation.From = rightPanelWidth;
                 rightPanelAnimation.To = 0;
                 RightPanel.Visibility = Visibility.Visible;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
+                // Анимация для смещения контента влево
                 frameMarginAnimation.From = PlanetFrame.Margin;
                 frameMarginAnimation.To = new Thickness(0, 0, rightPanelWidth, 0);
                 PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
             }
             else
             {
+                // Анимация для скрытия панели вправо
                 rightPanelAnimation.From = 0;
                 rightPanelAnimation.To = rightPanelWidth;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
+                // Анимация для возвращения контента в исходное положение
                 frameMarginAnimation.From = PlanetFrame.Margin;
                 frameMarginAnimation.To = new Thickness(0);
                 PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
 
+                // Скрываем панель после завершения анимации
                 rightPanelAnimation.Completed += (s, e) => RightPanel.Visibility = Visibility.Collapsed;
             }
 
@@ -106,39 +174,85 @@ namespace CHOTOPOHOZEENASPOTIK
         // Обработчик кнопки информации
         private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
         {
-            double panelWidth = 385;
+            double panelWidth = 363;
 
             if (!isInfoPanelExpanded)
             {
-                infoPanelAnimation.From = 0;
-                infoPanelAnimation.To = panelWidth;
-
-                contentMarginAnimation.From = PlanetFrame.Margin;
-                contentMarginAnimation.To = new Thickness(0, 0, panelWidth, 0);
-
-                var icon = ToggleInfoButton.Content as PackIcon;
-                if (icon != null) icon.Kind = PackIconKind.ChevronRight;
+                // Анимация для появления панели справа налево
+                var infoPanelTranslateAnimation = new DoubleAnimation
+                {
+                    From = panelWidth, // Начальное положение за правым краем
+                    To = 0,            // Конечное положение — видимая область
+                    Duration = TimeSpan.FromSeconds(0.3),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                };
 
                 InfoPanel.Visibility = Visibility.Visible;
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
+                InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
+
+                // Анимация для смещения контента влево
+                contentMarginAnimation.From = PlanetFrame.Margin;
+                contentMarginAnimation.To = new Thickness(0, 0, panelWidth, 0);
                 PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+
+                var icon = ToggleInfoButton.Content as PackIcon;
+                if (icon != null) icon.Kind = PackIconKind.Close;
             }
             else
             {
-                infoPanelAnimation.From = panelWidth;
-                infoPanelAnimation.To = 0;
+                // Анимация для скрытия панели вправо
+                var infoPanelTranslateAnimation = new DoubleAnimation
+                {
+                    From = 0,            // Начальное положение — видимая область
+                    To = panelWidth,      // Конечное положение за правым краем
+                    Duration = TimeSpan.FromSeconds(0.3),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                };
 
+                infoPanelTranslateAnimation.Completed += (s, ev) => InfoPanel.Visibility = Visibility.Collapsed;
+                InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
+
+                // Анимация для возвращения контента в исходное положение
                 contentMarginAnimation.From = PlanetFrame.Margin;
                 contentMarginAnimation.To = new Thickness(0);
+                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
 
                 var icon = ToggleInfoButton.Content as PackIcon;
                 if (icon != null) icon.Kind = PackIconKind.ChevronLeft;
-
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
-                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
             }
 
             isInfoPanelExpanded = !isInfoPanelExpanded;
+        }
+        private void SetActiveButton(Button activeButton)
+        {
+            // Сбросить цвет всех изображений на серый
+            ResetButtonColors();
+
+            // Установить цвет активной кнопки на белый
+            if (activeButton.Content is Image activeImage)
+            {
+                // Меняем цвет изображения на белый
+                activeImage.Source = ImageColorChanger.ChangeColor(activeImage.Source, Colors.White);
+            }
+        }
+
+        private void ResetButtonColors()
+        {
+            // Сбрасываем все изображения на серые
+            if (PlanetButton.Content is Image planetImage)
+            {
+                planetImage.Source = ImageColorChanger.ChangeColor(planetImage.Source, Colors.Gray);
+            }
+
+            if (SamplesButton.Content is Image samplesImage)
+            {
+                samplesImage.Source = ImageColorChanger.ChangeColor(samplesImage.Source, Colors.Gray);
+            }
+
+            if (PersonButton.Content is Image personImage)
+            {
+                personImage.Source = ImageColorChanger.ChangeColor(personImage.Source, Colors.Gray);
+            }
         }
 
         private void PlanetButton_Click(object sender, RoutedEventArgs e)
@@ -146,6 +260,7 @@ namespace CHOTOPOHOZEENASPOTIK
             if (PlanetFrame.Content is Planet) return;
             PlanetFrame.Visibility = Visibility.Visible;
             PlanetFrame.Navigate(new Planet());
+            SetActiveButton(PlanetButton);
         }
 
         private void PlanetFrame_Navigated(object sender, NavigationEventArgs e)
@@ -156,7 +271,7 @@ namespace CHOTOPOHOZEENASPOTIK
                 frame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             }
         }
-
+ 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
         }
@@ -167,19 +282,22 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
+            if (PlanetFrame.Content is PlaylistPage) return;
+            PlanetFrame.Navigate(new PlaylistPage());
+            SetActiveButton(PlaylistButton);
         }
 
         private void SamplesButton_Click(object sender, RoutedEventArgs e)
         {
             if (PlanetFrame.Content is Samples) return;
             PlanetFrame.Navigate(new Samples());
+            SetActiveButton(SamplesButton);
         }
-
         private void communityBtn_Click(object sender, RoutedEventArgs e)
-        {
-            CommunityWindow communityWindow = new CommunityWindow();
-            Close();
-            communityWindow.Show(); 
+            {
+                CommunityWindow communityWindow = new CommunityWindow();
+                Close();
+                communityWindow.Show(); 
+            }
         }
     }
-}

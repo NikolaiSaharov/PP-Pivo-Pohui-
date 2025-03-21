@@ -201,7 +201,7 @@
                         <Image Source="/Images/planeta.jpg"
                                    Height="24" Width="24"/>
                     </Button>
-                    <Button x:Name="SquareButton" Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="SamplesButton" Style="{StaticResource MaterialDesignFlatButton}"
                                 Margin="5,15,5,5" Height="40" Width="40"
                                 Padding="0" Cursor="">
                         <Image Source="/Images/choto.jpg"
@@ -298,18 +298,14 @@
                     Margin="-358,0,0,0" 
                     Visibility="Collapsed">
                     <Border.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
+                        <TranslateTransform x:Name="InfoPanelTransform" X="363"/>
                     </Border.RenderTransform>
+
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="15" 
-                                      Direction="-90" 
-                                      ShadowDepth="5" 
-                                      Opacity="0.3"/>
+                       Direction="-90" 
+                       ShadowDepth="5" 
+                       Opacity="0.3"/>
                     </Border.Effect>
                     <Grid>
                         <StackPanel Margin="20">
