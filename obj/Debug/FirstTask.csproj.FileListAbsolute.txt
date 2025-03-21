@@ -1,0 +1,89 @@
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\FirstTask.exe.config
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\FirstTask.exe
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\FirstTask.pdb
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\MaterialDesignColors.dll
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\MaterialDesignColors.pdb
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.csproj.AssemblyReference.cache
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\LoginWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainPageWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\PhoneEntryWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\ProfileWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\RegistrationWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\StartWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\LoginWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainPageWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\PhoneEntryWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\ProfileWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\RegistrationWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\StartWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\App.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask_MarkupCompile.cache
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask_MarkupCompile.lref
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\App.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.g.resources
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.Properties.Resources.resources
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.csproj.GenerateResource.cache
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.csproj.CoreCompileInputs.cache
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.csproj.CopyComplete
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.exe
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\FirstTask.pdb
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\CommunityWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\CommunityWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainWindow.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\MainWindow.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Planet.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Planet.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\Samples.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\FirstTask.exe.config
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\FirstTask.exe
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\FirstTask.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignColors.dll
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignColors.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.csproj.AssemblyReference.cache
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\LoginWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainPageWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\CommunityWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\PhoneEntryWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\ProfileWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\RegistrationWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\StartWindow.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\LoginWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainPageWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\CommunityWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\PhoneEntryWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Planet.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\ProfileWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\RegistrationWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Samples.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\StartWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\App.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask_MarkupCompile.cache
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask_MarkupCompile.lref
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\App.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Planet.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Samples.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.g.resources
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.Properties.Resources.resources
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.csproj.GenerateResource.cache
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.csproj.CoreCompileInputs.cache
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.csproj.Up2Date
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.exe
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\PlaylistPage.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\PlaylistPage.baml
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask_Content.g.cs

@@ -1,402 +1,300 @@
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Controls;
-using System.Windows.Shapes;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using FirstTask;
 using MaterialDesignThemes.Wpf;
-using System.Windows.Controls.Primitives;
 
 namespace CHOTOPOHOZEENASPOTIK
 {
     public partial class MainWindow : Window
     {
-        private readonly DoubleAnimation slideAnimation;
-        private readonly ThicknessAnimation marginAnimation;
-        private readonly ColorAnimation[] gradientAnimations;
         private bool isRightPanelExpanded = false;
-        private bool isPlaying = false;
-        private bool isShuffleEnabled = false;
-        private bool isRepeatEnabled = false;
         private bool isInfoPanelExpanded = false;
         private readonly DoubleAnimation infoPanelAnimation;
         private readonly ThicknessAnimation contentMarginAnimation;
+        private TranslateTransform _rightPanelTransform;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Настройка анимации выдвижения панели
-            slideAnimation = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(0.3),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-            };
+            // При старте сразу показываем PlanetFrame
+            PlanetFrame.Visibility = Visibility.Visible;
+            PlanetFrame.Navigate(new Planet());
 
-            // Настройка анимации сдвига контента
-            marginAnimation = new ThicknessAnimation
-            {
-                Duration = TimeSpan.FromSeconds(0.3),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-            };
-
-            // Инициализация массива анимаций для градиента
-            gradientAnimations = new ColorAnimation[9];
-            for (int i = 0; i < gradientAnimations.Length; i++)
-            {
-                gradientAnimations[i] = new ColorAnimation
-                {
-                    Duration = TimeSpan.FromSeconds(5),
-                    AutoReverse = true,
-                    RepeatBehavior = RepeatBehavior.Forever
-                };
-            }
-
-            // Инициализация анимации для информационной панели
+            // Инициализация анимаций
             infoPanelAnimation = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
-            // Инициализация анимации для отступа контента
             contentMarginAnimation = new ThicknessAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
-            // Добавляем обработчики событий наведения мыши
-            InfoPanel.MouseEnter += InfoPanel_MouseEnter;
-            InfoPanel.MouseLeave += InfoPanel_MouseLeave;
+            // Инициализация Transform для правой панели
+            _rightPanelTransform = new TranslateTransform();
+            RightPanel.RenderTransform = _rightPanelTransform;
 
-            // Инициализация анимации градиента
-            StartGradientAnimation();
+            // Устанавливаем начальное положение панели за правым краем
+            Loaded += (s, e) =>
+            {
+                _rightPanelTransform.X = RightPanel.ActualWidth; // Скрываем за правым краем
+                RightPanel.Width = 300; // Фиксируем ширину панели (можно настроить)
+            };
+        }
+        private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // Если панель уже полностью открыта, не выполняем анимацию
+            if (isInfoPanelExpanded) return;
 
-            // Добавление примеров треков
-            AddSampleTracks();
+            double panelWidth = 363; // Ширина панели
+            double partialOpenOffset = panelWidth - 40; // Выдвигаем на 40 пикселей от левого края
 
-            InitializePlayerControls();
+            // Анимация для выдвижения информационной панели
+            var infoPanelAnimation = new DoubleAnimation
+            {
+                From = panelWidth, // Начальное положение за правым краем
+                To = partialOpenOffset, // Конечное положение — 40 пикселей от левого края
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            InfoPanel.Visibility = Visibility.Visible;
+            InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
+
+            // Анимация для смещения контента влево (если нужно)
+            var contentMarginAnimation = new ThicknessAnimation
+            {
+                From = PlanetFrame.Margin,
+                To = new Thickness(0, 0, 40, 0), // Смещаем контент на 40 пикселей
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
         }
 
-        private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
+        private void ToggleInfoButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (!isInfoPanelExpanded)
+            // Если панель уже полностью открыта, не выполняем анимацию
+            if (isInfoPanelExpanded) return;
+
+            double panelWidth = 363; // Ширина панели
+
+            // Анимация для возвращения информационной панели в исходное положение
+            var infoPanelAnimation = new DoubleAnimation
             {
-                // Открываем панель
-                infoPanelAnimation.From = 0;
-                infoPanelAnimation.To = 385; // Установите ширину панели
+                From = InfoPanelTransform.X, // Текущее положение
+                To = 500, // Возвращаем панель за правый край
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
 
-                // Анимация для контента
-                contentMarginAnimation.From = mainContent.Margin;
-                contentMarginAnimation.To = new Thickness(0, 0, 355, 0); // Сдвигаем контент влево
+            InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
 
-                // Поворачиваем иконку
-                var icon = ((Button)sender).Content as PackIcon;
-                if (icon != null)
-                {
-                    icon.Kind = PackIconKind.ChevronRight;
-                }
+            // Анимация для возвращения контента в исходное положение
+            var contentMarginAnimation = new ThicknessAnimation
+            {
+                From = PlanetFrame.Margin,
+                To = new Thickness(0), // Возвращаем контент в исходное положение
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
 
-                InfoPanel.Visibility = Visibility.Visible; // Делаем панель видимой
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
-                mainContent.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+        }
+
+
+        // Обработчик кнопки переключения панели справа
+        private void ToggleRightPanel_Click(object sender, RoutedEventArgs e) // Переименовал для ясности
+        {
+            ToggleRightPanel();
+        }
+
+        private void ToggleRightPanel()
+        {
+            if (RightPanel == null || PlanetFrame == null) return;
+
+            double rightPanelWidth = RightPanel.Width; // Используем фиксированную ширину
+
+            var rightPanelAnimation = new DoubleAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var frameMarginAnimation = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            if (!isRightPanelExpanded)
+            {
+                // Анимация для появления панели справа налево
+                rightPanelAnimation.From = rightPanelWidth;
+                rightPanelAnimation.To = 0;
+                RightPanel.Visibility = Visibility.Visible;
+                _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
+
+                // Анимация для смещения контента влево
+                frameMarginAnimation.From = PlanetFrame.Margin;
+                frameMarginAnimation.To = new Thickness(0, 0, rightPanelWidth, 0);
+                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
             }
             else
             {
-                // Закрываем панель
-                infoPanelAnimation.From = 385;
-                infoPanelAnimation.To = 0;
+                // Анимация для скрытия панели вправо
+                rightPanelAnimation.From = 0;
+                rightPanelAnimation.To = rightPanelWidth;
+                _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
-                // Анимация для контента
-                contentMarginAnimation.From = mainContent.Margin;
-                contentMarginAnimation.To = new Thickness(0); // Возвращаем контент на место
+                // Анимация для возвращения контента в исходное положение
+                frameMarginAnimation.From = PlanetFrame.Margin;
+                frameMarginAnimation.To = new Thickness(0);
+                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
 
-                // Возвращаем иконку
-                var icon = ((Button)sender).Content as PackIcon;
-                if (icon != null)
+                // Скрываем панель после завершения анимации
+                rightPanelAnimation.Completed += (s, e) => RightPanel.Visibility = Visibility.Collapsed;
+            }
+
+            isRightPanelExpanded = !isRightPanelExpanded;
+        }
+
+        // Обработчик кнопки информации
+        private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
+        {
+            double panelWidth = 363;
+
+            if (!isInfoPanelExpanded)
+            {
+                // Анимация для появления панели справа налево
+                var infoPanelTranslateAnimation = new DoubleAnimation
                 {
-                    icon.Kind = PackIconKind.ChevronLeft;
-                }
+                    From = panelWidth, // Начальное положение за правым краем
+                    To = 0,            // Конечное положение — видимая область
+                    Duration = TimeSpan.FromSeconds(0.3),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                };
 
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, infoPanelAnimation);
-                mainContent.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+                InfoPanel.Visibility = Visibility.Visible;
+                InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
+
+                // Анимация для смещения контента влево
+                contentMarginAnimation.From = PlanetFrame.Margin;
+                contentMarginAnimation.To = new Thickness(0, 0, panelWidth, 0);
+                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+
+                var icon = ToggleInfoButton.Content as PackIcon;
+                if (icon != null) icon.Kind = PackIconKind.Close;
+            }
+            else
+            {
+                // Анимация для скрытия панели вправо
+                var infoPanelTranslateAnimation = new DoubleAnimation
+                {
+                    From = 0,            // Начальное положение — видимая область
+                    To = panelWidth,      // Конечное положение за правым краем
+                    Duration = TimeSpan.FromSeconds(0.3),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                };
+
+                infoPanelTranslateAnimation.Completed += (s, ev) => InfoPanel.Visibility = Visibility.Collapsed;
+                InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
+
+                // Анимация для возвращения контента в исходное положение
+                contentMarginAnimation.From = PlanetFrame.Margin;
+                contentMarginAnimation.To = new Thickness(0);
+                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
+
+                var icon = ToggleInfoButton.Content as PackIcon;
+                if (icon != null) icon.Kind = PackIconKind.ChevronLeft;
             }
 
             isInfoPanelExpanded = !isInfoPanelExpanded;
         }
-
-
-
-
-
-
-        private void InfoPanel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        private void SetActiveButton(Button activeButton)
         {
-            if (!isInfoPanelExpanded)
-            {
-                var animation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 20,
-                    Duration = TimeSpan.FromSeconds(0.2),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
-                };
+            // Сбросить цвет всех изображений на серый
+            ResetButtonColors();
 
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, animation);
+            // Установить цвет активной кнопки на белый
+            if (activeButton.Content is Image activeImage)
+            {
+                // Меняем цвет изображения на белый
+                activeImage.Source = ImageColorChanger.ChangeColor(activeImage.Source, Colors.White);
             }
         }
 
-        private void InfoPanel_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        private void ResetButtonColors()
         {
-            if (!isInfoPanelExpanded)
+            // Сбрасываем все изображения на серые
+            if (PlanetButton.Content is Image planetImage)
             {
-                var animation = new DoubleAnimation
-                {
-                    From = 20,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.2),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
-                };
-
-                InfoPanel.BeginAnimation(FrameworkElement.WidthProperty, animation);
-            }
-        }
-
-        private void StartGradientAnimation()
-        {
-            var gradient = (LinearGradientBrush)BackgroundRect.Fill;
-
-            // Настройка анимаций для каждого цвета
-            ConfigureAnimation(gradientAnimations[0], Color.FromRgb(183, 0, 255), Color.FromRgb(0, 40, 255), gradient.GradientStops[0]);
-            ConfigureAnimation(gradientAnimations[1], Color.FromRgb(0, 40, 255), Color.FromRgb(70, 207, 255), gradient.GradientStops[1]);
-            ConfigureAnimation(gradientAnimations[2], Color.FromRgb(70, 207, 255), Color.FromRgb(81, 28, 232), gradient.GradientStops[2]);
-            ConfigureAnimation(gradientAnimations[3], Color.FromRgb(81, 28, 232), Color.FromRgb(170, 145, 255), gradient.GradientStops[3]);
-            ConfigureAnimation(gradientAnimations[4], Color.FromRgb(170, 145, 255), Color.FromRgb(78, 115, 255), gradient.GradientStops[4]);
-            ConfigureAnimation(gradientAnimations[5], Color.FromRgb(78, 115, 255), Color.FromRgb(210, 0, 255), gradient.GradientStops[5]);
-            ConfigureAnimation(gradientAnimations[6], Color.FromRgb(210, 0, 255), Color.FromRgb(0, 16, 200), gradient.GradientStops[6]);
-            ConfigureAnimation(gradientAnimations[7], Color.FromRgb(0, 16, 200), Color.FromRgb(136, 0, 255), gradient.GradientStops[7]);
-            ConfigureAnimation(gradientAnimations[8], Color.FromRgb(136, 0, 255), Color.FromRgb(183, 0, 255), gradient.GradientStops[8]);
-        }
-
-        private void ConfigureAnimation(ColorAnimation animation, Color from, Color to, GradientStop gradientStop)
-        {
-            animation.From = from;
-            animation.To = to;
-            animation.Duration = TimeSpan.FromSeconds(10);
-            animation.AutoReverse = true;
-            animation.RepeatBehavior = RepeatBehavior.Forever;
-            gradientStop.BeginAnimation(GradientStop.ColorProperty, animation);
-        }
-
-        private void AddSampleTracks()
-        {
-            string[] trackNames = { "Трек 1", "Трек 2", "Трек 3", "Трек 4" };
-            string[] artists = { "Исполнитель 1", "Исполнитель 2", "Исполнитель 3", "Исполнитель 4" };
-
-            for (int i = 0; i < trackNames.Length; i++)
-            {
-                var card = new Card
-                {
-                    Width = 176,
-                    Height = 250,
-                    Margin = new Thickness(5),
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0909"))
-                };
-
-                var grid = new Grid();
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(160) });
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-
-                var image = new Image
-                {
-                    Source = new System.Windows.Media.Imaging.BitmapImage(
-                        new Uri("pack://application:,,,/CHOTOPOHOZEENASPOTIK;component/Images/placeholder.jpg")),
-                    Stretch = Stretch.UniformToFill,
-                    Width = 176,
-                    Height = 176
-                };
-
-                var button = new Button
-                {
-                    Style = (Style)FindResource("MaterialDesignFlatButton"),
-                    Width = 40,
-                    Height = 40,
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Margin = new Thickness(0, 5, 5, 0),
-                    Padding = new Thickness(0),
-                    Content = new PackIcon
-                    {
-                        Kind = PackIconKind.DotsVertical,
-                        Foreground = Brushes.White
-                    }
-                };
-
-                var stackPanel = new StackPanel { Margin = new Thickness(8) };
-
-                var titleBlock = new TextBlock
-                {
-                    Text = trackNames[i],
-                    Style = (Style)FindResource("MaterialDesignBody1TextBlock"),
-                    Foreground = Brushes.White,
-                    FontSize = 14,
-                    FontFamily = new FontFamily("Inter"),
-                    FontWeight = FontWeights.Bold
-                };
-
-                var artistBlock = new TextBlock
-                {
-                    Text = artists[i],
-                    Style = (Style)FindResource("MaterialDesignCaptionTextBlock"),
-                    Foreground = Brushes.Gray,
-                    FontSize = 14,
-                    FontFamily = new FontFamily("Inter"),
-                    FontWeight = FontWeights.Bold
-                };
-
-                stackPanel.Children.Add(titleBlock);
-                stackPanel.Children.Add(artistBlock);
-
-                Grid.SetRow(image, 0);
-                Grid.SetRow(stackPanel, 1);
-
-                grid.Children.Add(image);
-                grid.Children.Add(button);
-                grid.Children.Add(stackPanel);
-
-                card.Content = grid;
-
-                TracksContainer.Children.Add(card);
-            }
-        }
-
-
-        private void InitializePlayerControls()
-        {
-            // Обработчик для кнопки Play/Pause
-            playButton.Click += (s, e) =>
-            {
-                isPlaying = !isPlaying;
-                var icon = (PackIcon)playButton.Content;
-                icon.Kind = isPlaying ?
-                    PackIconKind.Pause :
-                    PackIconKind.Play;
-            };
-
-            // Обработчик для кнопки Shuffle
-            shuffleButton.Click += (s, e) =>
-            {
-                isShuffleEnabled = !isShuffleEnabled;
-                shuffleButton.Foreground = isShuffleEnabled ?
-                    Brushes.White :
-                    new SolidColorBrush(Color.FromRgb(128, 128, 128));
-            };
-
-            // Обработчик для кнопки Repeat
-            repeatButton.Click += (s, e) =>
-            {
-                isRepeatEnabled = !isRepeatEnabled;
-                repeatButton.Foreground = isRepeatEnabled ?
-                    Brushes.White :
-                    new SolidColorBrush(Color.FromRgb(128, 128, 128));
-            };
-
-            // Обработчик для кнопки добавления в плейлист
-            addToPlaylistButton.Click += (s, e) =>
-            {
-                MessageBox.Show("Трек добавлен в любимые");
-            };
-        }
-
-        private void ShowSection(string section)
-        {
-            // Очищаем текущий контент
-            mainContent.Children.Clear();
-
-            // Создаем серый фон для раздела
-            var background = new Rectangle
-            {
-                Fill = new SolidColorBrush(Color.FromRgb(47, 47, 47)),
-                Stretch = Stretch.Fill
-            };
-
-            mainContent.Children.Add(background);
-
-            // Добавляем заголовок раздела
-            var title = new TextBlock
-            {
-                Text = section,
-                Foreground = Brushes.White,
-                FontSize = 24,
-                Margin = new Thickness(20),
-                HorizontalAlignment = HorizontalAlignment.Left,
-                VerticalAlignment = VerticalAlignment.Top
-            };
-
-            mainContent.Children.Add(title);
-        }
-
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
-        {
-            var button = sender as Button;
-            if (button == null) return;
-
-            // Сброс цвета фона и текста всех кнопок
-            foreach (var child in ((Grid)button.Parent).Children)
-            {
-                if (child is Button btn)
-                {
-                    btn.Background = Brushes.Transparent;
-                    btn.Foreground = Brushes.Gray;
-                }
+                planetImage.Source = ImageColorChanger.ChangeColor(planetImage.Source, Colors.Gray);
             }
 
-            // Установка цвета фона и текста выбранной кнопки
-            button.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9BC2DB"));
-            button.Foreground = Brushes.White;
-
-            // Фильтрация контента
-            string filter = button.Content.ToString();
-            FilterTracks(filter);
-        }
-
-
-        private void FilterTracks(string filter)
-        {
-            // Пример фильтрации
-            foreach (var card in TracksContainer.Children)
+            if (SamplesButton.Content is Image samplesImage)
             {
-                if (card is Card trackCard)
-                {
-                    trackCard.Visibility = filter == "Все" ? Visibility.Visible : Visibility.Collapsed;
-                }
+                samplesImage.Source = ImageColorChanger.ChangeColor(samplesImage.Source, Colors.Gray);
+            }
+
+            if (PersonButton.Content is Image personImage)
+            {
+                personImage.Source = ImageColorChanger.ChangeColor(personImage.Source, Colors.Gray);
             }
         }
 
         private void PlanetButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowSection("Главная");
+            if (PlanetFrame.Content is Planet) return;
+            PlanetFrame.Visibility = Visibility.Visible;
+            PlanetFrame.Navigate(new Planet());
+            SetActiveButton(PlanetButton);
         }
 
-        private void SquareButton_Click(object sender, RoutedEventArgs e)
+        private void PlanetFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            ShowSection("Библиотека");
+            var frame = sender as Frame;
+            if (frame != null)
+            {
+                frame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            }
+        }
+        private void communityBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
         }
 
         private void PersonButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowSection("Профиль");
         }
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowSection("Плейлист");
+            if (PlanetFrame.Content is PlaylistPage) return;
+            PlanetFrame.Navigate(new PlaylistPage());
+            SetActiveButton(PlaylistButton);
         }
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+
+        private void SamplesButton_Click(object sender, RoutedEventArgs e)
         {
-            // Здесь будет логика обновления времени воспроизведения
-            // Пока оставим пустым, так как нет реального плеера
+            if (PlanetFrame.Content is Samples) return;
+            PlanetFrame.Navigate(new Samples());
+            SetActiveButton(SamplesButton);
         }
     }
 }

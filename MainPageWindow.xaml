@@ -1,0 +1,79 @@
+﻿<Window x:Class="FirstTask.MainPageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Начало" Height="540" Width="960"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="Black">
+    <Grid Height="450" Opacity="0.9">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop x:Name="GradientStop1" Color="#FF3C82B8" Offset="0"/>
+                <GradientStop x:Name="GradientStop2" Color="#FF3D4BB2" Offset="0.323"/>
+                <GradientStop x:Name="GradientStop3" Color="#FF2D1E70" Offset="0.534"/>
+                <GradientStop x:Name="GradientStop4" Color="#FF09090A" Offset="0.749"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Анимация -->
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <!-- Анимация для GradientStop1 -->
+                        <ColorAnimation
+                            Storyboard.TargetName="GradientStop1"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF3C82B8" To="#FF3D4BB2"
+                            Duration="0:0:3" AutoReverse="True"/>
+                        <!-- Анимация для GradientStop2 -->
+                        <ColorAnimation
+                            Storyboard.TargetName="GradientStop2"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF3D4BB2" To="#FF2D1E70"
+                            Duration="0:0:3" AutoReverse="True"/>
+                        <!-- Анимация для GradientStop3 -->
+                        <ColorAnimation
+                            Storyboard.TargetName="GradientStop3"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF2D1E70" To="#FF09090A"
+                            Duration="0:0:3" AutoReverse="True"/>
+                        <!-- Анимация для GradientStop4 -->
+                        <ColorAnimation
+                            Storyboard.TargetName="GradientStop4"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF09090A" To="#FF3C82B8"
+                            Duration="0:0:3" AutoReverse="True"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        <Image Width="83" Height="75" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/логотип.png"/>
+        <StackPanel VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Center" Margin="0,60,0,0">
+            <TextBlock Text="GILS" FontSize="48" HorizontalAlignment="Center" FontFamily="Arial Black" Margin="0,0,0,10">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6151D2"/>
+                        <GradientStop Color="#FF895BDF" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBlock Text="Ритм бесконечен" HorizontalAlignment="Center" Foreground="White" FontFamily="Inter Medium" FontSize="32"/>
+            <TextBlock Text="Начни слушать музыку здесь" HorizontalAlignment="Center" Margin="0,10,0,10" FontSize="18" FontFamily="Inter Medium">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,1" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad">
+                        <GradientStop Color="#FF3035CA" Offset="0"/>
+                        <GradientStop Color="#FF4C13A2" Offset="1"/>
+                        <GradientStop Color="#FF6AD2FF" Offset="0.331"/>
+                        <GradientStop Color="#FFC239F9" Offset="0.679"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+
+            <Button x:Name="startBtn" Style="{DynamicResource RoundedButtonStyle}" Content="Давай начнем!" HorizontalAlignment="Center" Background="#202020" Width="343" Height="54" FontSize="20" Click="startBtn_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
