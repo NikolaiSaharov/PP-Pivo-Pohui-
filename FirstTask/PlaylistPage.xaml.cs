@@ -51,13 +51,11 @@ namespace FirstTask
             ResetPreviousTrack();
 
             currentlyPlayingTrack = clickedTrack;
-            TogglePlayPause();
+            UpdateBehaviour();
         }
 
-        private void TogglePlayPause()
+        private void UpdateBehaviour(bool isPlaying = true)
         {
-            isPlaying = !isPlaying;
-
             if (currentlyPlayingTrack != null)
             {
                 currentlyPlayingTrack.Background = isPlaying ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#090909")) : Brushes.Transparent;
@@ -66,14 +64,20 @@ namespace FirstTask
                     : null;
             }
 
-            // Обновляем кнопку
             var mainWindow = Application.Current.MainWindow as MainWindow;
             if (mainWindow?.playButton != null)
             {
                 var behaviors = Interaction.GetBehaviors(mainWindow.playButton);
                 var playBehavior = behaviors.OfType<PlayPauseButtonBehavior>().FirstOrDefault();
-                if (playBehavior != null) playBehavior.IsPlaying = isPlaying;
+                playBehavior.IsPlaying = isPlaying;
             }
+        }
+
+        private void TogglePlayPause()
+        {
+            isPlaying = !isPlaying;
+
+            UpdateBehaviour(isPlaying);
         }
 
         private void ResetPreviousTrack()
