@@ -1,15 +1,21 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
+﻿using CHOTOPOHOZEENASPOTIK;
+using Microsoft.Xaml.Behaviors;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace FirstTask
 {
     public partial class PlaylistPage : Page
     {
+        private bool isPlaying = false;
+        private TrackControl currentlyPlayingTrack;
         public PlaylistPage()
         {
             InitializeComponent();
             InitializeTrackSelection();
+            InitializeEllipsisButton();
         }
 
         private void InitializeTrackSelection()
@@ -23,21 +29,61 @@ namespace FirstTask
             }
         }
 
+        private void InitializeEllipsisButton()
+        {
+            // Находим StackPanel, содержащую Border с изображением
+            var mainGrid = (Grid)this.Content;
+            var leftStackPanel = (StackPanel)mainGrid.Children[0];
+            var imageBorder = (Border)leftStackPanel.Children[0];
+
+            imageBorder.MouseEnter += (s, e) => EllipsisButton.Opacity = 1;
+            imageBorder.MouseLeave += (s, e) => EllipsisButton.Opacity = 0;
+        }
+
         private void TrackControl_OnTrackClicked(object sender, TrackControl clickedTrack)
         {
-            // Сброс подсветки и анимации для всех треков
-            foreach (var track in TracksStackPanel.Children)
+            if (currentlyPlayingTrack == clickedTrack)
             {
-                if (track is TrackControl trackControl)
-                {
-                    trackControl.Background = Brushes.Transparent; // Сброс подсветки
-                    trackControl.AnimationPlaceholder.Content = null; // Удаление анимации
-                }
+                TogglePlayPause();
+                return;
             }
 
-            // Подсветка и анимация для выбранного трека
-            clickedTrack.Background = new SolidColorBrush(Colors.LightGray); // Подсветка
-            clickedTrack.AnimationPlaceholder.Content = new EqualizerControl(); // Анимация
+            ResetPreviousTrack();
+
+            currentlyPlayingTrack = clickedTrack;
+            TogglePlayPause();
         }
+
+        private void TogglePlayPause()
+        {
+            isPlaying = !isPlaying;
+
+            if (currentlyPlayingTrack != null)
+            {
+                currentlyPlayingTrack.Background = isPlaying ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#090909")) : Brushes.Transparent;
+                currentlyPlayingTrack.AnimationPlaceholder.Content = isPlaying
+                    ? new EqualizerControl()
+                    : null;
+            }
+
+            // Обновляем кнопку
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow?.playButton != null)
+            {
+                var behaviors = Interaction.GetBehaviors(mainWindow.playButton);
+                var playBehavior = behaviors.OfType<PlayPauseButtonBehavior>().FirstOrDefault();
+                if (playBehavior != null) playBehavior.IsPlaying = isPlaying;
+            }
+        }
+
+        private void ResetPreviousTrack()
+        {
+            if (currentlyPlayingTrack != null)
+            {
+                currentlyPlayingTrack.Background = Brushes.Transparent;
+                currentlyPlayingTrack.AnimationPlaceholder.Content = null;
+            }
+        }
+
     }
 }

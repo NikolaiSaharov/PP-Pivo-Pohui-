@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:FirstTask"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="Главная страница"
         Height="810" Width="1440"
@@ -432,6 +434,9 @@
                                 Background="Transparent" BorderBrush="White"
                                 Padding="0">
                                 <materialDesign:PackIcon Kind="Play" Foreground="White" Width="40" Height="40"/>
+                                <i:Interaction.Behaviors>
+                                    <local:PlayPauseButtonBehavior IsPlaying="{Binding IsAudioPlaying, RelativeSource={RelativeSource AncestorType=Window}, Mode=TwoWay}"/>
+                                </i:Interaction.Behaviors>
                             </Button>
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
                                 Width="32" Height="32" Margin="5,0"

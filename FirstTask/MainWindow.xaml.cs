@@ -19,6 +19,8 @@ namespace CHOTOPOHOZEENASPOTIK
         private readonly DoubleAnimation infoPanelAnimation;
         private readonly ThicknessAnimation contentMarginAnimation;
         private TranslateTransform _rightPanelTransform;
+        private bool isPlaying = false;
+
 
         public MainWindow()
         {
@@ -299,5 +301,5 @@ namespace CHOTOPOHOZEENASPOTIK
                 Close();
                 communityWindow.Show(); 
             }
-        }
     }
+}
