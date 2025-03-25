@@ -9,11 +9,10 @@
         Title="Music Streaming"
         Height="1080" Width="1920"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{x:Null}"
         WindowStyle="None"
         AllowsTransparency="True"
+        Background="Black"
         WindowStartupLocation="CenterScreen">
-
 
     <Window.Resources>
         <!-- Стиль для кнопки -->
@@ -25,9 +24,9 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                            CornerRadius="15"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                                CornerRadius="15"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -38,36 +37,29 @@
         <!-- Стиль для слайдера с возможностью изменения цвета -->
         <Style x:Key="CustomSliderStyle" TargetType="Slider">
             <Setter Property="Background" Value="LightGray"/>
-            <!-- Цвет фона слайдера -->
             <Setter Property="Foreground" Value="Blue"/>
-            <!-- Цвет заполненной части слайдера -->
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Slider">
                         <Grid>
-                            <!-- Фон слайдера -->
                             <Border Background="{TemplateBinding Background}"
-                                CornerRadius="10"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Height="10"
-                                VerticalAlignment="Center"/>
-
-                            <!-- Заполненная часть слайдера -->
+                                    CornerRadius="10"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Height="10"
+                                    VerticalAlignment="Center"/>
                             <Border x:Name="PART_Fill"
-                                Background="{TemplateBinding Foreground}"
-                                CornerRadius="10"
-                                Height="10"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"/>
-
-                            <!-- Thumb (кружок) слайдера -->
+                                    Background="{TemplateBinding Foreground}"
+                                    CornerRadius="10"
+                                    Height="10"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"/>
                             <Thumb x:Name="Thumb"
-                               Width="5"
-                               Height="5"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Left" />
+                                   Width="5"
+                                   Height="5"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -76,81 +68,6 @@
     </Window.Resources>
 
     <Grid>
-
-        <!-- Анимированный градиентный фон -->
-        <Rectangle x:Name="BackgroundRect" Panel.ZIndex="0">
-            <Rectangle.Fill>
-                <LinearGradientBrush x:Name="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#B700FF" Offset="0"/>
-                    <GradientStop Color="#0028FF" Offset="1"/>
-                    <GradientStop Color="#46CFFF" Offset="1"/>
-                    <GradientStop Color="#511CE8" Offset="1"/>
-                    <GradientStop Color="#AA91FF" Offset="1"/>
-                    <GradientStop Color="#4E73FF" Offset="1"/>
-                    <GradientStop Color="#D200FF" Offset="1"/>
-                    <GradientStop Color="#0010C8" Offset="1"/>
-                    <GradientStop Color="#8800FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-
-        <!-- Логотип в левой верхней части -->
-        <Image Source="pack://application:,,,/Images/logo.jpg"
-               Width="28" Height="45"
-               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="74,77,0,0"/>
-
-        <!-- Размытые круги -->
-        <Ellipse Width="200" Height="200" Opacity="0.3" Fill="White" Margin="308,140,772,380" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="450" Height="450" Opacity="0.3" Fill="White" Margin="1626,-135,-156,765" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="455" Height="455" Opacity="0.3" Fill="White" Margin="1602,176,-186,416" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="488" Height="488" Opacity="0.3" Fill="White" Margin="1168,131,264,461" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="334" Height="334" Opacity="0.3" Fill="White" Margin="1021,-19,565,765" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="555" Height="530" Opacity="0.3" Fill="White" Margin="539,110,826,440" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="300" Height="300" Opacity="0.3" Fill="White" Margin="275,-160,705,580" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="450" Height="450" Opacity="0.3" Fill="White" Margin="246,169,1224,461" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="408" Height="408" Opacity="0.3" Fill="White" Margin="10,-19,1502,691" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-        <Ellipse Width="406" Height="406" Opacity="0.3" Fill="White" Margin="-27,320,1541,354" Panel.ZIndex="1">
-            <Ellipse.Effect>
-                <BlurEffect Radius="187"/>
-            </Ellipse.Effect>
-        </Ellipse>
-
         <!-- Основная структура -->
         <Grid Panel.ZIndex="2">
             <Grid.ColumnDefinitions>
@@ -165,8 +82,7 @@
             </Grid.RowDefinitions>
 
             <!-- Верхняя панель -->
-            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
-                  Background="Black">
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Background="Black">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -176,145 +92,215 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Кнопки навигации -->
-                <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="32" Height="32" Margin="50,0"
-                            Padding="0">
-                    <Image Source="pack://application:,,,/Images/Vector 3126.jpg" 
-Width="10" Height="21" Margin="-10,5,0,5"/>
-                </Button>
-                <Button Style="{StaticResource MaterialDesignFlatButton}" Height="32" Margin="35,14,29,14"
-                            Padding="0">
+                <!-- Кнопка в кружке слева -->
+                <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="70,0,20,0">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+            Width="32" Height="32"
+            Padding="0" Background="Transparent">
+                        <Image Source="pack://application:,,,/Images/vector left.png"
+               Width="10" Height="21" Margin="-5,5,0,5"/>
+                    </Button>
+                </Border>
 
-                    <Image Source="pack://application:,,,/Images/Vector 3127.jpg" 
-Width="10" Height="21" Margin="10,5,0,5"/>
-                </Button>
+                <!-- Кнопка в кружке справа -->
+                <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="120,0,0,0">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+            Width="32" Height="32"
+            Padding="0" Background="Transparent">
+                        <Image Source="pack://application:,,,/Images/vector right.png"
+               Width="10" Height="21" Margin="0,5,0,5"/>
+                    </Button>
+                </Border>
+
 
                 <!-- Иконка облака и текст -->
                 <StackPanel Grid.Column="2" Orientation="Horizontal"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center" Margin="280,0,0,0">
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Margin="700,0,0,0">
                     <Image Source="pack://application:,,,/Images/logo.jpg"
-           Height="33" Width="30"/>
+                           Height="33" Width="30"/>
                     <TextBox materialDesign:HintAssist.Hint="Что будем слушать?"
-         Margin="8,0,0,0"
-         VerticalAlignment="Center"
-         Foreground="White"
-         FontSize="16"
-         Background="Transparent"
-         BorderThickness="0"
-         CaretBrush="White"
-         materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
-         Style="{StaticResource MaterialDesignTextBox}"
-         Width="164" Height="36"/>
+                             Margin="8,0,0,0"
+                             VerticalAlignment="Center"
+                             Foreground="White"
+                             FontSize="16"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             CaretBrush="White"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                             Style="{StaticResource MaterialDesignTextBox}"
+                             Width="164" Height="36"/>
+
                 </StackPanel>
+
 
                 <!-- Правые элементы -->
                 <StackPanel Grid.Column="3" Orientation="Horizontal"
-                          HorizontalAlignment="Right" Margin="0,0,20,0">
+                            HorizontalAlignment="Right" Margin="0,0,20,0">
+                    <!-- Кнопка уведомлений в кружке -->
+                    <Border Width="56" Height="56" Background="#121212" CornerRadius="30" Margin="0,0,380,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+            Width="18" Height="21"
+            Padding="0" Background="Transparent" BorderBrush="Transparent">
+                            <Image Source="pack://application:,,,/Images/colocolsik.jpg"
+               Width="18" Height="21"/>
+                        </Button>
+                    </Border>
+
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
         Content="Вступить в Community"
-        Foreground="#FF1F1F1F"
-        Background="White"
-        Height="35" Width="242" Padding="16,0" Cursor="Hand" FontSize="14" FontFamily="Inter" FontWeight="Bold"  >
+        Foreground="White"
+        Background="#171717"
+        Height="35" Width="242" Padding="16,0" Cursor="Hand"
+        FontSize="14" FontFamily="SF Pro Display" FontWeight="Bold" Margin="0,0,50,0">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Background="White" CornerRadius="18" Padding="10">
+                                <Border CornerRadius="18" Padding="10">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#171717" Offset="0.0"/>
+                                            <GradientStop Color="#121212" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
+                        <Button.Effect>
+                            <DropShadowEffect Color="Blue" BlurRadius="2" Opacity="0.5" ShadowDepth="1.25"/>
+                        </Button.Effect>
                     </Button>
 
-                    <!-- Кнопка уведомлений -->
-                    <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="18" Height="21" Margin="80,0,0,0"
-                            Padding="0">
-                        <Image Source="pack://application:,,,/Images/colocolsik.jpg" 
-    Width="18" Height="21"/>
-                    </Button>
+                    <!-- Новые кнопки -->
+                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,10,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                Width="16" Height="16"
+                Padding="0" 
+                Click="MinimizeButton_Click">
+                            <Image Source="pack://application:,,,/Images/minimize.jpg"
+                   Width="16" Height="16"/>
+                        </Button>
+                    </Border>
+
+                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,10,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                Width="16" Height="16"
+                Padding="0" 
+                Click="MaximizeButton_Click">
+                            <Image Source="pack://application:,,,/Images/maximize.jpg"
+                   Width="16" Height="16"/>
+                        </Button>
+                    </Border>
+
+                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,0,0">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                Width="16" Height="16"
+                Padding="0" 
+                Click="CloseButton_Click">
+                            <Image Source="pack://application:,,,/Images/close.jpg"
+                   Width="16" Height="16" />
+                        </Button>
+                    </Border>
+
+
+
                 </StackPanel>
 
                 <!-- Профиль с выпадающим меню -->
-                <materialDesign:PopupBox Grid.Column="4"
-                                       PlacementMode="BottomAndAlignRightEdges"
-                                       Margin="30,0,20,0"
-                                       StaysOpen="False">
-                    <materialDesign:PopupBox.ToggleContent>
-                        <Border Width="36" Height="36"
-                                CornerRadius="18"
-                                ClipToBounds="True">
-                            <Border.Background>
-                                <ImageBrush ImageSource="pack://application:,,,/CHOTOPOHOZEENASPOTIK;component/Images/placeholder.jpg"/>
-                            </Border.Background>
-                        </Border>
-                    </materialDesign:PopupBox.ToggleContent>
-                    <StackPanel>
-                        <Button Content="Профиль"
-                                Style="{StaticResource MaterialDesignFlatButton}">
-                            <Button.ContentTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Account"
-                                                               Margin="0,0,8,0"/>
-                                        <TextBlock Text="{Binding}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Button.ContentTemplate>
-                        </Button>
-                        <Button Content="Настройки"
-                                Style="{StaticResource MaterialDesignFlatButton}">
-                            <Button.ContentTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Settings"
-                                                               Margin="0,0,8,0"/>
-                                        <TextBlock Text="{Binding}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Button.ContentTemplate>
-                        </Button>
-                    </StackPanel>
-                </materialDesign:PopupBox>
+
             </Grid>
 
             <!-- Левая панель навигации -->
-            <Border x:Name="LeftPanel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"
-                    Background="Black" Cursor="">
-                <StackPanel>
-                    <!-- Верхние кнопки -->
-                    <Button x:Name="PlanetButton" Style="{StaticResource MaterialDesignFlatButton}"
-        Margin="5,20,5,5" Height="31" Width="31"
-        Padding="0" Click="PlanetButton_Click">
-                        <Image Source="pack://application:,,,/Images/planeta.jpg"
-           Height="24" Width="24"/>
+
+            <materialDesign:PopupBox
+    PlacementMode="BottomAndAlignRightEdges"
+    Margin="0,0,0,869"
+    StaysOpen="False" Width="50" Grid.Row="1" HorizontalAlignment="Center">
+                <materialDesign:PopupBox.ToggleContent>
+                    <Border Width="48" Height="48"
+                CornerRadius="24"
+                Background="#121212"
+                ClipToBounds="True">
+                        <Border Width="38" Height="38"
+                    CornerRadius="19"
+                    ClipToBounds="True">
+                            <Border.Background>
+                                <ImageBrush ImageSource="pack://application:,,,/FirstTask;component/Images/placeholder.jpg"/>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+                </materialDesign:PopupBox.ToggleContent>
+                <StackPanel Background="Black">
+                    <Button Content="Профиль"
+                Style="{StaticResource MaterialDesignFlatButton}"
+                Background="Black" Foreground="White"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Account"
+                                                 Margin="0,0,8,0"/>
+                                    <TextBlock Text="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
                     </Button>
-                    <Button x:Name="SquareButton" Style="{StaticResource MaterialDesignFlatButton}"
-        Margin="5,15,5,5" Height="40" Width="40"
-        Padding="0" Click="SquareButton_Click">
+                    <Button Content="Настройки"
+                Style="{StaticResource MaterialDesignFlatButton}"
+                Background="Black" Foreground="White"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Settings"
+                                                 Margin="0,0,8,0"/>
+                                    <TextBlock Text="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </StackPanel>
+            </materialDesign:PopupBox>
+
+
+            <!-- Первый Border с первыми тремя кнопками -->
+            <Border x:Name="LeftPanelTop" Grid.Column="0" Grid.Row="1"
+            Background="#121212" CornerRadius="25" Margin="5,58,5,624">
+                <StackPanel>
+                    <Button x:Name="PlanetButton" Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="5,21,5,5" Height="31" Width="31"
+                    Padding="0" Click="PlanetButton_Click">
+                        <Image Source="pack://application:,,,/Images/planeta.jpg"
+                       Height="27" Width="27" />
+                    </Button>
+                    <Button x:Name="SamplesButton" Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="5,20,5,5" Height="40" Width="40"
+                    Padding="0" Click="SamplesButton_Click">
                         <Image Source="pack://application:,,,/Images/choto.jpg"
-           Height="24" Width="24"/>
+                       Height="24" Width="24"/>
                     </Button>
                     <Button x:Name="PersonButton" Style="{StaticResource MaterialDesignFlatButton}"
-        Margin="5,15,5,5" Height="40" Width="40"
-        Padding="0" Click="PersonButton_Click">
+                    Margin="5,20,5,5" Height="40" Width="40"
+                    Padding="0" Click="PersonButton_Click">
                         <Image Source="pack://application:,,,/Images/avarar.jpg"
-           Height="32" Width="32"/>
+                       Height="32" Width="24"/>
                     </Button>
+                </StackPanel>
+            </Border>
+
+            <!-- Второй Border с оставшимися кнопками -->
+            <Border x:Name="LeftPanelBottom" Grid.Column="0" Grid.Row="1"
+            Background="#121212" CornerRadius="25" Margin="5,314,5,5">
+                <StackPanel>
                     <Button x:Name="PlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
-        Margin="5,15,5,5" Height="25" Width="25"
-        Padding="0" Click="PlaylistButton_Click">
+                    Margin="5,21,5,5" Height="25" Width="25"
+                    Padding="0" Click="PlaylistButton_Click">
                         <Image Source="pack://application:,,,/Images/prikol.jpg"
-           Height="24" Width="24"/>
+                       Height="24" Width="24"/>
                     </Button>
-
-                    <!-- Разделитель -->
-                    <Separator Margin="10,30,10,30"
-                             Background="#FF333333"/>
-
-                    <!-- Нижние кнопки с градиентами -->
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Margin="5,5,5,5" Height="43" Width="43"
-                            Padding="0">
+                    Margin="5,30,5,5" Height="43" Width="43"
+                    Padding="0">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#FFFF69B4" Offset="0"/>
@@ -322,12 +308,12 @@ Width="10" Height="21" Margin="10,5,0,5"/>
                             </LinearGradientBrush>
                         </Button.Background>
                         <materialDesign:PackIcon Kind="Heart"
-                                               Height="20" Width="20"
-                                               Foreground="White"/>
+                                         Height="20" Width="20"
+                                         Foreground="White"/>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Margin="5,15,5,5" Height="43" Width="43"
-                            Padding="0">
+                    Margin="5,20,5,5" Height="43" Width="43"
+                    Padding="0">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#FF4169E1" Offset="0"/>
@@ -335,12 +321,12 @@ Width="10" Height="21" Margin="10,5,0,5"/>
                             </LinearGradientBrush>
                         </Button.Background>
                         <materialDesign:PackIcon Kind="Clock"
-                                               Height="20" Width="20"
-                                               Foreground="White"/>
+                                         Height="20" Width="20"
+                                         Foreground="White"/>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Margin="5,15,5,5" Height="43" Width="43"
-                            Padding="0">
+                    Margin="5,20,5,5" Height="43" Width="43"
+                    Padding="0">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#FF9400D3" Offset="0"/>
@@ -348,194 +334,10 @@ Width="10" Height="21" Margin="10,5,0,5"/>
                             </LinearGradientBrush>
                         </Button.Background>
                         <Image Source="pack://application:,,,/Images/logo.jpg"
-           Height="24" Width="24"/>
+                       Height="24" Width="24"/>
                     </Button>
                 </StackPanel>
             </Border>
-
-            <!-- Основной контент -->
-            <Grid x:Name="mainContent" Grid.Column="1" Grid.Row="1" Panel.ZIndex="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <!-- Верхний фрейм с плейлистом -->
-                <StackPanel Grid.Row="0" Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <!-- Карточка трека -->
-                    <materialDesign:Card Width="266" Height="266" Margin="10"
-                                       Background="#FF2F2F2F">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="160"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Image Source="pack://application:,,,/Images/placeholder.jpg"
-                                   Stretch="UniformToFill" Margin="0,0,0,2" Grid.RowSpan="2"/>
-                        </Grid>
-                    </materialDesign:Card>
-
-                    <!-- Правая панель с кнопками и описанием -->
-                    <StackPanel VerticalAlignment="Center" Margin="20,0,0,0">
-                        <!-- Текстовые блоки -->
-                        <StackPanel Orientation="Vertical" Margin="0,10,0,20">
-                            <TextBlock Text="Плейлист" Foreground="#A6A6A6" FontSize="18" FontFamily="Inter" FontWeight="Bold"/>
-                            <TextBlock Text="Название" Foreground="White" FontSize="30" FontFamily="Inter" FontWeight="Bold" Margin="0,5,0,0"/>
-                            <TextBlock Text="Описание" Foreground="#A6A6A6" FontSize="28" FontFamily="Inter" FontWeight="Bold" Margin="0,10,0,0"/>
-                            <TextBlock Text="100 песен" Foreground="#A6A6A6" FontSize="17" FontFamily="Inter" FontWeight="Bold" Margin="0,10,0,0"/>
-                        </StackPanel>
-
-                        <!-- Кнопки -->
-                        <StackPanel Orientation="Horizontal">
-                            <!-- Кнопка "Слушать" -->
-                            <Button Content="Слушать"
-                Width="130" Height="43"
-                Foreground="Black"
-                Style="{StaticResource MaterialDesignRaisedButton}" Background="#FF9BC2DB" BorderBrush="#FF91BCD7" FontSize="20" FontFamily="Inter" FontWeight="Bold">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="#9BC2DB" CornerRadius="20" Padding="10">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-
-
-
-                            <!-- Добавленная кнопка (пример) -->
-                            <Button Width="43" Height="43"
-        Foreground="Black"
-        Style="{StaticResource MaterialDesignRaisedButton}" Background="#FF9BC2DB" BorderBrush="#FF91BCD7"
-        Margin="10,0,0,0">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="#9BC2DB" CornerRadius="20" Padding="10">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                                <Image Source="pack://application:,,,/Images/restart.jpg"
-Height="23" Width="23"/>
-                            </Button>
-                            <!-- Круглая кнопка "+" -->
-                            <Button Width="43" Height="43"
-Margin="10,0,0,0"
-Background="Transparent" 
-                        BorderBrush="Transparent"
-                        Padding="0">
-                                <Image Source="pack://application:,,,/Images/plus.jpg" 
-                            Width="35" Height="35"/>
-                            </Button>
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-
-                <!-- Нижний фрейм с категориями -->
-                <Grid Grid.Row="1" Margin="0,180,0,10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Кнопки переключения категорий -->
-                    <Border Grid.Row="0" Background="Black">
-                        <Grid Width="880" HorizontalAlignment="Left">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Content="Все"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="80"
-                        Foreground="White"
-                        Background="#171717"
-                        Click="FilterButton_Click"
-                        Margin="0,5,248,5"/>
-                            <Button Content="Музыка"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="106"
-                        Foreground="Gray"
-                        Click="FilterButton_Click"
-                        Margin="84,5,138,5"/>
-                            <Button Content="Посты"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="95"
-                        Foreground="Gray"
-                        Click="FilterButton_Click"
-                        Margin="235,5,-330,5" Grid.Column="5"/>
-                            <Button Content="Клипы"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="123"
-                        Foreground="Gray"
-                        Click="FilterButton_Click"
-                        Margin="195,5,10,5"/>
-                            <Button Content="Подкасты"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="138"
-                        Foreground="Gray"
-                        Click="FilterButton_Click"
-                        Margin="323,5,-133,5" Grid.ColumnSpan="6"/>
-                            <Button Content="Аудио книги"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Height="35"
-                        Width="92"
-                        Foreground="Gray"
-                        Click="FilterButton_Click"
-                        Margin="138,5,-230,5" Grid.Column="5"/>
-                        </Grid>
-
-
-                    </Border>
-
-
-                    <!-- Прокручиваемый контент нижнего фрейма -->
-                    <ScrollViewer Grid.Row="1" Background="#090909" Margin="0,0,0,-100">
-                        <WrapPanel x:Name="TracksContainer" Margin="20">
-                            <!-- Карточка трека -->
-                            <materialDesign:Card Width="176" Height="250" Margin="5"
-                                               Background="#0909">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="160"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="pack://application:,,,/Images/placeholder.jpg"
-                                           Stretch="UniformToFill" Width="176" Height="176"/>
-                                    <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                            Width="40" Height="40"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Top"
-                                            Margin="0,5,5,0"
-                                            Padding="0">
-                                        <materialDesign:PackIcon Kind="DotsVertical"
-                                                               Foreground="White"/>
-                                    </Button>
-                                    <StackPanel Grid.Row="1" Margin="8">
-                                        <TextBlock Text="Название трека"
-                                                 Style="{StaticResource MaterialDesignBody1TextBlock}"
-                                                 Foreground="White" FontSize="14" FontFamily="Inter" FontWeight="Bold" />
-                                        <TextBlock Text="Исполнитель"
-                                                 Style="{StaticResource MaterialDesignCaptionTextBlock}"
-                                                 Foreground="Gray" FontSize="14" FontFamily="Inter" FontWeight="Bold"/>
-
-                                    </StackPanel>
-                                </Grid>
-                            </materialDesign:Card>
-                            <!-- Повторите карточку несколько раз для демонстрации -->
-                        </WrapPanel>
-                    </ScrollViewer>
-                </Grid>
-            </Grid>
 
             <!-- Информационная панель и правая панель -->
             <Grid Grid.Column="2" Grid.Row="1" Panel.ZIndex="999">
@@ -543,95 +345,108 @@ Background="Transparent"
                     <RowDefinition Height="361*"/>
                     <RowDefinition Height="559*"/>
                 </Grid.RowDefinitions>
-                <!-- Правая панель с кнопкой -->
-                <Border x:Name="RightPanel" 
-                        Width="60"
-                        HorizontalAlignment="Center"
-                        Background="Black"
-                        Panel.ZIndex="999" Grid.RowSpan="2">
-                    <Button x:Name="ToggleInfoButton"
-                            Style="{StaticResource MaterialDesignFlatButton}"
-                            Height="40" Width="40"
-                            Padding="0"
-                            Margin="10"
-                            VerticalAlignment="Center"
-                            Click="ToggleInfoPanel_Click">
-                        <materialDesign:PackIcon Kind="ChevronLeft"
-                                               Height="24" Width="24"
-                                               Foreground="White"/>
-                    </Button>
+
+                <!-- Правая панель -->
+                <Border x:Name="RightPanel"
+        Width="300"
+        HorizontalAlignment="Right"
+        Background="#121212"
+        Panel.ZIndex="1000"
+        Grid.RowSpan="2"
+        Visibility="Collapsed"
+        CornerRadius="30">
+                    <TextBlock Text="Правая панель"
+               Foreground="White"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
                 </Border>
+
+
 
                 <!-- Информационная панель -->
                 <Border x:Name="InfoPanel" 
                         HorizontalAlignment="Left"
-                        Width="420"
-                        Background="#090909"
-                        Panel.ZIndex="998" RenderTransformOrigin="0.493,0.504" Grid.RowSpan="2" Margin="-358,0,0,0" Visibility="Collapsed" >
+                        Width="363"
+                        Background="#121212"
+                        Panel.ZIndex="998" 
+                        Grid.RowSpan="2" Margin="-363,0,0,0" RenderTransformOrigin="0.5,0.5" 
+                        Visibility="Collapsed" CornerRadius="20">
                     <Border.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
+                        <TranslateTransform x:Name="InfoPanelTransform" X="363"/>
                     </Border.RenderTransform>
+
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="15" 
-                                        Direction="-90" 
-                                        ShadowDepth="5" 
-                                        Opacity="0.3"/>
+                                          Direction="-90" 
+                                          ShadowDepth="5" 
+                                          Opacity="0.3"/>
                     </Border.Effect>
                     <Grid>
                         <StackPanel Margin="20">
                             <TextBlock Text="Информация о треке"
-                                      Foreground="White"
-                                      FontSize="24"
-                                      FontWeight="Bold"
-                                      Margin="0,0,0,20"/>
+                                       Foreground="White"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,20"/>
                             <StackPanel Margin="0,0,0,15">
                                 <TextBlock Text="Название:"
-                                         Foreground="#090909"
-                                         FontSize="16"
-                                         Margin="0,0,0,5"/>
+                                           Foreground="#121212"
+                                           FontSize="16"
+                                           Margin="0,0,0,5"/>
                                 <TextBlock Text="Sample Track"
-                                         Foreground="White"
-                                         FontSize="18"
-                                         FontWeight="SemiBold"/>
+                                           Foreground="White"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"/>
                             </StackPanel>
                             <StackPanel Margin="0,0,0,15">
                                 <TextBlock Text="Исполнитель:"
-                                         Foreground="#090909"
-                                         FontSize="16"
-                                         Margin="0,0,0,5"/>
+                                           Foreground="#121212"
+                                           FontSize="16"
+                                           Margin="0,0,0,5"/>
                                 <TextBlock Text="Sample Artist"
-                                         Foreground="White"
-                                         FontSize="18"
-                                         FontWeight="SemiBold"/>
+                                           Foreground="White"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"/>
                             </StackPanel>
                             <StackPanel Margin="0,0,0,15">
                                 <TextBlock Text="Альбом:"
-                                         Foreground="#090909"
-                                         FontSize="16"
-                                         Margin="0,0,0,5"/>
+                                           Foreground="#121212"
+                                           FontSize="16"
+                                           Margin="0,0,0,5"/>
                                 <TextBlock Text="Sample Album"
-                                         Foreground="White"
-                                         FontSize="18"
-                                         FontWeight="SemiBold"/>
+                                           Foreground="White"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"/>
                             </StackPanel>
                             <StackPanel Margin="0,0,0,15">
                                 <TextBlock Text="Длительность:"
-                                         Foreground="#090909"
-                                         FontSize="16"
-                                         Margin="0,0,0,5"/>
+                                           Foreground="#121212"
+                                           FontSize="16"
+                                           Margin="0,0,0,5"/>
                                 <TextBlock Text="3:45"
-                                         Foreground="White"
-                                         FontSize="18"
-                                         FontWeight="SemiBold"/>
+                                           Foreground="White"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                 </Border>
+
+                <!-- Кнопка для информационной панели -->
+                <Button x:Name="ToggleInfoButton"
+        Style="{StaticResource MaterialDesignFlatButton}"
+        Height="40" Width="40"
+        Padding="0"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Center"
+        Click="ToggleInfoPanel_Click"
+        MouseEnter="ToggleInfoButton_MouseEnter"
+        MouseLeave="ToggleInfoButton_MouseLeave"
+        Panel.ZIndex="1001" Margin="0,79,0,0" Grid.Row="1">
+                    <materialDesign:PackIcon Kind="ChevronLeft"
+                             Height="24" Width="24"
+                             Foreground="White"/>
+                </Button>
             </Grid>
 
             <!-- Нижний плеер -->
@@ -642,125 +457,125 @@ Background="Transparent"
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Левый черный блок -->
-                <Border Grid.Column="0" Background="Black" />
+                <Border Grid.Column="0" Background="Black"/>
 
-                <!-- Плеер -->
-                <Grid Grid.Column="1" Background="#090909" Height="70" Width="1000" VerticalAlignment="Top" Margin="225,10,225,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="150"/>
-                    </Grid.ColumnDefinitions>
+                <Border Grid.Column="1" Background="#121212" Height="70" Width="1100" VerticalAlignment="Top" Margin="225,10,225,0" CornerRadius="30">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
 
-                    <!-- Информация о треке -->
-                    <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10,0,0,0">
-                        <Image Width="50" Height="50"
-                          Source="pack://application:,,,/CHOTOPOHOZEENASPOTIK;component/Images/placeholder.jpg"
-                          Margin="0,0,10,0"/>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Название" Foreground="White"
-                                 FontSize="14" FontWeight="Medium"/>
-                            <TextBlock Text="Автор" Foreground="#FF808080"
-                                 FontSize="12" Margin="0,2,0,0"/>
-                        </StackPanel>
-                        <Button x:Name="addToPlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="32" Height="32" Margin="10,0,0,0"
-                            Padding="0">
-                            <materialDesign:PackIcon Kind="Plus" Foreground="#FF808080"/>
-                        </Button>
-                    </StackPanel>
-
-                    <!-- Контролы плеера -->
-                    <Grid Grid.ColumnSpan="2" Margin="200,0,50,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <!-- Кнопки управления -->
-                        <StackPanel Grid.Row="0" Orientation="Horizontal"
-                              HorizontalAlignment="Center" Margin="0,10,0,5">
-                            <Button x:Name="shuffleButton" Style="{StaticResource MaterialDesignFlatButton}"
-                                Width="19" Height="17" Margin="5,0"
-                                Padding="0">
-                                <Image Source="pack://application:,,,/Images/shuffle.jpg" 
-    Width="19" Height="17"/>
-                            </Button>
-                            <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                Width="32" Height="32" Margin="5,0"
-                                Padding="0">
-                                <Image Source="pack://application:,,,/Images/arrowleft.jpg" 
-Width="19" Height="28"/>
-                            </Button>
-                            <Button x:Name="playButton" Style="{StaticResource MaterialDesignFlatButton}"
-                                Width="40" Height="40" Margin="5,0"
-                                Background="Transparent" BorderBrush="White"
-                                Padding="0">
-                                <materialDesign:PackIcon Kind="Play" Foreground="White" Width="40" Height="40"/>
-                            </Button>
-                            <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                Width="32" Height="32" Margin="5,0"
-                                Padding="0">
-                                <Image Source="pack://application:,,,/Images/arrowrigt.jpg" 
-Width="19" Height="28"/>
-                            </Button>
-                            <Button x:Name="repeatButton" Style="{StaticResource MaterialDesignFlatButton}"
-                                Width="32" Height="32" Margin="5,0"
-                                Padding="0">
-                                <Image Source="pack://application:,,,/Images/repeat.jpg" 
-Width="18" Height="18"/>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="30,0,0,0">
+                            <Image Width="50" Height="50"
+                   Source="pack://application:,,,/FirstTask;component/Images/placeholder.jpg"
+                   Margin="0,0,10,0"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Название" Foreground="White"
+                           FontSize="14" FontWeight="Medium"/>
+                                <TextBlock Text="Автор" Foreground="#FF808080"
+                           FontSize="12" Margin="0,2,0,0"/>
+                            </StackPanel>
+                            <Button x:Name="addToPlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
+                    Width="32" Height="32" Margin="10,0,0,0"
+                    Padding="0">
+                                <materialDesign:PackIcon Kind="Plus" Foreground="#FF808080"/>
                             </Button>
                         </StackPanel>
 
-                        <!-- Прогресс бар -->
-                        <Grid Grid.Row="1" Margin="0,0,0,15">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                        <Grid Grid.ColumnSpan="2" Margin="250,0,50,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                            <TextBlock Text="1:20" Foreground="#FF808080"
-         VerticalAlignment="Top" Margin="10,-5,10,0"/>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal"
+                        HorizontalAlignment="Center" Margin="0,10,0,5">
+                                <Button x:Name="shuffleButton" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="19" Height="17" Margin="5,0"
+                        Padding="0">
+                                    <Image Source="pack://application:,,,/Images/shuffle.jpg"
+                           Width="19" Height="17"/>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="32" Height="32" Margin="5,0"
+                        Padding="0">
+                                    <Image Source="pack://application:,,,/Images/arrowleft.jpg"
+                           Width="19" Height="28"/>
+                                </Button>
+                                <Button x:Name="playButton" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="40" Height="40" Margin="5,0"
+                        Background="Transparent" BorderBrush="White"
+                        Padding="0">
+                                    <materialDesign:PackIcon Kind="Play" Foreground="White" Width="40" Height="40"/>
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="32" Height="32" Margin="5,0"
+                        Padding="0">
+                                    <Image Source="pack://application:,,,/Images/arrowrigt.jpg"
+                           Width="19" Height="28"/>
+                                </Button>
+                                <Button x:Name="repeatButton" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="32" Height="32" Margin="5,0"
+                        Padding="0">
+                                    <Image Source="pack://application:,,,/Images/repeat.jpg"
+                           Width="18" Height="18"/>
+                                </Button>
+                            </StackPanel>
 
-                            <Slider Value="30" Maximum="100"
-       Style="{StaticResource MaterialDesignSlider}" Grid.ColumnSpan="3" Margin="42,-7,42,0" Height="30" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
-
-                            <TextBlock Grid.Column="2" Text="3:20" Foreground="#FF808080"
-         VerticalAlignment="Top" Margin="10,-5,10,0"/>
+                            <Grid Grid.Row="1" Margin="0,0,0,15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="1:20" Foreground="#FF808080"
+                           VerticalAlignment="Top" Margin="10,-5,10,0"/>
+                                <Slider Value="30" Maximum="100"
+                        Style="{StaticResource MaterialDesignSlider}"
+                        Grid.ColumnSpan="3" Margin="42,-7,42,0"
+                        Height="30" VerticalAlignment="Top"
+                        ValueChanged="Slider_ValueChanged"/>
+                                <TextBlock Grid.Column="2" Text="3:20" Foreground="#FF808080"
+                           VerticalAlignment="Top" Margin="10,-5,10,0"/>
+                            </Grid>
                         </Grid>
 
+                        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="0,0,50,0">
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Width="32" Height="32" Margin="5,0"
+                    Padding="0">
+                                <Image Source="pack://application:,,,/Images/playlist.jpg"
+                       Width="24" Height="20"/>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Width="32" Height="32" Margin="5,0"
+                    Padding="0">
+                                <Image Source="pack://application:,,,/Images/Low Volume.jpg"
+                       Width="22" Height="20"/>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Width="32" Height="32" Margin="5,0"
+                    Padding="0">
+                                <Image Source="pack://application:,,,/Images/akran.jpg"
+                       Width="26" Height="20"/>
+                            </Button>
+                        </StackPanel>
                     </Grid>
+                </Border>
 
-                    <!-- Правые контролы -->
-                    <StackPanel Grid.Column="2" Orientation="Horizontal"
-                          HorizontalAlignment="Right" VerticalAlignment="Center"
-                          Margin="0,0,10,0">
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="32" Height="32" Margin="5,0"
-                            Padding="0">
-                            <Image Source="pack://application:,,,/Images/playlist.jpg" 
-Width="24" Height="20"/>
-                        </Button>
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="32" Height="32" Margin="5,0"
-                            Padding="0">
-                            <Image Source="pack://application:,,,/Images/Low Volume.jpg" 
-Width="22" Height="20"/>
-                        </Button>
-                        <Button Style="{StaticResource MaterialDesignFlatButton}"
-                            Width="32" Height="32" Margin="5,0"
-                            Padding="0">
-                            <Image Source="pack://application:,,,/Images/akran.jpg" 
-Width="26" Height="20"/>
-                        </Button>
-                    </StackPanel>
-                </Grid>
 
-                <!-- Правый черный блок -->
-                <Border Grid.Column="2" Background="Black" />
+                <Border Grid.Column="2" Background="Black"/>
             </Grid>
+
+            <!-- Frame для контента -->
+            <Frame x:Name="PlanetFrame" Margin="0,0,0,5" 
+                   Grid.Row="1" Grid.Column="1" 
+                   Navigated="PlanetFrame_Navigated" 
+                   BorderBrush="Transparent"/>
         </Grid>
     </Grid>
 </Window>
