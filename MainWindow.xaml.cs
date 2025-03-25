@@ -285,7 +285,9 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (PlanetFrame.Content is PlaylistPage) return;
+            PlanetFrame.Navigate(new PlaylistPage());
+            SetActiveButton(PlaylistButton);
         }
 
         private void SamplesButton_Click(object sender, RoutedEventArgs e)
