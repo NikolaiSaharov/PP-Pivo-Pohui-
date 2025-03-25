@@ -22,9 +22,11 @@
 
         <!-- Левая часть с изображением альбома и кнопками -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="100,87,0,31">
-            <Border Background="Gray" Width="234" Height="234" CornerRadius="40">
+            <Border Width="234" Height="234" CornerRadius="20">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/placeholder.jpg"/>
+                </Border.Background>
                 <Grid>
-                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
                     <!-- Кнопка с троеточием -->
                     <Button x:Name="EllipsisButton"
                             Width="25" Height="25"

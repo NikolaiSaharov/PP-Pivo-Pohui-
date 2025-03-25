@@ -59,12 +59,12 @@
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         CornerRadius="10">
-                             
+
                                     <ScrollViewer x:Name="PART_ContentHost"
                                                   VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"/>
                                 </Border>
-                   
+
                                 <TextBlock x:Name="HintText"
                                            Text="{TemplateBinding md:HintAssist.HelperText}"
                                            Foreground="{TemplateBinding Foreground}"
@@ -83,7 +83,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-         
+
                 <Setter Property="Background" Value="#202020"/>
                 <Setter Property="Foreground" Value="#383838"/>
                 <Setter Property="BorderBrush" Value="Transparent"/>
