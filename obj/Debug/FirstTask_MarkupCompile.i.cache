@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\App.xaml
-11-1831416663
+131115091408
 5-1475381315
-17-1711467993
+21148391379
 161439607908
-LoginWindow.xaml;MainPageWindow.xaml;CommunityWindow.xaml;MainWindow.xaml;PhoneEntryWindow.xaml;Planet.xaml;PlaylistPage.xaml;ProfileWindow.xaml;RegistrationWindow.xaml;Samples.xaml;StartWindow.xaml;
+EqualizerControl.xaml;LoginWindow.xaml;MainPageWindow.xaml;CommunityWindow.xaml;MainWindow.xaml;PhoneEntryWindow.xaml;Planet.xaml;PlaylistPage.xaml;ProfileWindow.xaml;RegistrationWindow.xaml;Samples.xaml;StartWindow.xaml;TrackControl.xaml;
 
-False
+True
 

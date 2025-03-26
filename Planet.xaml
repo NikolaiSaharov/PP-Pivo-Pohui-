@@ -10,6 +10,40 @@
       Title="PlanetPage" Cursor="">
 
     <Page.Resources>
+
+        <Style x:Key="MoodButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="15,5"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="2"
+                        CornerRadius="15"
+                        >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#33FFFFFF"/>
+                                <!-- Легкая подсветка при наведении -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#66FFFFFF"/>
+                                <!-- Подсветка при нажатии -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <!-- Стиль для кнопки -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#171717"/>
@@ -152,7 +186,7 @@
                                 <Button Content="Слушать"
                         Width="130" Height="43"
                         Foreground="White"
-                        Style="{StaticResource RoundedButtonStyle}" Background="#8393FE" BorderBrush="#FF91BCD7" FontSize="20" FontFamily="Inter" FontWeight="Bold" Click="Button_Click"/>
+                        Style="{StaticResource RoundedButtonStyle}" Background="#8393FE" BorderBrush="#8393FE" FontSize="20" FontFamily="Inter" FontWeight="Bold" Click="Button_Click"/>
 
                                 <!-- Добавленная кнопка (пример) -->
                                 <Button Width="43" Height="43"
@@ -204,16 +238,7 @@
                                 <Button Content="Слушать"
                         Width="130" Height="43"
                         Foreground="White"
-                        Style="{StaticResource RoundedButtonStyle}" Background="#8393FE" BorderBrush="#FF91BCD7" FontSize="20" FontFamily="Inter" FontWeight="Bold" Click="Button_Click"/>
-
-                                <!-- Добавленная кнопка (пример) -->
-                                <Button Width="43" Height="43"
-                        Foreground="Black"
-                        Style="{StaticResource RoundedButtonStyle}" Background="#8393FE" BorderBrush="#FF91BCD7"
-                        Margin="10,0,0,0">
-                                    <Image Source="pack://application:,,,/Images/restart.jpg"
-                        Height="23" Width="23"/>
-                                </Button>
+                        Style="{StaticResource RoundedButtonStyle}" Background="#8393FE" BorderBrush="#8393FE" FontSize="20" FontFamily="Inter" FontWeight="Bold" Click="Button_Click"/>
                                 <!-- Круглая кнопка "+" -->
                                 <Button Width="43" Height="43"
                         Margin="10,0,0,0"
@@ -243,30 +268,58 @@
                     </WrapPanel>
                 </Grid>
                 <Grid x:Name="Level4" Visibility="Collapsed">
-                    <!-- Содержимое четвертого уровня -->
-                    <TextBlock Text="Как бы вы описали своё настроение?" Foreground="White" FontFamily="Inter" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,350"/>
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,390,0,0">
-                        <Button Content="Ужасное" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Плохое" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Тревожное" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Безразличное" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Смешанное" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Хорошее" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                        <Button Content="Прекрасное" Width="150" Height="50" Margin="10" Background="LightBlue" Click="ChangeBackground_Click"/>
-                    </WrapPanel>
+                    <TextBlock Text="Как бы вы описали своё настроение?" 
+               Foreground="White" 
+               FontFamily="Inter" 
+               FontWeight="Bold" 
+               FontSize="24" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               Margin="0,0,0,350"/>
+                    <Border Background="#4D000000" CornerRadius="30" Margin="470,430,470,0" Padding="0">
+                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Button Content="Ужасное" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Плохое" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Тревожное" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Безразличное" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Смешанное" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Хорошее" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                            <Button Content="Прекрасное" Style="{StaticResource MoodButtonStyle}" Click="ChangeBackground_Click"/>
+                        </WrapPanel>
+                    </Border>
                 </Grid>
                 <Grid x:Name="Level5" Visibility="Collapsed">
-                    <!-- Содержимое пятого уровня -->
-                    <TextBlock Text="Музыка, которая чувствует тебя." Foreground="White" FontFamily="Inter" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,350"/>
-                    <TextBlock Text="С чего начнём?" Foreground="White" FontSize="24" FontFamily="Inter" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,280"/>
+                    <TextBlock Text="Музыка, которая чувствует тебя." 
+               Foreground="White" 
+               FontFamily="Inter" 
+               FontWeight="Bold" 
+               FontSize="24" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               Margin="0,0,0,350"/>
+                    <TextBlock Text="С чего начнём?" 
+               Foreground="White" 
+               FontSize="24" 
+               FontFamily="Inter" 
+               FontWeight="Bold" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               Margin="0,0,0,280"/>
                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,350,0,0">
-                        <Button Content="Создай ремикс" Width="200" Height="50" Margin="10" Background="LightBlue"/>
-                        <Button Content="Распознай трек" Width="200" Height="50" Margin="10" Background="LightBlue"/>
-                        <Button Content="Расскажи про трек" Width="200" Height="50" Margin="10" Background="LightBlue"/>
-                        <Button Content="TuneShift" Width="200" Height="50" Margin="10" Background="LightBlue"/>
+                        <Border Background="#4D000000" CornerRadius="30" Padding="7,0" Margin="10">
+                            <Button Content="Создай ремикс" Style="{StaticResource MoodButtonStyle}"/>
+                        </Border>
+                        <Border Background="#4D000000" CornerRadius="30" Padding="7,0" Margin="10">
+                            <Button Content="Распознай трек" Style="{StaticResource MoodButtonStyle}"/>
+                        </Border>
+                        <Border Background="#4D000000" CornerRadius="30" Padding="7,0" Margin="10">
+                            <Button Content="Расскажи про трек" Style="{StaticResource MoodButtonStyle}"/>
+                        </Border>
+                        <Border Background="#4D000000" CornerRadius="30" Padding="7,0" Margin="10">
+                            <Button Content="TuneShift" Style="{StaticResource MoodButtonStyle}"/>
+                        </Border>
                     </WrapPanel>
                 </Grid>
-
                 <!-- Bottom frame with categories -->
                 <Grid Grid.Row="1" Margin="0,20,0,10">
                     <Grid.RowDefinitions>
@@ -344,8 +397,8 @@
                                     </Grid.RowDefinitions>
                                     <Image Source="pack://application:,,,/Images/placeholder.jpg"
                            Stretch="UniformToFill" Width="176" Height="176"/>
-                                    
-                                    
+
+
                                     <StackPanel Grid.Row="1" Margin="8">
                                         <TextBlock Text="Название трека"
                                  Style="{StaticResource MaterialDesignBody1TextBlock}"

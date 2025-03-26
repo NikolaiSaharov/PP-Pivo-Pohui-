@@ -48,7 +48,7 @@ namespace CHOTOPOHOZEENASPOTIK
             Loaded += (s, e) =>
             {
                 _rightPanelTransform.X = RightPanel.ActualWidth; // Скрываем за правым краем
-                RightPanel.Width = 300; // Фиксируем ширину панели (можно настроить)
+                RightPanel.Width = 338; // Фиксируем ширину панели (можно настроить)
             };
         }
         private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
@@ -56,7 +56,7 @@ namespace CHOTOPOHOZEENASPOTIK
             // Если панель уже полностью открыта, не выполняем анимацию
             if (isInfoPanelExpanded) return;
 
-            double panelWidth = 363; // Ширина панели
+            double panelWidth = 338; // Ширина панели
             double partialOpenOffset = panelWidth - 40; // Выдвигаем на 40 пикселей от левого края
 
             // Анимация для выдвижения информационной панели
@@ -88,7 +88,7 @@ namespace CHOTOPOHOZEENASPOTIK
             // Если панель уже полностью открыта, не выполняем анимацию
             if (isInfoPanelExpanded) return;
 
-            double panelWidth = 363; // Ширина панели
+            double panelWidth = 338; // Ширина панели
 
             // Анимация для возвращения информационной панели в исходное положение
             var infoPanelAnimation = new DoubleAnimation
@@ -173,7 +173,7 @@ namespace CHOTOPOHOZEENASPOTIK
         // Обработчик кнопки информации
         private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
         {
-            double panelWidth = 363;
+            double panelWidth = 338;
 
             if (!isInfoPanelExpanded)
             {
@@ -272,7 +272,9 @@ namespace CHOTOPOHOZEENASPOTIK
         }
         private void communityBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            CommunityWindow communityWindow = new CommunityWindow();
+            Close();
+            communityWindow.Show();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -285,9 +287,7 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PlanetFrame.Content is PlaylistPage) return;
-            PlanetFrame.Navigate(new PlaylistPage());
-            SetActiveButton(PlaylistButton);
+           
         }
 
         private void SamplesButton_Click(object sender, RoutedEventArgs e)

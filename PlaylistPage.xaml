@@ -11,17 +11,10 @@
       Title="PlaylistPage">
 
     <Grid>
-        <!-- Градиентный фон -->
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#913AC7" Offset="0.0"/>
-                <GradientStop Color="#090909" Offset="0.5"/>
-                <GradientStop Color="#090909" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <!-- Градиентный фон будет установлен в коде -->
 
         <!-- Левая часть с изображением альбома и кнопками -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="100,87,0,90">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="70,87,0,90">
             <Border Background="Gray" Width="351" Height="351" CornerRadius="20">
                 <Grid>
                     <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
@@ -104,7 +97,7 @@
                 <TextBlock Text="#" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
                 <TextBlock Grid.Column="1" Text="Название" Foreground="White" Margin="10,0,0,0"/>
                 <TextBlock Grid.Column="2" Text="Альбом" Foreground="White" Margin="10,0,580,0"/>
-                <Image Source="pack://application:,,,/Images/time.jpg" Margin="459,-5,-52,10" Grid.Column="2" Width="22" Height="22"/>
+                <Image Source="/Images/time.jpg" Margin="459,-5,-52,10" Grid.Column="2" Width="22" Height="22"/>
             </Grid>
             <Border Background="White" Height="1" Margin="0,20,0,0"/>
 
@@ -112,285 +105,15 @@
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="TracksStackPanel">
                     <!-- Примеры треков -->
-                    <Border x:Name="Track1" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track2" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track3" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track4" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track5" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track6" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track7" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track8" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
-                    <Border x:Name="Track9" Background="Transparent" Padding="10" Margin="5" Cursor="Hand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Grid Width="60" Height="60">
-                                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
-                                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="Transparent" CornerRadius="10" Padding="5">
-                                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </Grid>
-                                <StackPanel Margin="10,0,0,0">
-                                    <TextBlock Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                                    <TextBlock Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <TextBlock Grid.Column="1" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Margin="455,0,457,0"/>
-                            <TextBlock Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-                        </Grid>
-                    </Border>
+                    <local:TrackControl TrackNumber="1" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="2" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="3" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="4" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="5" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="6" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="7" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="8" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
+                    <local:TrackControl TrackNumber="9" TrackTitle="luther (with sza)" TrackArtist="Kendrick Lamar, SZA" TrackDuration="03:20" TrackImageSource="Images/placeholder.jpg"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

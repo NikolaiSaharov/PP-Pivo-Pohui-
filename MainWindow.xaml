@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:CHOTOPOHOZEENASPOTIK"
+        xmlns:local="clr-namespace:FirstTask"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="Music Streaming"
         Height="1080" Width="1920"
@@ -138,7 +139,7 @@
                 <StackPanel Grid.Column="3" Orientation="Horizontal"
                             HorizontalAlignment="Right" Margin="0,0,20,0">
                     <!-- Кнопка уведомлений в кружке -->
-                    <Border Width="56" Height="56" Background="#121212" CornerRadius="30" Margin="0,0,380,0">
+                    <Border Width="56" Height="56" Background="#121212" CornerRadius="30" Margin="0,0,370,0">
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
             Width="18" Height="21"
             Padding="0" Background="Transparent" BorderBrush="Transparent">
@@ -146,11 +147,10 @@
                Width="18" Height="21"/>
                         </Button>
                     </Border>
-
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
         Content="Вступить в Community"
         Foreground="White"
-        Background="#171717"
+        Background="#121212"
         Height="35" Width="242" Padding="16,0" Cursor="Hand"
         FontSize="14" FontFamily="SF Pro Display" FontWeight="Bold" Margin="0,0,50,0">
                         <Button.Template>
@@ -158,8 +158,9 @@
                                 <Border CornerRadius="18" Padding="10">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                            <GradientStop Color="#171717" Offset="0.0"/>
-                                            <GradientStop Color="#121212" Offset="1.0"/>
+                                            <GradientStop Color="#121212" Offset="0.0"/>
+                                            <GradientStop Color="#121212" Offset="0.85"/>
+                                            <GradientStop Color="#1E3A8A" Offset="1.0"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -167,12 +168,12 @@
                             </ControlTemplate>
                         </Button.Template>
                         <Button.Effect>
-                            <DropShadowEffect Color="Blue" BlurRadius="2" Opacity="0.5" ShadowDepth="1.25"/>
+                            <DropShadowEffect Color="#1E3A8A" BlurRadius="20" Opacity="0.15" ShadowDepth="0" Direction="270"/>
                         </Button.Effect>
                     </Button>
 
                     <!-- Новые кнопки -->
-                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,10,0">
+                    <Border Width="30" Height="30" Background="#171717" CornerRadius="15" Margin="0,0,10,0">
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                 Width="16" Height="16"
                 Padding="0" 
@@ -182,7 +183,7 @@
                         </Button>
                     </Border>
 
-                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,10,0">
+                    <Border Width="30" Height="30" Background="#171717" CornerRadius="15" Margin="0,0,10,0">
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                 Width="16" Height="16"
                 Padding="0" 
@@ -192,7 +193,7 @@
                         </Button>
                     </Border>
 
-                    <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="0,0,0,0">
+                    <Border Width="30" Height="30" Background="#171717" CornerRadius="15" Margin="0,0,0,0">
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                 Width="16" Height="16"
                 Padding="0" 
@@ -214,8 +215,12 @@
 
             <materialDesign:PopupBox
     PlacementMode="BottomAndAlignRightEdges"
-    Margin="0,0,0,869"
-    StaysOpen="False" Width="50" Grid.Row="1" HorizontalAlignment="Center">
+    Margin="0,0,0,862"
+    StaysOpen="False" 
+    Width="50" 
+    Grid.Row="1" 
+    HorizontalAlignment="Center"  BorderBrush="Transparent" Background="Black" >
+
                 <materialDesign:PopupBox.ToggleContent>
                     <Border Width="48" Height="48"
                 CornerRadius="24"
@@ -230,30 +235,47 @@
                         </Border>
                     </Border>
                 </materialDesign:PopupBox.ToggleContent>
-                <StackPanel Background="Black">
+
+                <StackPanel Background="Black" Margin="0">
+                    <!-- Убираем тени (если они есть) -->
+                    <materialDesign:ShadowAssist.ShadowEdges>
+                        <materialDesign:ShadowEdges>None</materialDesign:ShadowEdges>
+                    </materialDesign:ShadowAssist.ShadowEdges>
+
+                    <!-- Кнопка "Профиль" -->
                     <Button Content="Профиль"
                 Style="{StaticResource MaterialDesignFlatButton}"
-                Background="Black" Foreground="White"
-                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                Background="Black" 
+                Foreground="White"
+                BorderThickness="0"
+                Margin="0"
+                Padding="8,4"
+                MouseEnter="Button_MouseEnter" 
+                MouseLeave="Button_MouseLeave">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Account"
-                                                 Margin="0,0,8,0"/>
+                                    <materialDesign:PackIcon Kind="Account" Margin="0,0,8,0"/>
                                     <TextBlock Text="{Binding}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </Button.ContentTemplate>
                     </Button>
+
+                    <!-- Кнопка "Настройки" -->
                     <Button Content="Настройки"
                 Style="{StaticResource MaterialDesignFlatButton}"
-                Background="Black" Foreground="White"
-                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                Background="Black" 
+                Foreground="White"
+                BorderThickness="0"
+                Margin="0"
+                Padding="8,4"
+                MouseEnter="Button_MouseEnter" 
+                MouseLeave="Button_MouseLeave">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Settings"
-                                                 Margin="0,0,8,0"/>
+                                    <materialDesign:PackIcon Kind="Settings" Margin="0,0,8,0"/>
                                     <TextBlock Text="{Binding}"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -265,7 +287,7 @@
 
             <!-- Первый Border с первыми тремя кнопками -->
             <Border x:Name="LeftPanelTop" Grid.Column="0" Grid.Row="1"
-            Background="#121212" CornerRadius="25" Margin="5,58,5,624">
+            Background="#121212" CornerRadius="25" Margin="5,63,5,671">
                 <StackPanel>
                     <Button x:Name="PlanetButton" Style="{StaticResource MaterialDesignFlatButton}"
                     Margin="5,21,5,5" Height="31" Width="31"
@@ -290,8 +312,8 @@
 
             <!-- Второй Border с оставшимися кнопками -->
             <Border x:Name="LeftPanelBottom" Grid.Column="0" Grid.Row="1"
-            Background="#121212" CornerRadius="25" Margin="5,314,5,5">
-                <StackPanel>
+            Background="#121212" CornerRadius="25" Margin="5,267,5,95" Grid.RowSpan="2">
+                <StackPanel Margin="0,-10,0,10">
                     <Button x:Name="PlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
                     Margin="5,21,5,5" Height="25" Width="25"
                     Padding="0" Click="PlaylistButton_Click">
@@ -340,7 +362,7 @@
             </Border>
 
             <!-- Информационная панель и правая панель -->
-            <Grid Grid.Column="2" Grid.Row="1" Panel.ZIndex="999">
+            <Grid Grid.Column="2" Grid.Row="1" Panel.ZIndex="999" Margin="10,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="361*"/>
                     <RowDefinition Height="559*"/>
@@ -350,7 +372,7 @@
                 <Border x:Name="RightPanel"
         Width="300"
         HorizontalAlignment="Right"
-        Background="#121212"
+        Background="#171717"
         Panel.ZIndex="1000"
         Grid.RowSpan="2"
         Visibility="Collapsed"
@@ -369,7 +391,7 @@
                         Width="363"
                         Background="#121212"
                         Panel.ZIndex="998" 
-                        Grid.RowSpan="2" Margin="-363,0,0,0" RenderTransformOrigin="0.5,0.5" 
+                        Grid.RowSpan="2" Margin="-338,0,0,0" RenderTransformOrigin="0.5,0.5" 
                         Visibility="Collapsed" CornerRadius="20">
                     <Border.RenderTransform>
                         <TranslateTransform x:Name="InfoPanelTransform" X="363"/>
@@ -509,6 +531,9 @@
                         Background="Transparent" BorderBrush="White"
                         Padding="0">
                                     <materialDesign:PackIcon Kind="Play" Foreground="White" Width="40" Height="40"/>
+                                    <i:Interaction.Behaviors>
+                                        <local:PlayPauseButtonBehavior IsPlaying="{Binding IsAudioPlaying, RelativeSource={RelativeSource AncestorType=Window}, Mode=TwoWay}"/>
+                                    </i:Interaction.Behaviors>
                                 </Button>
                                 <Button Style="{StaticResource MaterialDesignFlatButton}"
                         Width="32" Height="32" Margin="5,0"
@@ -544,9 +569,9 @@
 
                         <StackPanel Grid.Column="2" Orientation="Horizontal"
                     HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Margin="0,0,50,0">
+                    Margin="0,0,30,0">
                             <Button Style="{StaticResource MaterialDesignFlatButton}"
-                    Width="32" Height="32" Margin="5,0"
+                    Width="28" Height="32" Margin="5,0"
                     Padding="0">
                                 <Image Source="pack://application:,,,/Images/playlist.jpg"
                        Width="24" Height="20"/>
@@ -572,7 +597,7 @@
             </Grid>
 
             <!-- Frame для контента -->
-            <Frame x:Name="PlanetFrame" Margin="0,0,0,5" 
+            <Frame x:Name="PlanetFrame" Margin="10,0,5,5" 
                    Grid.Row="1" Grid.Column="1" 
                    Navigated="PlanetFrame_Navigated" 
                    BorderBrush="Transparent"/>
