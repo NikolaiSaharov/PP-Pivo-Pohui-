@@ -17,7 +17,7 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="70,87,0,90">
             <Border Background="Gray" Width="351" Height="351" CornerRadius="20">
                 <Grid>
-                    <Image Source="Images/placeholder.jpg" Stretch="Uniform"/>
+                    <Image Source="Images/placeholder1.jpg" Stretch="Uniform"/>
                     <!-- Кнопка с троеточием -->
                     <Button x:Name="EllipsisButton"
                             Width="38" Height="38"
@@ -94,8 +94,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="#" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-                <TextBlock Grid.Column="1" Text="Название" Foreground="White" Margin="10,0,0,0"/>
+                <TextBlock Text="#" Foreground="White" Margin="20,0,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="Название" Foreground="White" Margin="20,0,0,0"/>
                 <TextBlock Grid.Column="2" Text="Альбом" Foreground="White" Margin="10,0,580,0"/>
                 <Image Source="/Images/time.jpg" Margin="459,-5,-52,10" Grid.Column="2" Width="22" Height="22"/>
             </Grid>

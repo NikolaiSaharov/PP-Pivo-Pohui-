@@ -210,7 +210,7 @@ namespace FirstTask
         {
             if (currentlyPlayingTrack != null)
             {
-                currentlyPlayingTrack.Background = isPlaying ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#090909")) : Brushes.Transparent;
+                currentlyPlayingTrack.IsSelected = isPlaying;
                 currentlyPlayingTrack.AnimationPlaceholder.Content = isPlaying
                     ? new EqualizerControl()
                     : null;
@@ -235,7 +235,7 @@ namespace FirstTask
         {
             if (currentlyPlayingTrack != null)
             {
-                currentlyPlayingTrack.Background = Brushes.Transparent;
+                currentlyPlayingTrack.IsSelected = false;
                 currentlyPlayingTrack.AnimationPlaceholder.Content = null;
             }
         }

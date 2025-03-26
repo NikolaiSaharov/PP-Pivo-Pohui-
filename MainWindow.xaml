@@ -219,12 +219,16 @@
     StaysOpen="False" 
     Width="50" 
     Grid.Row="1" 
-    HorizontalAlignment="Center"  BorderBrush="Transparent" Background="Black" >
+    HorizontalAlignment="Center"  
+    BorderBrush="Transparent" 
+    Background="#090909" 
+    Padding="0" 
+    PopupUniformCornerRadius="15">
 
                 <materialDesign:PopupBox.ToggleContent>
                     <Border Width="48" Height="48"
                 CornerRadius="24"
-                Background="#121212"
+                Background="#090909"
                 ClipToBounds="True">
                         <Border Width="38" Height="38"
                     CornerRadius="19"
@@ -236,52 +240,97 @@
                     </Border>
                 </materialDesign:PopupBox.ToggleContent>
 
-                <StackPanel Background="Black" Margin="0">
-                    <!-- Убираем тени (если они есть) -->
-                    <materialDesign:ShadowAssist.ShadowEdges>
-                        <materialDesign:ShadowEdges>None</materialDesign:ShadowEdges>
-                    </materialDesign:ShadowAssist.ShadowEdges>
+                <Border Background="#090909" CornerRadius="7" Padding="0,5,5,5" Margin="0" Width="170">
+                    <StackPanel Background="#090909" MinHeight="50">
+                        <Button Content="Профиль"
+                    Foreground="White"
+                    Background="Transparent"
+                    HorizontalContentAlignment="Stretch"
+                    Margin="0">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid Background="Transparent">
+                                                    <Border x:Name="background" 
+                                                Background="Transparent" 
+                                                CornerRadius="4"
+                                                Margin="5,2,5,2">
+                                                        <ContentPresenter HorizontalAlignment="Left"
+                                                              VerticalAlignment="Center"
+                                                              Margin="8,6,8,6"/>
+                                                    </Border>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="background" Property="Background" Value="#171717"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <Button.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent">
+                                        <materialDesign:PackIcon Kind="Account"
+                                        Margin="5,0,8,0"
+                                        Foreground="White"/>
+                                        <TextBlock Text="{Binding}" Foreground="White"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Button.ContentTemplate>
+                        </Button>
 
-                    <!-- Кнопка "Профиль" -->
-                    <Button Content="Профиль"
-                Style="{StaticResource MaterialDesignFlatButton}"
-                Background="Black" 
-                Foreground="White"
-                BorderThickness="0"
-                Margin="0"
-                Padding="8,4"
-                MouseEnter="Button_MouseEnter" 
-                MouseLeave="Button_MouseLeave">
-                        <Button.ContentTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Account" Margin="0,0,8,0"/>
-                                    <TextBlock Text="{Binding}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Button.ContentTemplate>
-                    </Button>
-
-                    <!-- Кнопка "Настройки" -->
-                    <Button Content="Настройки"
-                Style="{StaticResource MaterialDesignFlatButton}"
-                Background="Black" 
-                Foreground="White"
-                BorderThickness="0"
-                Margin="0"
-                Padding="8,4"
-                MouseEnter="Button_MouseEnter" 
-                MouseLeave="Button_MouseLeave">
-                        <Button.ContentTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Settings" Margin="0,0,8,0"/>
-                                    <TextBlock Text="{Binding}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Button.ContentTemplate>
-                    </Button>
-                </StackPanel>
+                        <Button Content="Настройки"
+                    Foreground="White"
+                    Background="Transparent"
+                    HorizontalContentAlignment="Stretch"
+                    Margin="0">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid Background="Transparent">
+                                                    <Border x:Name="background" 
+                                                Background="Transparent" 
+                                                CornerRadius="4"
+                                                Margin="5,2,5,2">
+                                                        <ContentPresenter HorizontalAlignment="Left"
+                                                              VerticalAlignment="Center"
+                                                              Margin="8,6,8,6"/>
+                                                    </Border>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="background" Property="Background" Value="#171717"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <Button.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent">
+                                        <materialDesign:PackIcon Kind="Settings"
+                                        Margin="5,0,8,0"
+                                        Foreground="White"/>
+                                        <TextBlock Text="{Binding}" Foreground="White"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Button.ContentTemplate>
+                        </Button>
+                    </StackPanel>
+                </Border>
             </materialDesign:PopupBox>
 
 
