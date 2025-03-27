@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="FirstTask.TrackArtistControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FirstTask"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#000000" CornerRadius="10" Opacity="0.3" Grid.ColumnSpan="2"/>
+        <Image x:Name="TrackImage" Source="Images/placeholder.jpg" Stretch="Uniform" Width="60" Height="60">
+            <Image.Clip>
+                <EllipseGeometry RadiusX="40" RadiusY="40" Center="30,30"/>
+            </Image.Clip>
+        </Image>
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="tbTrackTitle" Text="luther (with sza)" FontSize="18" Foreground="White" FontFamily="SF Pro Display" FontWeight="Bold" Margin="10,12,0,0"/>
+            <TextBlock x:Name="tbTrackArtist" Text="Kendrick Lamar, SZA" FontSize="18" Foreground="#9B9B9B" FontFamily="SF Pro Display" FontWeight="DemiBold" Margin="10,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

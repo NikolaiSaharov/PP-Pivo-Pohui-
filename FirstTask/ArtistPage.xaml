@@ -1,0 +1,105 @@
+﻿<Page x:Class="FirstTask.ArtistPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FirstTask"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1787"
+      Title="ArtistPage">
+
+    <Border CornerRadius="10" Background="#FF121212">
+        <Grid Background="Transparent" Cursor="">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="30" Background="#FF5F6A6A" Width="1732" Height="500">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Travis Scott" FontSize="48" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Grid.Row="1" Margin="40,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button Style="{DynamicResource RoundedButtonStyle}" Background="#8393FE" Foreground="White" Grid.Column="1" Grid.Row="1" Height="51" Width="208" Content="Подписаться" FontSize="24" FontFamily="SF Pro Display" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2">
+                        <TextBlock Text="0 прослушиваний за месяц" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
+                        <TextBlock Text="0 подписчиков" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
+                        <TextBlock Text="0 Prime подписчиков" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <ScrollViewer Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34"/>
+                        <!-- Для TextBlock -->
+                        <RowDefinition Height="*"/>
+                        <!-- Для списка треков -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock 
+                         Text="Выбор исполнителя" 
+                         Foreground="White" 
+                         FontFamily="Inter Medium" 
+                         FontSize="20" Margin="30,0,0,0"/>
+
+                    <TextBlock 
+                        Text="Популярное" 
+                        Foreground="White" 
+                        FontFamily="Inter Medium" 
+                        FontSize="20"
+                        Grid.Row="0" Grid.Column="1" Margin="30,0,0,0"/>
+
+                    <Border Grid.Row="1" Height="180" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,10,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Background="#000000" Grid.ColumnSpan="2" Opacity="0.3" CornerRadius="10"/>
+
+                            <Image x:Name="TrackImage" Source="Images/4x4.png" Stretch="Uniform" 
+                                 Width="158" Height="158">
+                                <Image.Clip>
+                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,158,158"/>
+                                </Image.Clip>
+                            </Image>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Трек" FontSize="12" Foreground="#9B9B9B" FontFamily="SF Pro Display" Margin="0,30,0,0" />
+                                <TextBlock Text="4x4" FontSize="18" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Margin="0,20,0,0"/>
+                                <TextBlock Text="Автор публикации: Travis Scott" FontSize="18" Foreground="#9B9B9B" FontFamily="SF Pro Display" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,10,0,0" Width="178" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <UniformGrid Grid.Row="1" Grid.Column="1" Columns="3" HorizontalAlignment="Left" Margin="30,0,0,0">
+                        <StackPanel>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                        </StackPanel>
+                        <StackPanel Margin="20,0,0,0">
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                        </StackPanel>
+                        <StackPanel Margin="20,0,0,0">
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>

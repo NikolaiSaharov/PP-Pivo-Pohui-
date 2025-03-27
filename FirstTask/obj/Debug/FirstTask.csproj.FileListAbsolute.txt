@@ -48,3 +48,7 @@ C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\Fir
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\TrackControl.baml
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\EqualizerControl.g.cs
 C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\EqualizerControl.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\ArtistPage.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\TrackArtistControl.g.cs
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\ArtistPage.baml
+C:\Users\My\OneDrive\Документы\конспекты\ПП 01\FirstTask\FirstTask\FirstTask\obj\Debug\TrackArtistControl.baml
