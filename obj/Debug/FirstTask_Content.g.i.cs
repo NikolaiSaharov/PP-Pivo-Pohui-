@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/community.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/mini.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/max.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/time.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/minimize.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/maximize.jpg")]

@@ -44,7 +44,7 @@
       <HintPath>..\packages\MaterialDesignThemes.4.8.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.135\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -80,6 +80,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Otvet.xaml.cs">
+      <DependentUpon>Otvet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PhoneEntryWindow.xaml.cs">
       <DependentUpon>PhoneEntryWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,9 @@
       <DependentUpon>PlaylistPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayPauseButtonBehavior.cs" />
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
@@ -99,12 +105,14 @@
     <Compile Include="Samples.xaml.cs">
       <DependentUpon>Samples.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SliderValueToHeightConverter.cs" />
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TrackControl.xaml.cs">
       <DependentUpon>TrackControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueToHeightConverter.cs" />
     <Page Include="EqualizerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +140,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Otvet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PhoneEntryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +153,9 @@
     </Page>
     <Page Include="PlaylistPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProfileWindow.xaml">
@@ -244,7 +258,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\community.jpg" />
+    <Content Include="Images\mini.jpg" />
+    <Content Include="Images\max.jpg" />
+    <Resource Include="Images\xolidayboy.jpg" />
     <Resource Include="Images\placeholder1.jpg" />
+    <Resource Include="Images\kish.jpg" />
+    <Resource Include="Images\Neyro1.jpg" />
+    <Resource Include="Images\Neyro2.jpg" />
+    <Resource Include="Images\Neyro3.jpg" />
+    <Resource Include="Images\Neyro4.jpg" />
+    <Resource Include="Images\Neyro5.jpg" />
     <Content Include="Images\time.jpg" />
     <Content Include="Images\minimize.jpg" />
     <Content Include="Images\maximize.jpg" />

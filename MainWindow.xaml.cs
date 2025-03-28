@@ -1,6 +1,9 @@
 using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -51,6 +54,32 @@ namespace CHOTOPOHOZEENASPOTIK
                 RightPanel.Width = 338; // Фиксируем ширину панели (можно настроить)
             };
         }
+        private void SliderThumb_DragDelta(object sender, DragDeltaEventArgs e)
+        {
+            double newHeight = 120 - e.VerticalChange; // 120 - полная высота слайдера
+            if (newHeight < 0) newHeight = 0;
+            if (newHeight > 120) newHeight = 120;
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+        private void MiniPlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Логика для открытия мини-плеера
+            MessageBox.Show("Мини-плеер открыт");
+        }
+
+        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Логика для перехода в полноэкранный режим
+            MessageBox.Show("Полноэкранный режим");
+
+            // Пример реализации полноэкранного режима:
+            // this.WindowState = WindowState.Maximized;
+            // this.WindowStyle = WindowStyle.None;
+        }
+
         private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
         {
             // Если панель уже полностью открыта, не выполняем анимацию
@@ -112,6 +141,29 @@ namespace CHOTOPOHOZEENASPOTIK
 
             PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
         }
+        public class SliderValueToHeightConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                double sliderValue = (double)value;
+                double maxHeight = 120; // Максимальная высота слайдера
+                return sliderValue / 100 * maxHeight; // Преобразование значения (0-100) в высоту (0-120)
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double volume = e.NewValue; // Значение от 0 до 100
+            Console.WriteLine($"Громкость: {volume}");
+            // Здесь можно добавить логику для управления громкостью, например:
+            // mediaPlayer.Volume = volume / 100.0;
+        }
+
+
 
 
         // Обработчик кнопки переключения панели справа
@@ -289,6 +341,31 @@ namespace CHOTOPOHOZEENASPOTIK
         {
            
         }
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Проверяем, не открыта ли уже страница профиля
+            if (PlanetFrame.Content is ProfilePage) return;
+
+            // Переходим на страницу профиля
+            PlanetFrame.Visibility = Visibility.Visible;
+            PlanetFrame.Navigate(new ProfilePage());
+
+            // Закрываем правую панель, если она открыта
+            if (isRightPanelExpanded)
+            {
+                ToggleRightPanel();
+            }
+
+            // Закрываем информационную панель, если она открыта
+            if (isInfoPanelExpanded)
+            {
+                ToggleInfoPanel_Click(null, null);
+            }
+        }
+        private void VolumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            VolumePopup.IsOpen = !VolumePopup.IsOpen;
+        }
 
         private void SamplesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -341,6 +418,20 @@ namespace CHOTOPOHOZEENASPOTIK
             {
                 button.Background = Brushes.Black;
             }
+        }
+        private void OnMeretMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            // Закрыть текущую страницу (если нужно)
+            PlanetFrame.Visibility = Visibility.Collapsed;
+
+            // Навигация на страницу Otvet
+            PlanetFrame.Navigate(new Otvet());
+        }
+        private void ScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            ScreenContextMenu.PlacementTarget = ScreenButton;
+            ScreenContextMenu.IsOpen = true;
+            e.Handled = true; // Предотвращаем всплытие события
         }
     }
 }

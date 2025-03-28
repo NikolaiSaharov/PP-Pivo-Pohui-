@@ -1,0 +1,250 @@
+<Page x:Class="FirstTask.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      d:DesignHeight="900" d:DesignWidth="1787"
+      Title="ProfilePage"
+      Background="#FF121212">
+
+	<Page.Resources>
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontFamily" Value="Segoe UI"/>
+		</Style>
+
+		<Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Background" Value="#FF282828"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="8"/>
+			<Setter Property="Margin" Value="0,0,10,0"/>
+		</Style>
+
+		<Style x:Key="SubscribeButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Background" Value="#FF282828"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="12,6"/>
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="Width" Value="170"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}" CornerRadius="20">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Page.Resources>
+
+	<ScrollViewer VerticalScrollBarVisibility="Hidden">
+		<StackPanel>
+			<!-- Banner and Profile Header -->
+			<Grid>
+                <!-- Banner with Rounded Corners -->
+                <Border CornerRadius="20" Margin="20" Height="300" VerticalAlignment="Top">
+                    <Border.ContextMenu>
+                        <ContextMenu Background="Transparent" BorderBrush="Transparent">
+                            <Border Background="#090909" CornerRadius="7" Padding="0" Margin="0" Width="170">
+                                <StackPanel Background="#090909">
+                                    <Button Content="Редактировать"
+                            Foreground="White"
+                            Background="Transparent"
+                            HorizontalContentAlignment="Stretch"
+                            Margin="0">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Grid Background="Transparent">
+                                                                <Border x:Name="background"
+                                                        Background="Transparent"
+                                                        CornerRadius="4"
+                                                        Margin="0">
+                                                                    <ContentPresenter HorizontalAlignment="Left"
+                                                                      VerticalAlignment="Center"
+                                                                      Margin="8,6,8,6"/>
+                                                                </Border>
+                                                            </Grid>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter TargetName="background" Property="Background" Value="#171717"/>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                        <Button.ContentTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left"
+                                            Background="Transparent">
+                                                    <materialDesign:PackIcon Kind="Account"
+                                                             Margin="5,0,8,0"
+                                                             Foreground="White"/>
+                                                    <TextBlock Text="{Binding}" Foreground="White"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </Button.ContentTemplate>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </ContextMenu>
+                    </Border.ContextMenu>
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,1747,300"/>
+                    </Border.Clip>
+                    <Image Source="pack://application:,,,/Images/placeholder.jpg" Stretch="UniformToFill"/>
+                </Border>
+
+
+                <!-- Profile Section -->
+				<StackPanel Margin="40,220,40,30">
+					<!-- Profile Picture -->
+					<Ellipse Width="180" Height="180" VerticalAlignment="Top" Margin="30,0,0,-90" HorizontalAlignment="Left">
+						<Ellipse.Fill>
+							<ImageBrush ImageSource="pack://application:,,,/Images/placeholder.jpg"/>
+						</Ellipse.Fill>
+					</Ellipse>
+
+					<!-- Profile Info -->
+					<Grid Margin="0,90,0,0">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+						<!-- Name -->
+						<TextBlock Grid.Column="0" Text="Еlysium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,88,0"/>
+
+						<!-- Subscribe Button -->
+						<Button Grid.Column="1" Content="Подписаться" Style="{StaticResource SubscribeButtonStyle}"
+                                Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
+					</Grid>
+					<TextBlock Text="@Elysium#5369" FontSize="18" Opacity="0.7"/>
+					<TextBlock FontSize="14" Opacity="0.7" RenderTransformOrigin="0.5,0.009" Height="27" Width="1708">
+						<Run Text="0 открытых плейлистов"/>
+						<Run Text=" "/>
+						<Run Text=" • "/>
+						<Run Text=" "/>
+						<Run Text="0 подписок на исполнителей"/>
+						<Run Text=" "/>
+						<Run Text=" • "/>
+						<Run Text=" "/>
+						<Run Text="0 Prime"/>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+
+			<!-- Section Title -->
+			<TextBlock Text="Любимые треки месяца" FontSize="24" FontWeight="Bold" Margin="40,0,40,20" Height="35"/>
+
+			<!-- Favorite Tracks Section -->
+			<ItemsControl Margin="40,0,40,40">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel Orientation="Horizontal"/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemContainerStyle>
+					<Style>
+						<Setter Property="FrameworkElement.Margin" Value="0,0,20,20"/>
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Width="180">
+							<Border Width="176" Height="176" CornerRadius="8" Background="#FF282828">
+								<Image Source="pack://application:,,,/Images/placeholder.jpg" Stretch="UniformToFill"/>
+							</Border>
+							<TextBlock Text="Название трека" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+							<TextBlock Text="Описание" FontSize="14" Opacity="0.7"/>
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+				<StackPanel>
+					<Border Width="176" Height="176" CornerRadius="8" Background="#FF282828">
+						<Image Source="pack://application:,,,/Images/placeholder.jpg" Stretch="UniformToFill"/>
+					</Border>
+					<TextBlock Text="Трек 1" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+					<TextBlock Text="Описание" FontSize="14" Opacity="0.7"/>
+				</StackPanel>
+				<StackPanel>
+					<Border Width="176" Height="176" CornerRadius="8" Background="#FF282828">
+						<Image Source="pack://application:,,,/Images/placeholder.jpg" Stretch="UniformToFill"/>
+					</Border>
+					<TextBlock Text="Трек 2" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+					<TextBlock Text="Описание" FontSize="14" Opacity="0.7"/>
+				</StackPanel>
+			</ItemsControl>
+
+
+			<!-- Section: Top Artists -->
+			<TextBlock Text="Топ исполнители этого месяца" FontSize="24" FontWeight="Bold" Margin="40,0,40,20"/>
+
+			<StackPanel Margin="40,0,40,40">
+				<!-- Artist 1 -->
+				<StackPanel Width="180" Margin="0,0,0,20" HorizontalAlignment="Left">
+					<Border Width="176" Height="176" CornerRadius="8">
+						<Border.Background>
+							<ImageBrush ImageSource="pack://application:,,,/Images/xolidayboy.jpg" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+					<TextBlock Text="Xolidayboy" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" TextAlignment="Center"/>
+				</StackPanel>
+
+				<!-- Artist 2 -->
+				<StackPanel Width="180" Margin="0,0,0,20" HorizontalAlignment="Left">
+					<Border Width="176" Height="176" CornerRadius="8">
+						<Border.Background>
+							<ImageBrush ImageSource="pack://application:,,,/Images/kish.jpg" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+					<TextBlock Text="КиШ" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" TextAlignment="Center"/>
+				</StackPanel>
+			</StackPanel>
+
+			<!-- Section: Playlists -->
+			<TextBlock Text="Открытые плейлисты" FontSize="24" FontWeight="Bold" Margin="40,0,40,20"/>
+
+			<StackPanel Margin="40,0,40,40">
+				<StackPanel Width="180" Margin="0,0,0,20" HorizontalAlignment="Left">
+					<Border Width="176" Height="176" Background="#FF282828" CornerRadius="8"/>
+					<TextBlock Text="Название" FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+					<TextBlock Text="Описание" FontSize="14" Opacity="0.7"/>
+				</StackPanel>
+			</StackPanel>
+
+			<!-- Section: Subscriptions -->
+			<TextBlock Text="Подписки" FontSize="24" FontWeight="Bold" Margin="40,0,40,20"/>
+
+			<StackPanel Margin="40,0,40,40">
+				<StackPanel Width="180" Margin="0,0,0,20" HorizontalAlignment="Left">
+					<Border Width="176" Height="176" Background="#FF282828" CornerRadius="8"/>
+					<TextBlock Text="Исполнитель" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" TextAlignment="Center"/>
+				</StackPanel>
+			</StackPanel>
+
+			<!-- Section: Prime Subscriptions -->
+			<TextBlock Text="Prime подписки на исполнителей" FontSize="24" FontWeight="Bold" Margin="40,0,40,20"/>
+
+			<StackPanel Margin="40,0,40,40">
+				<StackPanel Width="180" Margin="0,0,0,20" HorizontalAlignment="Left">
+					<Border Width="176" Height="176" Background="#FF282828" CornerRadius="8"/>
+					<TextBlock Text="Prime Исполнитель" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" TextAlignment="Center"/>
+				</StackPanel>
+			</StackPanel>
+
+			<!-- Empty space at the bottom -->
+			<StackPanel Height="100"/>
+		</StackPanel>
+	</ScrollViewer>
+</Page>

@@ -278,5 +278,26 @@ namespace CHOTOPOHOZEENASPOTIK
         {
             NavigationService.Navigate(new PlaylistPage());
         }
+        private void OnMeretMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            // Переход на страницу Otvet внутри этой страницы (если нужно)
+            NavigationService.Navigate(new Otvet());
+        }
+        private void Remix_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Otvet());
+        }
+        private void Raspoznat_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Otvet());
+        }
+        private void Rasskazi_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Otvet());
+        }
+        private void Tune_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Otvet());
+        }
     }
 }
