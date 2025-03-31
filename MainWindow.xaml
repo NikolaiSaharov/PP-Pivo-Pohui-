@@ -40,44 +40,40 @@
 
         <Style x:Key="CustomVerticalSliderStyle" TargetType="Slider">
             <Setter Property="Background" Value="Transparent"/>
-            <!-- Прозрачный фон -->
             <Setter Property="Foreground" Value="White"/>
-            <!-- Белая активная часть -->
             <Setter Property="Width" Value="38"/>
-            <!-- Увеличиваем ширину слайдера до 32 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Slider">
                         <Grid>
-                            <!-- Фон слайдера (прозрачный) -->
-                            <Rectangle Fill="{TemplateBinding Background}" 
-                       Width="38" 
-                       Height="Auto" 
-                        RadiusX="20" 
-                       RadiusY="20"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Stretch"/>
+                            <!-- Серый фон слайдера (теперь видимый) -->
+                            <Rectangle Fill="#FF424242" 
+                               Width="38" 
+                               Height="147" 
+                               RadiusX="20" 
+                               RadiusY="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"/>
 
-                            <!-- Активная часть (белая полоска, шире и с более скругленными углами) -->
+                            <!-- Активная часть (белая полоска) -->
                             <Rectangle x:Name="ActivePart" 
-                       Fill="{TemplateBinding Foreground}" 
-                       Width="38" 
-                       RadiusX="20" 
-                       RadiusY="20"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Bottom">
+                               Fill="{TemplateBinding Foreground}" 
+                               Width="38" 
+                               RadiusX="20" 
+                               RadiusY="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom">
                                 <Rectangle.Height>
                                     <Binding Path="Value" 
-                             RelativeSource="{RelativeSource TemplatedParent}" 
-                             Converter="{StaticResource HeightConverter}"/>
+                                     RelativeSource="{RelativeSource TemplatedParent}" 
+                                     Converter="{StaticResource HeightConverter}"/>
                                 </Rectangle.Height>
                             </Rectangle>
 
-                            <!-- Невидимый Thumb для обработки кликов (тоже шире) -->
+                            <!-- Невидимый Thumb для обработки кликов -->
                             <Track x:Name="PART_Track" VerticalAlignment="Stretch">
                                 <Track.Thumb>
                                     <Thumb Width="38" Height="38" Opacity="0"/>
-                                    <!-- Увеличиваем Thumb до 32 -->
                                 </Track.Thumb>
                             </Track>
                         </Grid>
@@ -654,25 +650,25 @@
 
                             <!-- Popup с вертикальным слайдером громкости -->
                             <Popup x:Name="VolumePopup" 
-                               PlacementTarget="{Binding ElementName=VolumeButton}"
-                               Placement="Top" 
-                               StaysOpen="False" 
-                               AllowsTransparency="True"
-                               PopupAnimation="Slide" 
-                               VerticalOffset="-10">
+       PlacementTarget="{Binding ElementName=VolumeButton}"
+       Placement="Top" 
+       StaysOpen="False" 
+       AllowsTransparency="True"
+       PopupAnimation="Slide" 
+       VerticalOffset="-10">
                                 <Border Width="40" 
-                                    Height="150" 
-                                    Background="#FF424242" 
-                                    CornerRadius="20"
-                                    Padding="0">
+            Height="150" 
+            Background="Transparent" 
+            CornerRadius="20"
+            Padding="0">
                                     <Slider x:Name="VolumeSlider" 
-                                        Minimum="0" 
-                                        Maximum="122.5" 
-                                        Value="50"
-                                        Orientation="Vertical" 
-                                        Height="147" 
-                                        Style="{StaticResource CustomVerticalSliderStyle}"
-                                        ValueChanged="VolumeSlider_ValueChanged"/>
+                Minimum="0" 
+                Maximum="122.5" 
+                Value="50"
+                Orientation="Vertical" 
+                Height="147" 
+                Style="{StaticResource CustomVerticalSliderStyle}"
+                ValueChanged="VolumeSlider_ValueChanged"/>
                                 </Border>
                             </Popup>
 

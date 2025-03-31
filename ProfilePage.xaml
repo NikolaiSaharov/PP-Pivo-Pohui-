@@ -14,6 +14,7 @@
 			<Setter Property="Foreground" Value="White"/>
 			<Setter Property="FontFamily" Value="Segoe UI"/>
 		</Style>
+        
 
 		<Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
 			<Setter Property="Foreground" Value="White"/>
@@ -23,24 +24,30 @@
 			<Setter Property="Margin" Value="0,0,10,0"/>
 		</Style>
 
-		<Style x:Key="SubscribeButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
-			<Setter Property="Foreground" Value="White"/>
-			<Setter Property="Background" Value="#FF282828"/>
-			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="Padding" Value="12,6"/>
-			<Setter Property="FontSize" Value="20"/>
-			<Setter Property="Width" Value="170"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="Button">
-						<Border Background="{TemplateBinding Background}" CornerRadius="20">
-							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-						</Border>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</Page.Resources>
+        <Style x:Key="SubscribeButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF282828"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7"/>
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
 	<ScrollViewer VerticalScrollBarVisibility="Hidden">
 		<StackPanel>
@@ -126,9 +133,10 @@
 						<TextBlock Grid.Column="0" Text="Еlysium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,88,0"/>
 
 						<!-- Subscribe Button -->
-						<Button Grid.Column="1" Content="Подписаться" Style="{StaticResource SubscribeButtonStyle}"
-                                Foreground="White" FontWeight="Bold" VerticalAlignment="Center"/>
-					</Grid>
+                        <Button Grid.Column="1" Content="Подписаться" Style="{StaticResource SubscribeButtonStyle}"
+        Foreground="White" FontWeight="Bold" VerticalAlignment="Center"
+        Click="SubscribeButton_Click" Name="SubscribeButton"/>
+                    </Grid>
 					<TextBlock Text="@Elysium#5369" FontSize="18" Opacity="0.7"/>
 					<TextBlock FontSize="14" Opacity="0.7" RenderTransformOrigin="0.5,0.009" Height="27" Width="1708">
 						<Run Text="0 открытых плейлистов"/>

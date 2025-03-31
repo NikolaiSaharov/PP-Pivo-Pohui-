@@ -50,11 +50,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave1" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="850" Duration="0:0:9"/>
+                                            From="0" To="600" Duration="0:0:12"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave1" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="425" Duration="0:0:9"/>
+                                            From="0" To="300" Duration="0:0:12"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -83,11 +83,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave2" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="800" Duration="0:0:7" BeginTime="0:0:0.5"/>
+                                            From="0" To="550" Duration="0:0:10" BeginTime="0:0:2"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave2" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="400" Duration="0:0:7" BeginTime="0:0:0.5"/>
+                                            From="0" To="275" Duration="0:0:10" BeginTime="0:0:2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -116,11 +116,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave3" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="750" Duration="0:0:6" BeginTime="0:0:1"/>
+                                            From="0" To="500" Duration="0:0:8" BeginTime="0:0:4"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave3" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="375" Duration="0:0:6" BeginTime="0:0:1"/>
+                                            From="0" To="250" Duration="0:0:8" BeginTime="0:0:4"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -149,11 +149,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave4" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="700" Duration="0:0:5" BeginTime="0:0:1.5"/>
+                                            From="0" To="450" Duration="0:0:6" BeginTime="0:0:6"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave4" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="350" Duration="0:0:5" BeginTime="0:0:1.5"/>
+                                            From="0" To="225" Duration="0:0:6" BeginTime="0:0:6"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -182,11 +182,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave5" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="650" Duration="0:0:4" BeginTime="0:0:2"/>
+                                            From="0" To="400" Duration="0:0:4" BeginTime="0:0:8"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave5" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="325" Duration="0:0:4" BeginTime="0:0:2"/>
+                                            From="0" To="200" Duration="0:0:4" BeginTime="0:0:8"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
