@@ -272,7 +272,11 @@ namespace CHOTOPOHOZEENASPOTIK
                 frame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             }
         }
- 
+        private void tbTrackArtist_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PlanetFrame.Navigate(new ArtistPage());
+        }
+
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
         }

@@ -31,7 +31,7 @@
                 </Grid>
                 <StackPanel Margin="10,0,0,0">
                     <TextBlock x:Name="tbTrackTitle" Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock x:Name="tbTrackArtist" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
+                    <TextBlock x:Name="tbTrackArtist" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Cursor="Hand" PreviewMouseDown="tbTrackArtist_PreviewMouseDown"/>
                 </StackPanel>
             </StackPanel>
             <!-- Место для анимации -->

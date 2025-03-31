@@ -400,7 +400,7 @@
                             <TextBlock Text="Название" Foreground="White"
                                    FontSize="14" FontWeight="Medium"/>
                             <TextBlock Text="Автор" Foreground="#FF808080"
-                                   FontSize="12" Margin="0,2,0,0"/>
+                                   FontSize="12" Margin="0,2,0,0" Cursor="Hand" PreviewMouseDown="tbTrackArtist_PreviewMouseDown"/>
                         </StackPanel>
                         <Button x:Name="addToPlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
                             Width="32" Height="32" Margin="10,0,0,0"

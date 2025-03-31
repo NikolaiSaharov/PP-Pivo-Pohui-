@@ -1,5 +1,6 @@
 ﻿using CHOTOPOHOZEENASPOTIK;
 using Microsoft.Xaml.Behaviors;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,16 @@ namespace FirstTask
                 if (track is TrackControl trackControl)
                 {
                     trackControl.OnTrackClicked += TrackControl_OnTrackClicked;
+                    trackControl.ArtistClicked += OnArtistClicked;
                 }
+            }
+        }
+
+        private void OnArtistClicked(object sender, EventArgs e)
+        {
+            if (Window.GetWindow(this) is MainWindow mainWindow)
+            {
+                mainWindow.PlanetFrame.Navigate(new ArtistPage());
             }
         }
 

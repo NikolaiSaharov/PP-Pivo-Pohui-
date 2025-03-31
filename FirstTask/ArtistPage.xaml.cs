@@ -1,28 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FirstTask
 {
-    /// <summary>
-    /// Логика взаимодействия для ArtistPage.xaml
-    /// </summary>
     public partial class ArtistPage : Page
     {
         public ArtistPage()
         {
             InitializeComponent();
+        }
+
+        private void primeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            primeGrd.Visibility = Visibility.Visible;
+        }
+
+        private void quitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            primeGrd.Visibility = Visibility.Hidden;
+        }
+
+        private void unsubscribeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            buttonPanels.Visibility = Visibility.Hidden;
+            subscribeBtn.Visibility = Visibility.Visible;
+        }
+
+        private void subscribeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            buttonPanels.Visibility = Visibility.Visible;
+            subscribeBtn.Visibility = Visibility.Hidden;
         }
     }
 }

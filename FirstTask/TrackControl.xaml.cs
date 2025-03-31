@@ -8,9 +8,16 @@ namespace FirstTask
     public partial class TrackControl : UserControl
     {
         public event EventHandler<TrackControl> OnTrackClicked;
+        public event EventHandler ArtistClicked;
         public TrackControl()
         {
             InitializeComponent();
+        }
+
+        private void tbTrackArtist_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ArtistClicked?.Invoke(this, EventArgs.Empty);
+            e.Handled = true;
         }
 
         private void TrackBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

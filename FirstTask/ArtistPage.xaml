@@ -4,17 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FirstTask"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1787"
+      d:DesignHeight="600" d:DesignWidth="1191"
       Title="ArtistPage">
 
-    <Border CornerRadius="10" Background="#FF121212">
+    <Border CornerRadius="7" Background="#FF121212">
         <Grid Background="Transparent" Cursor="">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border CornerRadius="30" Background="#FF5F6A6A" Width="1732" Height="500">
+
+            <Border CornerRadius="20" Background="#FF5F6A6A" Width="1155" Height="333">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="4*"/>
@@ -25,22 +27,34 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Travis Scott" FontSize="48" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Grid.Row="1" Margin="40,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <Button Style="{DynamicResource RoundedButtonStyle}" Background="#8393FE" Foreground="White" Grid.Column="1" Grid.Row="1" Height="51" Width="208" Content="Подписаться" FontSize="24" FontFamily="SF Pro Display" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,40,0"/>
+
+                    <TextBlock Text="Travis Scott" FontSize="32" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Grid.Row="1" Margin="27,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button x:Name="subscribeBtn" Style="{DynamicResource RoundedButtonStyle}" Background="#8393FE" Foreground="White" Grid.Column="1" Grid.Row="1" Height="34" Width="139" Content="Подписаться" FontSize="16" FontFamily="SF Pro Display"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,27,0" Click="subscribeBtn_Click"/>
+
+                    <StackPanel x:Name="buttonPanels" Orientation="Horizontal"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,27,0" Visibility="Hidden">
+                        <Button x:Name="primeBtn" Style="{DynamicResource RoundedButtonStyle}" Foreground="#FFFFFF"  Height="34" Width="160" Content="Prime подписка" FontSize="16" FontFamily="SF Pro Display" Margin="0,0,13,0" Click="primeBtn_Click" >
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                                    <GradientStop Color="#FF6AA7E6"/>
+                                    <GradientStop Color="#FF690EE6" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="unsubscribeBtn" Style="{DynamicResource RoundedButtonStyle}" Background="#2D2D2D" Foreground="#5E5E5E"  Height="34" Width="139" Content="Отписаться" FontSize="16" FontFamily="SF Pro Display" Margin="0,0,0,0" Click="unsubscribeBtn_Click"/>
+                    </StackPanel>
+
                     <StackPanel Orientation="Horizontal" Grid.Row="2">
-                        <TextBlock Text="0 прослушиваний за месяц" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
-                        <TextBlock Text="0 подписчиков" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
-                        <TextBlock Text="0 Prime подписчиков" FontSize="20" FontFamily="SF Pro Display" Foreground="White" Margin="40,0,0,0"/>
+                        <TextBlock Text="0 прослушиваний за месяц" FontSize="13" FontFamily="SF Pro Display" Foreground="White" Margin="27,0,0,0"/>
+                        <TextBlock Text="0 подписчиков" FontSize="13" FontFamily="SF Pro Display" Foreground="White" Margin="27,0,0,0"/>
+                        <TextBlock Text="0 Prime подписчиков" FontSize="13" FontFamily="SF Pro Display" Foreground="White" Margin="27,0,0,0"/>
                     </StackPanel>
                 </Grid>
             </Border>
             <ScrollViewer Grid.Row="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="34"/>
-                        <!-- Для TextBlock -->
+                        <RowDefinition Height="23"/>
                         <RowDefinition Height="*"/>
-                        <!-- Для списка треков -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -51,55 +65,115 @@
                          Text="Выбор исполнителя" 
                          Foreground="White" 
                          FontFamily="Inter Medium" 
-                         FontSize="20" Margin="30,0,0,0"/>
+                         FontSize="13" Margin="20,0,0,0"/>
 
                     <TextBlock 
                         Text="Популярное" 
                         Foreground="White" 
                         FontFamily="Inter Medium" 
-                        FontSize="20"
-                        Grid.Row="0" Grid.Column="1" Margin="30,0,0,0"/>
+                        FontSize="13"
+                        Grid.Row="0" Grid.Column="1" Margin="20,0,0,0"/>
 
-                    <Border Grid.Row="1" Height="180" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,10,0,0">
+                    <Border Grid.Row="1" Height="120" Width="267" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,7,0,0">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Background="#000000" Grid.ColumnSpan="2" Opacity="0.3" CornerRadius="10"/>
+                            <Border Background="#000000" Grid.ColumnSpan="2" Opacity="0.3" CornerRadius="7"/>
 
                             <Image x:Name="TrackImage" Source="Images/4x4.png" Stretch="Uniform" 
-                                 Width="158" Height="158">
+                                 Width="105" Height="105">
                                 <Image.Clip>
-                                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,158,158"/>
+                                    <RectangleGeometry RadiusX="13" RadiusY="13" Rect="0,0,105,105"/>
                                 </Image.Clip>
                             </Image>
 
                             <StackPanel Grid.Column="1">
-                                <TextBlock Text="Трек" FontSize="12" Foreground="#9B9B9B" FontFamily="SF Pro Display" Margin="0,30,0,0" />
-                                <TextBlock Text="4x4" FontSize="18" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Margin="0,20,0,0"/>
-                                <TextBlock Text="Автор публикации: Travis Scott" FontSize="18" Foreground="#9B9B9B" FontFamily="SF Pro Display" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,10,0,0" Width="178" HorizontalAlignment="Left"/>
+                                <TextBlock Text="Трек" FontSize="8" Foreground="#9B9B9B" FontFamily="SF Pro Display" Margin="0,20,0,0" />
+                                <TextBlock Text="4x4" FontSize="12" Foreground="White" FontFamily="SF Pro Display" FontWeight="SemiBold" Margin="0,13,0,0"/>
+                                <TextBlock Text="Автор публикации: Travis Scott" FontSize="12" Foreground="#9B9B9B" FontFamily="SF Pro Display" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,7,0,0" Width="119" HorizontalAlignment="Left"/>
                             </StackPanel>
                         </Grid>
                     </Border>
 
-                    <UniformGrid Grid.Row="1" Grid.Column="1" Columns="3" HorizontalAlignment="Left" Margin="30,0,0,0">
+                    <UniformGrid Grid.Row="1" Grid.Column="1" Columns="3" HorizontalAlignment="Left" Margin="20,0,0,0">
                         <StackPanel>
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
                         </StackPanel>
-                        <StackPanel Margin="20,0,0,0">
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                        <StackPanel Margin="13,0,0,0">
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
                         </StackPanel>
-                        <StackPanel Margin="20,0,0,0">
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
-                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="400" Height="80" Margin="0,10,0,0"/>
+                        <StackPanel Margin="13,0,0,0">
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
+                            <local:TrackArtistControl TrackImageSource="/Images/4x4.png" TrackTitle="4x4" TrackArtist="Travis Scott" Width="267" Height="53" Margin="0,7,0,0"/>
                         </StackPanel>
                     </UniformGrid>
                 </Grid>
             </ScrollViewer>
+            <Grid x:Name="primeGrd" Height="533" Width="467" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,27,0,0" Visibility="Hidden">
+                <Border CornerRadius="27" BorderThickness="1" ClipToBounds="True">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                            <GradientStop Color="White"/>
+                            <GradientStop Color="#FF4A4848" Offset="1"/>
+                            <GradientStop Color="#FFBBBBBB" Offset="0.368"/>
+                            <GradientStop Color="#FF807D7D" Offset="0.692"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                </Border>
+                <Border Background="#808080" Opacity="0.8" CornerRadius="27">
+                    <Border.Effect>
+                        <BlurEffect Radius="33" KernelType="Gaussian"/>
+                    </Border.Effect>
+                </Border>
+
+                <Border Width="431" Height="204" VerticalAlignment="Top" Margin="0,27,0,0" CornerRadius="27" BorderThickness="1">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                            <GradientStop Color="White"/>
+                            <GradientStop Color="#FF393939" Offset="1"/>
+                            <GradientStop Color="#FFB4B3B3" Offset="0.326"/>
+                            <GradientStop Color="#FF737373" Offset="0.591"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF6AA4E6"/>
+                            <GradientStop Color="Gray" Offset="0.992"/>
+                            <GradientStop Color="#FF6A13E6" Offset="0.318"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Button x:Name="quitBtn" Style="{DynamicResource RoundedButtonStyle}" Height="32" Width="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,11,0,0" Background="Gray" Opacity="0.5" Click="quitBtn_Click">
+                            <Button.Effect>
+                                <DropShadowEffect 
+                                    Color="White"
+                                    Opacity="0.8"
+                                    BlurRadius="5"
+                                    Direction="-90"
+                                    ShadowDepth="-10"/>
+                            </Button.Effect>
+                            <Image Source="/Images/cross.png" Width="17" Height="17">
+                                <Image.Effect>
+                                    <DropShadowEffect 
+                                        Color="White"
+                                        Opacity="0.9"
+                                        BlurRadius="4"
+                                        Direction="0"
+                                        ShadowDepth="-5"/>
+                                </Image.Effect>
+                            </Image>
+                        </Button>
+                        <Ellipse Fill="White" Height="129" Width="129" VerticalAlignment="Top" Margin="0,14,0,0"/>
+                        <TextBlock Text="Travis Scott Prime" Width="221" Height="40" FontFamily="SF Pro Display" FontSize="27" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Bottom" Margin="0,0,0,13"/>
+                    </Grid>
+                </Border>
+                <TextBlock Text="Готовься к эксклюзиву! Prime-подписка на исполнителя станет доступна совсем скоро!" FontSize="20" Width="309" TextWrapping="Wrap" FontWeight="SemiBold" TextAlignment="Center" FontFamily="SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Opacity="0.5" Margin="0,173,0,0"/>
+            </Grid>
         </Grid>
     </Border>
 </Page>
