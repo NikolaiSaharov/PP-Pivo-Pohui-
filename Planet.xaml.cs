@@ -16,6 +16,7 @@ namespace CHOTOPOHOZEENASPOTIK
     {
         private readonly ColorAnimation[] gradientAnimations;
         private int currentLevel = 0;
+        private readonly Dictionary<MenuItem, ColorAnimation[]> menuItemAnimations = new Dictionary<MenuItem, ColorAnimation[]>();
 
         private readonly Dictionary<string, Color[]> moodColors = new Dictionary<string, Color[]>
         {
@@ -129,6 +130,164 @@ namespace CHOTOPOHOZEENASPOTIK
 
             StartGradientAnimation();
             UpdateLevelIndicators();
+            Loaded += (s, e) => SetupMenuItemsAnimations();
+        }
+        private void SetupMenuItemsAnimations()
+        {
+            // Находим все MenuItem в ContextMenu
+            foreach (var card in FindVisualChildren<Card>(this))
+            {
+                if (card.ContextMenu != null)
+                {
+                    foreach (var item in card.ContextMenu.Items)
+                    {
+                        if (item is MenuItem menuItem)
+                        {
+                            menuItem.MouseEnter += MenuItem_MouseEnter;
+                            menuItem.MouseLeave += MenuItem_MouseLeave;
+                            PrepareMenuItemAnimation(menuItem);
+                        }
+                    }
+                }
+            }
+        }
+        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject parent) where T : DependencyObject
+        {
+            if (parent == null) yield break;
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T result)
+                {
+                    yield return result;
+                }
+
+                foreach (var descendant in FindVisualChildren<T>(child))
+                {
+                    yield return descendant;
+                }
+            }
+        }
+
+        private void PrepareMenuItemAnimation(MenuItem menuItem)
+        {
+            var gradient = new LinearGradientBrush
+            {
+                StartPoint = new Point(0, 0),
+                EndPoint = new Point(1, 1)
+            };
+
+            // Добавляем GradientStop с цветами
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(183, 0, 255), 0));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(0, 40, 255), 0.125));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(70, 207, 255), 0.25));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(81, 28, 232), 0.375));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(170, 145, 255), 0.5));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(78, 115, 255), 0.625));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(210, 0, 255), 0.75));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(0, 16, 200), 0.875));
+            gradient.GradientStops.Add(new GradientStop(Color.FromRgb(136, 0, 255), 1));
+
+            // Создаем анимации для каждого GradientStop
+            var animations = new ColorAnimation[gradient.GradientStops.Count];
+            for (int i = 0; i < gradient.GradientStops.Count; i++)
+            {
+                int nextIndex = (i + 1) % gradient.GradientStops.Count;
+                animations[i] = new ColorAnimation
+                {
+                    From = gradient.GradientStops[i].Color,
+                    To = gradient.GradientStops[nextIndex].Color,
+                    Duration = TimeSpan.FromSeconds(5),
+                    AutoReverse = true,
+                    RepeatBehavior = RepeatBehavior.Forever
+                };
+            }
+
+            menuItemAnimations[menuItem] = animations;
+
+            // Находим Rectangle в визуальном дереве и устанавливаем градиент
+            var border = FindVisualChild<Border>(menuItem);
+            if (border != null)
+            {
+                var rect = FindVisualChild<Rectangle>(border);
+                if (rect != null && rect.Name == "HoverRect")
+                {
+                    rect.Fill = gradient;
+                }
+            }
+        }
+        private void MenuItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is MenuItem menuItem && menuItemAnimations.TryGetValue(menuItem, out var animations))
+            {
+                // Находим Rectangle в визуальном дереве
+                var border = FindVisualChild<Border>(menuItem);
+                if (border != null)
+                {
+                    var rect = FindVisualChild<Rectangle>(border);
+                    if (rect != null && rect.Name == "HoverRect")
+                    {
+                        var gradient = rect.Fill as LinearGradientBrush;
+                        if (gradient != null)
+                        {
+                            // Запускаем анимации
+                            for (int i = 0; i < gradient.GradientStops.Count && i < animations.Length; i++)
+                            {
+                                gradient.GradientStops[i].BeginAnimation(GradientStop.ColorProperty, animations[i]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void MenuItem_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is MenuItem menuItem)
+            {
+                // Находим Rectangle в визуальном дереве
+                var border = FindVisualChild<Border>(menuItem);
+                if (border != null)
+                {
+                    var rect = FindVisualChild<Rectangle>(border);
+                    if (rect != null && rect.Name == "HoverRect")
+                    {
+                        var gradient = rect.Fill as LinearGradientBrush;
+                        if (gradient != null)
+                        {
+                            // Останавливаем анимации
+                            for (int i = 0; i < gradient.GradientStops.Count; i++)
+                            {
+                                gradient.GradientStops[i].BeginAnimation(GradientStop.ColorProperty, null);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Вспомогательный метод для поиска дочерних элементов определенного типа
+        private static T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        {
+            if (parent == null) return null;
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T result)
+                {
+                    return result;
+                }
+
+                var descendant = FindVisualChild<T>(child);
+                if (descendant != null)
+                {
+                    return descendant;
+                }
+            }
+
+            return null;
         }
 
         private void StartGradientAnimation()

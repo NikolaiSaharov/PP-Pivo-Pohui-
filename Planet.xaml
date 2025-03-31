@@ -10,6 +10,17 @@
       Title="PlanetPage" Cursor="">
 
     <Page.Resources>
+        <LinearGradientBrush x:Key="MenuItemHoverGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#B700FF" Offset="0"/>
+            <GradientStop Color="#0028FF" Offset="0.125"/>
+            <GradientStop Color="#46CFFF" Offset="0.25"/>
+            <GradientStop Color="#511CE8" Offset="0.375"/>
+            <GradientStop Color="#AA91FF" Offset="0.5"/>
+            <GradientStop Color="#4E73FF" Offset="0.625"/>
+            <GradientStop Color="#D200FF" Offset="0.75"/>
+            <GradientStop Color="#0010C8" Offset="0.875"/>
+            <GradientStop Color="#8800FF" Offset="1"/>
+        </LinearGradientBrush>
         <Style x:Key="MoodButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
@@ -126,39 +137,46 @@
 
         <!-- Стиль для пунктов меню -->
         <Style TargetType="MenuItem">
-    <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="Foreground" Value="White"/>
-    <Setter Property="FontFamily" Value="Inter"/>
-    <Setter Property="FontSize" Value="13"/>
-    <Setter Property="Padding" Value="10,5"/>
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="MenuItem">
-                <Border Background="{TemplateBinding Background}"
-                        Padding="{TemplateBinding Padding}"
-                        CornerRadius="5">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <ContentPresenter ContentSource="Icon" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/> <!-- Добавлен Margin -->
-                        <ContentPresenter ContentSource="Header" Grid.Column="1" VerticalAlignment="Center"/>
-                    </Grid>
-                </Border>
-                <ControlTemplate.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#33FFFFFF"/>
-                    </Trigger>
-                </ControlTemplate.Triggers>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-</Style>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="MenuItem">
+                        <Border x:Name="Border" 
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            CornerRadius="5">
+                            <Grid>
+                                <Rectangle x:Name="HoverRect" 
+                                     Fill="{StaticResource MenuItemHoverGradient}"
+                                     Opacity="0"
+                                     RadiusX="5" RadiusY="5"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter ContentSource="Icon" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    <ContentPresenter ContentSource="Header" Grid.Column="1" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="HoverRect" Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid>
-        <!-- Animated gradient background -->
+        <!-- Анимированный фон -->
         <Rectangle x:Name="BackgroundRect" Panel.ZIndex="0">
             <Rectangle.Fill>
                 <LinearGradientBrush x:Name="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
@@ -350,7 +368,7 @@
                     </WrapPanel>
                 </Grid>
 
-                <!-- Bottom frame with categories -->
+                <!-- Кнопки категорий -->
                 <Grid Grid.Row="1" Margin="0,20,0,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
