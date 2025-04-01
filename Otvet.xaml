@@ -28,8 +28,8 @@
 
             <Grid>
                 <Canvas x:Name="WaveCanvas">
-                    <!-- Волна 1 -->
-                    <Path Stroke="#6038B0" StrokeThickness="1.5" Opacity="0.12">
+                    <!-- Волна 1 (основная) -->
+                    <Path Stroke="Black" StrokeThickness="1.5" Opacity="0.12">
                         <Path.Effect>
                             <BlurEffect Radius="12"/>
                         </Path.Effect>
@@ -62,7 +62,7 @@
                     </Path>
 
                     <!-- Волна 2 -->
-                    <Path Stroke="#7D5AE0" StrokeThickness="1.8" Opacity="0.14">
+                    <Path Stroke="Black" StrokeThickness="1.8" Opacity="0.14">
                         <Path.Effect>
                             <BlurEffect Radius="10"/>
                         </Path.Effect>
@@ -83,11 +83,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave2" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="550" Duration="0:0:10" BeginTime="0:0:2"/>
+                                            From="0" To="550" Duration="0:0:10" BeginTime="0:0:4"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave2" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="275" Duration="0:0:10" BeginTime="0:0:2"/>
+                                            From="0" To="275" Duration="0:0:10" BeginTime="0:0:4"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -95,7 +95,7 @@
                     </Path>
 
                     <!-- Волна 3 -->
-                    <Path Stroke="#9B72FF" StrokeThickness="2" Opacity="0.16">
+                    <Path Stroke="Black" StrokeThickness="2" Opacity="0.16">
                         <Path.Effect>
                             <BlurEffect Radius="8"/>
                         </Path.Effect>
@@ -116,11 +116,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave3" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="500" Duration="0:0:8" BeginTime="0:0:4"/>
+                                            From="0" To="500" Duration="0:0:8" BeginTime="0:0:8"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave3" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="250" Duration="0:0:8" BeginTime="0:0:4"/>
+                                            From="0" To="250" Duration="0:0:8" BeginTime="0:0:8"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -128,7 +128,7 @@
                     </Path>
 
                     <!-- Волна 4 -->
-                    <Path Stroke="#B18AFF" StrokeThickness="2.2" Opacity="0.18">
+                    <Path Stroke="Black" StrokeThickness="2.2" Opacity="0.18">
                         <Path.Effect>
                             <BlurEffect Radius="6"/>
                         </Path.Effect>
@@ -149,11 +149,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave4" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="450" Duration="0:0:6" BeginTime="0:0:6"/>
+                                            From="0" To="450" Duration="0:0:6" BeginTime="0:0:12"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave4" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="225" Duration="0:0:6" BeginTime="0:0:6"/>
+                                            From="0" To="225" Duration="0:0:6" BeginTime="0:0:12"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -161,7 +161,7 @@
                     </Path>
 
                     <!-- Волна 5 -->
-                    <Path Stroke="#D0B5FF" StrokeThickness="2.5" Opacity="0.2">
+                    <Path Stroke="Black" StrokeThickness="2.5" Opacity="0.2">
                         <Path.Effect>
                             <BlurEffect Radius="4"/>
                         </Path.Effect>
@@ -182,11 +182,11 @@
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave5" 
                                             Storyboard.TargetProperty="RadiusX" 
-                                            From="0" To="400" Duration="0:0:4" BeginTime="0:0:8"/>
+                                            From="0" To="400" Duration="0:0:4" BeginTime="0:0:16"/>
                                         <DoubleAnimation 
                                             Storyboard.TargetName="Wave5" 
                                             Storyboard.TargetProperty="RadiusY" 
-                                            From="0" To="200" Duration="0:0:4" BeginTime="0:0:8"/>
+                                            From="0" To="200" Duration="0:0:4" BeginTime="0:0:16"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>

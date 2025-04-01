@@ -441,7 +441,7 @@
                         </Grid>
                     </Border>
 
-                    <ScrollViewer Grid.Row="1" Background="#090909" Margin="0,0,0,-13">
+                    <ScrollViewer Grid.Row="1" Background="#121212" Margin="0,0,0,-13" VerticalScrollBarVisibility="Hidden">
                         <WrapPanel x:Name="TracksContainer" Margin="20">
                             <materialDesign:Card Width="176" Height="250" Margin="5" Background="#0909">
                                 <Grid>
@@ -461,7 +461,7 @@
                                     </StackPanel>
                                 </Grid>
                                 <materialDesign:Card.ContextMenu>
-                                    <ContextMenu>
+                                    <ContextMenu Background="#090909">
                                         <MenuItem Header="Что думает Meret?" Click="OnMeretMenuItemClick">
                                             <MenuItem.Icon>
                                                 <Image Source="pack://application:,,,/Images/Neyro1.jpg" Width="21" Height="21"/>

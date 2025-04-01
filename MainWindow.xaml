@@ -716,8 +716,11 @@
                                                                             </ControlTemplate>
                                                                         </Button.Template>
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Image Source="pack://application:,,,/FirstTask;component/Images/mini.jpg"
-                                                       Width="18" Height="18" Margin="0,0,12,0"/>
+                                                                            <!-- Изменения в Image -->
+                                                                            <Image Source="pack://application:,,,/Images/mini.jpg"
+                                                       Width="18" Height="18" Margin="0,0,12,0"
+                                                       SnapsToDevicePixels="True"
+                                                       RenderOptions.BitmapScalingMode="HighQuality"/>
                                                                             <TextBlock Text="Открыть мини-плеер"
                                                            Foreground="White"
                                                            VerticalAlignment="Center"/>
@@ -750,8 +753,11 @@
                                                                             </ControlTemplate>
                                                                         </Button.Template>
                                                                         <StackPanel Orientation="Horizontal">
-                                                                            <Image Source="pack://application:,,,/FirstTask;component/Images/max.jpg"
-                                                       Width="18" Height="18" Margin="0,0,12,0"/>
+                                                                            <!-- Изменения в Image -->
+                                                                            <Image Source="pack://application:,,,/Images/max.jpg"
+                                                       Width="18" Height="18" Margin="0,0,12,0"
+                                                       SnapsToDevicePixels="True"
+                                                       RenderOptions.BitmapScalingMode="HighQuality"/>
                                                                             <TextBlock Text="Полный экран"
                                                            Foreground="White"
                                                            VerticalAlignment="Center"/>
