@@ -655,7 +655,7 @@
        StaysOpen="False" 
        AllowsTransparency="True"
        PopupAnimation="Slide" 
-       VerticalOffset="-10">
+       VerticalOffset="-35">
                                 <Border Width="40" 
             Height="150" 
             Background="Transparent" 
@@ -681,7 +681,7 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Padding="0"
-                     VerticalOffset="-5">
+                     VerticalOffset="-45">
                                         <ContextMenu.Style>
                                             <Style TargetType="ContextMenu">
                                                 <Setter Property="OverridesDefaultStyle" Value="True"/>

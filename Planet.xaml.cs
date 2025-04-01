@@ -458,5 +458,37 @@ namespace CHOTOPOHOZEENASPOTIK
         {
             NavigationService.Navigate(new Otvet());
         }
+
+        private void CreateMix_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Создание микса началось!");
+        }
+
+
+
+        private void AddToLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Трек добавлен в медиатеку!");
+        }
+
+        private void AddToQueue_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Трек добавлен в очередь!");
+        }
+
+        private void MixByArtist_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Создание микса по исполнителю началось!");
+        }
+
+        private void AddToPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Трек добавлен в плейлист!");
+        }
+
+        private void Share_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Функция поделиться треком!");
+        }
     }
 }

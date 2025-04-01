@@ -11,15 +11,12 @@
 
     <Page.Resources>
         <LinearGradientBrush x:Key="MenuItemHoverGradient" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#B700FF" Offset="0"/>
-            <GradientStop Color="#0028FF" Offset="0.125"/>
-            <GradientStop Color="#46CFFF" Offset="0.25"/>
-            <GradientStop Color="#511CE8" Offset="0.375"/>
-            <GradientStop Color="#AA91FF" Offset="0.5"/>
-            <GradientStop Color="#4E73FF" Offset="0.625"/>
-            <GradientStop Color="#D200FF" Offset="0.75"/>
-            <GradientStop Color="#0010C8" Offset="0.875"/>
-            <GradientStop Color="#8800FF" Offset="1"/>
+            <GradientStop Color="#FF6F61" Offset="0"/>
+            <!-- Оранжево-розовый -->
+            <GradientStop Color="#FF9A8B" Offset="0.5"/>
+            <!-- Более светлый оттенок -->
+            <GradientStop Color="#FF6F61" Offset="1"/>
+            <!-- Возвращаемся к первому цвету -->
         </LinearGradientBrush>
         <Style x:Key="MoodButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
@@ -115,19 +112,23 @@
             </Setter>
         </Style>
 
-        <!-- Стиль для контекстного меню -->
         <Style TargetType="ContextMenu">
-            <Setter Property="Background" Value="#FF1E1E1E"/>
+            <Setter Property="Background" Value="#FF000000"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Padding" Value="3"/>
+            <!-- Было 5, уменьшено до 5 / 1.5 ≈ 3 -->
+            <Setter Property="Width" Value="220"/>
+            <!-- Было 300, уменьшено до 300 / 1.5 = 200 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ContextMenu">
                         <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="10">
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="13" 
+                            Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}">
                             <StackPanel IsItemsHost="True"/>
                         </Border>
                     </ControlTemplate>
@@ -140,26 +141,35 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="Inter"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <!-- Было 18, уменьшено до 18 / 1.5 = 12 -->
+            <Setter Property="Padding" Value="7,7"/>
+            <!-- Было 10,10, уменьшено до 10 / 1.5 ≈ 7 -->
+            <Setter Property="MinHeight" Value="40"/>
+            <!-- Было 60, уменьшено до 60 / 1.5 = 40 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="MenuItem">
                         <Border x:Name="Border" 
-                            Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}"
-                            CornerRadius="5">
+                        Background="{TemplateBinding Background}"
+                        Padding="{TemplateBinding Padding}"
+                        CornerRadius="17">
+                            <!-- Было 25, уменьшено до 25 / 1.5 ≈ 17 -->
                             <Grid>
                                 <Rectangle x:Name="HoverRect" 
-                                     Fill="{StaticResource MenuItemHoverGradient}"
-                                     Opacity="0"
-                                     RadiusX="5" RadiusY="5"/>
+                                   Fill="{StaticResource MenuItemHoverGradient}"
+                                   Opacity="0"
+                                   Margin="-3" 
+                                    RadiusX="17" RadiusY="17"/>
+                                <!-- Было 25, уменьшено до 17 -->
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <!-- Было 60, уменьшено до 60 / 1.5 = 40 -->
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter ContentSource="Icon" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    <ContentPresenter ContentSource="Icon" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,13,0"/>
+                                    <!-- Было 20, уменьшено до 20 / 1.5 ≈ 13 -->
                                     <ContentPresenter ContentSource="Header" Grid.Column="1" VerticalAlignment="Center"/>
                                 </Grid>
                             </Grid>
@@ -454,37 +464,44 @@
                                     <ContextMenu>
                                         <MenuItem Header="Что думает Meret?" Click="OnMeretMenuItemClick">
                                             <MenuItem.Icon>
-                                                <Image Source="pack://application:,,,/Images/Neyro1.jpg" Width="14" Height="14"/>
+                                                <Image Source="pack://application:,,,/Images/Neyro1.jpg" Width="21" Height="21"/>
+                                                <!-- Увеличиваем размер иконки -->
                                             </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Создать микс">
+                                        <MenuItem Header="Создать микс" Click="CreateMix_Click">
                                             <MenuItem.Icon>
-                                                <Image Source="pack://application:,,,/Images/Neyro2.jpg" Width="14" Height="14"/>
+                                                <Image Source="pack://application:,,,/Images/Neyro2.jpg" Width="18" Height="18"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Создать ремикс">
+                                        <MenuItem Header="Создать ремикс" Click="Remix_Click">
                                             <MenuItem.Icon>
-                                                <Image Source="pack://application:,,,/Images/Neyro3.jpg" Width="14" Height="14"/>
+                                                <Image Source="pack://application:,,,/Images/Neyro3.jpg" Width="18" Height="18"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Добавить в медиатеку">
+                                        <MenuItem Header="Добавить в медиатеку" Click="AddToLibrary_Click">
                                             <MenuItem.Icon>
-                                                <Image Source="pack://application:,,,/Images/Neyro4.jpg" Width="14" Height="14"/>
+                                                <Image Source="pack://application:,,,/Images/Neyro4.jpg" Width="21" Height="21"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Добавить в очередь">
+                                        <MenuItem Header="Добавить в очередь" Click="AddToQueue_Click">
                                             <MenuItem.Icon>
-                                                <Image Source="pack://application:,,,/Images/Neyro5.jpg" Width="14" Height="14"/>
+                                                <Image Source="pack://application:,,,/Images/Neyro5.jpg" Width="21" Height="21"/>
                                             </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Микс по исполнителю">
-                                            
+                                        <MenuItem Header="Микс по исполнителю" Click="MixByArtist_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="pack://application:,,,/Images/Neyro6.jpg" Width="21" Height="21"/>
+                                            </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Добавить в плейлист">
-
+                                        <MenuItem Header="Добавить в плейлист" Click="AddToPlaylist_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="pack://application:,,,/Images/Neyro7.jpg" Width="21" Height="21"/>
+                                            </MenuItem.Icon>
                                         </MenuItem>
-                                        <MenuItem Header="Поделится">
-
+                                        <MenuItem Header="Поделиться" Click="Share_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="pack://application:,,,/Images/Neyro8.jpg" Width="21" Height="21"/>
+                                            </MenuItem.Icon>
                                         </MenuItem>
                                     </ContextMenu>
                                 </materialDesign:Card.ContextMenu>
