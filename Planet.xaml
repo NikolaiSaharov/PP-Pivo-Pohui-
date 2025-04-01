@@ -126,7 +126,7 @@
                         <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="13" 
+                        CornerRadius="17" 
                             Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}">
                             <StackPanel IsItemsHost="True"/>
