@@ -14,6 +14,7 @@ namespace CHOTOPOHOZEENASPOTIK
 {
     public partial class Planet : Page
     {
+        public Grid ContentContainer => this.ContentContainerGrid;
         private readonly ColorAnimation[] gradientAnimations;
         private int currentLevel = 0;
         private readonly Dictionary<MenuItem, ColorAnimation[]> menuItemAnimations = new Dictionary<MenuItem, ColorAnimation[]>();
@@ -292,7 +293,7 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void StartGradientAnimation()
         {
-            var gradient = (LinearGradientBrush)BackgroundRect.Fill;
+            var gradient = (LinearGradientBrush)BackgroundBorder.Background;
 
             ConfigureAnimation(gradientAnimations[0], Color.FromRgb(183, 0, 255), Color.FromRgb(0, 40, 255), gradient.GradientStops[0]);
             ConfigureAnimation(gradientAnimations[1], Color.FromRgb(0, 40, 255), Color.FromRgb(70, 207, 255), gradient.GradientStops[1]);
@@ -325,7 +326,8 @@ namespace CHOTOPOHOZEENASPOTIK
             {
                 if (child is Button btn)
                 {
-                    btn.Background = Brushes.Transparent;
+                    // Возвращаем кнопкам стандартный стиль из XAML
+                    btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#171717"));
                     btn.Foreground = Brushes.Gray;
                 }
             }
@@ -381,7 +383,7 @@ namespace CHOTOPOHOZEENASPOTIK
         {
             if (moodColors.TryGetValue(mood, out var colors))
             {
-                var gradient = (LinearGradientBrush)BackgroundRect.Fill;
+                var gradient = (LinearGradientBrush)BackgroundBorder.Background;
 
                 // Останавливаем текущие анимации
                 for (int i = 0; i < gradient.GradientStops.Count; i++)
@@ -412,16 +414,32 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void UpdateLevelIndicators()
         {
-            Level1Indicator.Width = currentLevel == 0 ? 20 : 10;
-            Level1Indicator.Height = currentLevel == 0 ? 20 : 10;
-            Level2Indicator.Width = currentLevel == 1 ? 20 : 10;
-            Level2Indicator.Height = currentLevel == 1 ? 20 : 10;
-            Level3Indicator.Width = currentLevel == 2 ? 20 : 10;
-            Level3Indicator.Height = currentLevel == 2 ? 20 : 10;
-            Level4Indicator.Width = currentLevel == 3 ? 20 : 10;
-            Level4Indicator.Height = currentLevel == 3 ? 20 : 10;
-            Level5Indicator.Width = currentLevel == 4 ? 20 : 10;
-            Level5Indicator.Height = currentLevel == 4 ? 20 : 10;
+            // Сбрасываем все индикаторы к прозрачному белому
+            Level1Indicator.Fill = new SolidColorBrush(Color.FromArgb(0x4D, 0xFF, 0xFF, 0xFF));
+            Level2Indicator.Fill = new SolidColorBrush(Color.FromArgb(0x4D, 0xFF, 0xFF, 0xFF));
+            Level3Indicator.Fill = new SolidColorBrush(Color.FromArgb(0x4D, 0xFF, 0xFF, 0xFF));
+            Level4Indicator.Fill = new SolidColorBrush(Color.FromArgb(0x4D, 0xFF, 0xFF, 0xFF));
+            Level5Indicator.Fill = new SolidColorBrush(Color.FromArgb(0x4D, 0xFF, 0xFF, 0xFF));
+
+            // Устанавливаем непрозрачный белый для текущего уровня
+            switch (currentLevel)
+            {
+                case 0:
+                    Level1Indicator.Fill = Brushes.White;
+                    break;
+                case 1:
+                    Level2Indicator.Fill = Brushes.White;
+                    break;
+                case 2:
+                    Level3Indicator.Fill = Brushes.White;
+                    break;
+                case 3:
+                    Level4Indicator.Fill = Brushes.White;
+                    break;
+                case 4:
+                    Level5Indicator.Fill = Brushes.White;
+                    break;
+            }
         }
 
         private void UpdateContent()
@@ -431,6 +449,9 @@ namespace CHOTOPOHOZEENASPOTIK
             Level3.Visibility = currentLevel == 2 ? Visibility.Visible : Visibility.Collapsed;
             Level4.Visibility = currentLevel == 3 ? Visibility.Visible : Visibility.Collapsed;
             Level5.Visibility = currentLevel == 4 ? Visibility.Visible : Visibility.Collapsed;
+
+            // Сбрасываем прокрутку в начало
+            LevelScrollViewer.ScrollToTop();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

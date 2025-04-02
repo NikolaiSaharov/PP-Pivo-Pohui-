@@ -98,65 +98,38 @@ namespace CHOTOPOHOZEENASPOTIK
 
         private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            // Если панель уже полностью открыта, не выполняем анимацию
             if (isInfoPanelExpanded) return;
 
-            double panelWidth = 338; // Ширина панели
-            double partialOpenOffset = panelWidth - 40; // Выдвигаем на 40 пикселей от левого края
+            double panelWidth = 338;
+            double partialOpenOffset = panelWidth - 40;
 
-            // Анимация для выдвижения информационной панели
             var infoPanelAnimation = new DoubleAnimation
             {
-                From = panelWidth, // Начальное положение за правым краем
-                To = partialOpenOffset, // Конечное положение — 40 пикселей от левого края
+                From = panelWidth,
+                To = partialOpenOffset,
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
             InfoPanel.Visibility = Visibility.Visible;
             InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
-
-            // Анимация для смещения контента влево (если нужно)
-            var contentMarginAnimation = new ThicknessAnimation
-            {
-                From = PlanetFrame.Margin,
-                To = new Thickness(0, 0, 40, 0), // Смещаем контент на 40 пикселей
-                Duration = TimeSpan.FromSeconds(0.3),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-            };
-
-            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
         }
 
         private void ToggleInfoButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            // Если панель уже полностью открыта, не выполняем анимацию
             if (isInfoPanelExpanded) return;
 
-            double panelWidth = 338; // Ширина панели
-
-            // Анимация для возвращения информационной панели в исходное положение
             var infoPanelAnimation = new DoubleAnimation
             {
-                From = InfoPanelTransform.X, // Текущее положение
-                To = 500, // Возвращаем панель за правый край
+                From = InfoPanelTransform.X,
+                To = 500,
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
             InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
-
-            // Анимация для возвращения контента в исходное положение
-            var contentMarginAnimation = new ThicknessAnimation
-            {
-                From = PlanetFrame.Margin,
-                To = new Thickness(0), // Возвращаем контент в исходное положение
-                Duration = TimeSpan.FromSeconds(0.3),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-            };
-
-            PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
         }
+
         public class SliderValueToHeightConverter : IValueConverter
         {
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -192,7 +165,7 @@ namespace CHOTOPOHOZEENASPOTIK
         {
             if (RightPanel == null || PlanetFrame == null) return;
 
-            double rightPanelWidth = RightPanel.Width; // Используем фиксированную ширину
+            double rightPanelWidth = RightPanel.Width;
 
             var rightPanelAnimation = new DoubleAnimation
             {
@@ -200,7 +173,7 @@ namespace CHOTOPOHOZEENASPOTIK
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
 
-            var frameMarginAnimation = new ThicknessAnimation
+            var contentAnimation = new ThicknessAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -208,48 +181,60 @@ namespace CHOTOPOHOZEENASPOTIK
 
             if (!isRightPanelExpanded)
             {
-                // Анимация для появления панели справа налево
+                // Анимация панели
                 rightPanelAnimation.From = rightPanelWidth;
                 rightPanelAnimation.To = 0;
                 RightPanel.Visibility = Visibility.Visible;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
-                // Анимация для смещения контента влево
-                frameMarginAnimation.From = PlanetFrame.Margin;
-                frameMarginAnimation.To = new Thickness(0, 0, rightPanelWidth, 0);
-                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
+                // Анимация контента внутри страницы
+                if (PlanetFrame.Content is Planet planetPage)
+                {
+                    contentAnimation.From = new Thickness(0);
+                    contentAnimation.To = new Thickness(0, 0, rightPanelWidth, 0);
+                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
+                }
             }
             else
             {
-                // Анимация для скрытия панели вправо
+                // Анимация панели
                 rightPanelAnimation.From = 0;
                 rightPanelAnimation.To = rightPanelWidth;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
-                // Анимация для возвращения контента в исходное положение
-                frameMarginAnimation.From = PlanetFrame.Margin;
-                frameMarginAnimation.To = new Thickness(0);
-                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, frameMarginAnimation);
+                // Анимация контента внутри страницы
+                if (PlanetFrame.Content is Planet planetPage)
+                {
+                    contentAnimation.From = planetPage.ContentContainer.Margin;
+                    contentAnimation.To = new Thickness(0);
+                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
+                }
 
-                // Скрываем панель после завершения анимации
                 rightPanelAnimation.Completed += (s, e) => RightPanel.Visibility = Visibility.Collapsed;
             }
 
             isRightPanelExpanded = !isRightPanelExpanded;
         }
 
+
         // Обработчик кнопки информации
         private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
         {
             double panelWidth = 338;
 
+            var contentAnimation = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
             if (!isInfoPanelExpanded)
             {
-                // Анимация для появления панели справа налево
+                // Анимация панели
                 var infoPanelTranslateAnimation = new DoubleAnimation
                 {
-                    From = panelWidth, // Начальное положение за правым краем
-                    To = 0,            // Конечное положение — видимая область
+                    From = panelWidth,
+                    To = 0,
                     Duration = TimeSpan.FromSeconds(0.3),
                     EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
@@ -257,21 +242,21 @@ namespace CHOTOPOHOZEENASPOTIK
                 InfoPanel.Visibility = Visibility.Visible;
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
-                // Анимация для смещения контента влево
-                contentMarginAnimation.From = PlanetFrame.Margin;
-                contentMarginAnimation.To = new Thickness(0, 0, panelWidth, 0);
-                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
-
-                var icon = ToggleInfoButton.Content as PackIcon;
-                if (icon != null) icon.Kind = PackIconKind.Close;
+                // Анимация контента внутри страницы
+                if (PlanetFrame.Content is Planet planetPage)
+                {
+                    contentAnimation.From = new Thickness(0);
+                    contentAnimation.To = new Thickness(0, 0, panelWidth, 0);
+                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
+                }
             }
             else
             {
-                // Анимация для скрытия панели вправо
+                // Анимация панели
                 var infoPanelTranslateAnimation = new DoubleAnimation
                 {
-                    From = 0,            // Начальное положение — видимая область
-                    To = panelWidth,      // Конечное положение за правым краем
+                    From = 0,
+                    To = panelWidth,
                     Duration = TimeSpan.FromSeconds(0.3),
                     EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
@@ -279,13 +264,13 @@ namespace CHOTOPOHOZEENASPOTIK
                 infoPanelTranslateAnimation.Completed += (s, ev) => InfoPanel.Visibility = Visibility.Collapsed;
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
-                // Анимация для возвращения контента в исходное положение
-                contentMarginAnimation.From = PlanetFrame.Margin;
-                contentMarginAnimation.To = new Thickness(0);
-                PlanetFrame.BeginAnimation(FrameworkElement.MarginProperty, contentMarginAnimation);
-
-                var icon = ToggleInfoButton.Content as PackIcon;
-                if (icon != null) icon.Kind = PackIconKind.ChevronLeft;
+                // Анимация контента внутри страницы
+                if (PlanetFrame.Content is Planet planetPage)
+                {
+                    contentAnimation.From = planetPage.ContentContainer.Margin;
+                    contentAnimation.To = new Thickness(0);
+                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
+                }
             }
 
             isInfoPanelExpanded = !isInfoPanelExpanded;
