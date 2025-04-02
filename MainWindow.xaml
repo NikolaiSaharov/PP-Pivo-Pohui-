@@ -112,7 +112,8 @@
                 <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="70,0,20,0">
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
             Width="32" Height="32"
-            Padding="0" Background="Transparent">
+            Padding="0" Background="Transparent"
+            Click="NavigateBackButton_Click">
                         <Image Source="pack://application:,,,/Images/vector left.png"
                Width="10" Height="21" Margin="-5,5,0,5"/>
                     </Button>
@@ -122,11 +123,13 @@
                 <Border Width="30" Height="30" Background="#121212" CornerRadius="15" Margin="120,0,0,0">
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
             Width="32" Height="32"
-            Padding="0" Background="Transparent">
+            Padding="0" Background="Transparent"
+            Click="NavigateForwardButton_Click">
                         <Image Source="pack://application:,,,/Images/vector right.png"
                Width="10" Height="21" Margin="0,5,0,5"/>
                     </Button>
                 </Border>
+
 
 
                 <!-- Иконка облака и текст -->
@@ -230,15 +233,13 @@
 
             <materialDesign:PopupBox
     PlacementMode="BottomAndAlignRightEdges"
-    Margin="0,0,0,862"
+    Margin="10,56,0,866"
     StaysOpen="False" 
-    Width="50" 
-    Grid.Row="1" 
-    HorizontalAlignment="Center"  
+    Width="50"  
     BorderBrush="Transparent" 
     Background="#090909" 
     Padding="0" 
-    PopupUniformCornerRadius="15">
+    PopupUniformCornerRadius="15" Grid.RowSpan="2">
 
                 <materialDesign:PopupBox.ToggleContent>
                     <Border Width="48" Height="48"
@@ -352,7 +353,7 @@
 
             <!-- Первый Border с первыми тремя кнопками -->
             <Border x:Name="LeftPanelTop" Grid.Column="0" Grid.Row="1"
-            Background="#121212" CornerRadius="25" Margin="5,63,5,671">
+            Background="#121212" CornerRadius="25" Margin="10,59,0,675">
                 <StackPanel>
                     <Button x:Name="PlanetButton" Style="{StaticResource MaterialDesignFlatButton}"
                     Margin="5,21,5,5" Height="31" Width="31"
@@ -377,7 +378,7 @@
 
             <!-- Второй Border с оставшимися кнопками -->
             <Border x:Name="LeftPanelBottom" Grid.Column="0" Grid.Row="1"
-            Background="#121212" CornerRadius="25" Margin="5,267,5,95" Grid.RowSpan="2">
+            Background="#121212" CornerRadius="25" Margin="10,262,0,0">
                 <StackPanel Margin="0,-10,0,10">
                     <Button x:Name="PlaylistButton" Style="{StaticResource MaterialDesignFlatButton}"
                     Margin="5,21,5,5" Height="25" Width="25"

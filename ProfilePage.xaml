@@ -7,16 +7,19 @@
       mc:Ignorable="d"
       d:DesignHeight="900" d:DesignWidth="1787"
       Title="ProfilePage"
-      Background="#FF121212">
+      Background="#121212">
 
 	<Page.Resources>
 		<Style TargetType="TextBlock">
 			<Setter Property="Foreground" Value="White"/>
-			<Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontFamily" Value="SF Pro Display"/>
 		</Style>
-        
+        <Style TargetType="Run">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
 
-		<Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
 			<Setter Property="Foreground" Value="White"/>
 			<Setter Property="Background" Value="#FF282828"/>
 			<Setter Property="BorderThickness" Value="0"/>
@@ -31,6 +34,7 @@
             <Setter Property="Padding" Value="12,6"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Width" Value="170"/>
+            <Setter Property="Height" Value="40"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -148,26 +152,29 @@
 						</Grid.ColumnDefinitions>
 
 						<!-- Имя -->
-						<TextBlock Grid.Column="0" Text="Еlysium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,88,0"/>
+						<TextBlock Grid.Column="0" Text="Еlysium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,10,88,0"/>
 
 						<!-- Кнопка подписки -->
                         <Button Grid.Column="1" Content="Подписаться" Style="{StaticResource SubscribeButtonStyle}"
         Foreground="White" FontWeight="Bold" VerticalAlignment="Center"
         Click="SubscribeButton_Click" Name="SubscribeButton"/>
                     </Grid>
-					<TextBlock Text="@Elysium#5369" FontSize="18" Opacity="0.7"/>
-					<TextBlock FontSize="14" Opacity="0.7" RenderTransformOrigin="0.5,0.009" Height="27" Width="1708">
-						<Run Text="0 открытых плейлистов"/>
-						<Run Text=" "/>
-						<Run Text=" • "/>
-						<Run Text=" "/>
-						<Run Text="0 подписок на исполнителей"/>
-						<Run Text=" "/>
-						<Run Text=" • "/>
-						<Run Text=" "/>
-						<Run Text="0 Prime"/>
-					</TextBlock>
-				</StackPanel>
+                    <TextBlock Text="@Elysium#5369" FontSize="18" Opacity="0.7" Margin="0,10,0,0" FontFamily="SF Pro" FontWeight="Bold"/>
+                    <TextBlock FontSize="14" Opacity="1" RenderTransformOrigin="0.5,0.009" Height="27" Width="1708" FontFamily="SF Pro Display" FontWeight="Bold" Margin="0,10,0,0">
+    <Run Text="{Binding SubscribersCount, Mode=OneWay}"/>
+    <Run Text=" подписчиков"/>
+    <Run Text=" "/>
+    <Run Text="0 открытых плейлистов"/>
+    <Run Text=" "/>
+    <Run Text=" • "/>
+    <Run Text=" "/>
+    <Run Text="0 подписок на исполнителей"/>
+    <Run Text=" "/>
+    <Run Text=" • "/>
+    <Run Text=" "/>
+    <Run Text="0 Prime"/>
+                    </TextBlock>
+                </StackPanel>
 			</Grid>
 
 			<!-- Любимые треки месяца -->

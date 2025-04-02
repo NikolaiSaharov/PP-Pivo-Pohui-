@@ -258,6 +258,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\community.jpg" />
+    <Resource Include="Images\otvetclose.jpg" />
+    <Resource Include="Images\closeotvet.jpg" />
     <Resource Include="Images\mini.jpg" />
     <Resource Include="Images\max.jpg" />
     <Resource Include="Images\xolidayboy.jpg" />

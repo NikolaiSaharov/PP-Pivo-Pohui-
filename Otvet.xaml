@@ -1,11 +1,11 @@
 <Page x:Class="FirstTask.Otvet"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:FirstTask"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="900" d:DesignWidth="1787"
       Title="Otvet"
       Background="Transparent">
@@ -15,9 +15,9 @@
     </Page.Resources>
 
     <Grid>
-        <Border CornerRadius="30" 
-                Margin="10" 
-                HorizontalAlignment="Stretch" 
+        <Border CornerRadius="30"
+                Margin="10"
+                HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -47,13 +47,13 @@
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave1" 
-                                            Storyboard.TargetProperty="RadiusX" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave1"
+                                            Storyboard.TargetProperty="RadiusX"
                                             From="0" To="600" Duration="0:0:12"/>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave1" 
-                                            Storyboard.TargetProperty="RadiusY" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave1"
+                                            Storyboard.TargetProperty="RadiusY"
                                             From="0" To="300" Duration="0:0:12"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -80,13 +80,13 @@
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave2" 
-                                            Storyboard.TargetProperty="RadiusX" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave2"
+                                            Storyboard.TargetProperty="RadiusX"
                                             From="0" To="550" Duration="0:0:10" BeginTime="0:0:4"/>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave2" 
-                                            Storyboard.TargetProperty="RadiusY" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave2"
+                                            Storyboard.TargetProperty="RadiusY"
                                             From="0" To="275" Duration="0:0:10" BeginTime="0:0:4"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -113,13 +113,13 @@
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave3" 
-                                            Storyboard.TargetProperty="RadiusX" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave3"
+                                            Storyboard.TargetProperty="RadiusX"
                                             From="0" To="500" Duration="0:0:8" BeginTime="0:0:8"/>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave3" 
-                                            Storyboard.TargetProperty="RadiusY" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave3"
+                                            Storyboard.TargetProperty="RadiusY"
                                             From="0" To="250" Duration="0:0:8" BeginTime="0:0:8"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -146,13 +146,13 @@
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave4" 
-                                            Storyboard.TargetProperty="RadiusX" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave4"
+                                            Storyboard.TargetProperty="RadiusX"
                                             From="0" To="450" Duration="0:0:6" BeginTime="0:0:12"/>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave4" 
-                                            Storyboard.TargetProperty="RadiusY" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave4"
+                                            Storyboard.TargetProperty="RadiusY"
                                             From="0" To="225" Duration="0:0:6" BeginTime="0:0:12"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -179,14 +179,146 @@
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard RepeatBehavior="Forever">
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave5" 
-                                            Storyboard.TargetProperty="RadiusX" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave5"
+                                            Storyboard.TargetProperty="RadiusX"
                                             From="0" To="400" Duration="0:0:4" BeginTime="0:0:16"/>
-                                        <DoubleAnimation 
-                                            Storyboard.TargetName="Wave5" 
-                                            Storyboard.TargetProperty="RadiusY" 
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave5"
+                                            Storyboard.TargetProperty="RadiusY"
                                             From="0" To="200" Duration="0:0:4" BeginTime="0:0:16"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Path.Triggers>
+                    </Path>
+
+                    <!-- Волна 6 -->
+                    <Path Stroke="Black" StrokeThickness="2.8" Opacity="0.22">
+                        <Path.Effect>
+                            <BlurEffect Radius="3"/>
+                        </Path.Effect>
+                        <Path.Data>
+                            <EllipseGeometry x:Name="Wave6" RadiusX="0" RadiusY="0">
+                                <EllipseGeometry.Center>
+                                    <MultiBinding Converter="{StaticResource CenterPointConverter}">
+                                        <Binding Path="ActualWidth" ElementName="WaveCanvas"/>
+                                        <Binding Path="ActualHeight" ElementName="WaveCanvas"/>
+                                    </MultiBinding>
+                                </EllipseGeometry.Center>
+                            </EllipseGeometry>
+                        </Path.Data>
+                        <Path.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave6"
+                                            Storyboard.TargetProperty="RadiusX"
+                                            From="0" To="350" Duration="0:0:4" BeginTime="0:0:20"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave6"
+                                            Storyboard.TargetProperty="RadiusY"
+                                            From="0" To="175" Duration="0:0:4" BeginTime="0:0:20"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Path.Triggers>
+                    </Path>
+
+                    <!-- Волна 7 -->
+                    <Path Stroke="Black" StrokeThickness="3.1" Opacity="0.24">
+                        <Path.Effect>
+                            <BlurEffect Radius="2"/>
+                        </Path.Effect>
+                        <Path.Data>
+                            <EllipseGeometry x:Name="Wave7" RadiusX="0" RadiusY="0">
+                                <EllipseGeometry.Center>
+                                    <MultiBinding Converter="{StaticResource CenterPointConverter}">
+                                        <Binding Path="ActualWidth" ElementName="WaveCanvas"/>
+                                        <Binding Path="ActualHeight" ElementName="WaveCanvas"/>
+                                    </MultiBinding>
+                                </EllipseGeometry.Center>
+                            </EllipseGeometry>
+                        </Path.Data>
+                        <Path.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave7"
+                                            Storyboard.TargetProperty="RadiusX"
+                                            From="0" To="300" Duration="0:0:4" BeginTime="0:0:24"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave7"
+                                            Storyboard.TargetProperty="RadiusY"
+                                            From="0" To="150" Duration="0:0:4" BeginTime="0:0:24"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Path.Triggers>
+                    </Path>
+
+                    <!-- Волна 8 -->
+                    <Path Stroke="Black" StrokeThickness="3.4" Opacity="0.26">
+                        <Path.Effect>
+                            <BlurEffect Radius="1"/>
+                        </Path.Effect>
+                        <Path.Data>
+                            <EllipseGeometry x:Name="Wave8" RadiusX="0" RadiusY="0">
+                                <EllipseGeometry.Center>
+                                    <MultiBinding Converter="{StaticResource CenterPointConverter}">
+                                        <Binding Path="ActualWidth" ElementName="WaveCanvas"/>
+                                        <Binding Path="ActualHeight" ElementName="WaveCanvas"/>
+                                    </MultiBinding>
+                                </EllipseGeometry.Center>
+                            </EllipseGeometry>
+                        </Path.Data>
+                        <Path.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave8"
+                                            Storyboard.TargetProperty="RadiusX"
+                                            From="0" To="250" Duration="0:0:4" BeginTime="0:0:28"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave8"
+                                            Storyboard.TargetProperty="RadiusY"
+                                            From="0" To="125" Duration="0:0:4" BeginTime="0:0:28"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Path.Triggers>
+                    </Path>
+
+                    <!-- Волна 9 -->
+                    <Path Stroke="Black" StrokeThickness="3.7" Opacity="0.28">
+                        <Path.Effect>
+                            <BlurEffect Radius="0.5"/>
+                        </Path.Effect>
+                        <Path.Data>
+                            <EllipseGeometry x:Name="Wave9" RadiusX="0" RadiusY="0">
+                                <EllipseGeometry.Center>
+                                    <MultiBinding Converter="{StaticResource CenterPointConverter}">
+                                        <Binding Path="ActualWidth" ElementName="WaveCanvas"/>
+                                        <Binding Path="ActualHeight" ElementName="WaveCanvas"/>
+                                    </MultiBinding>
+                                </EllipseGeometry.Center>
+                            </EllipseGeometry>
+                        </Path.Data>
+                        <Path.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave9"
+                                            Storyboard.TargetProperty="RadiusX"
+                                            From="0" To="200" Duration="0:0:4" BeginTime="0:0:32"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Wave9"
+                                            Storyboard.TargetProperty="RadiusY"
+                                            From="0" To="100" Duration="0:0:4" BeginTime="0:0:32"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -195,16 +327,16 @@
                 </Canvas>
 
                 <!-- Текст с градиентом -->
-                <TextBlock HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
                            TextAlignment="Center"
                            FontSize="50"
                            FontWeight="Bold">
                     <TextBlock.Effect>
-                        <DropShadowEffect Color="Black" 
-                                        BlurRadius="30" 
-                                        ShadowDepth="0" 
-                                        Direction="0" 
+                        <DropShadowEffect Color="Black"
+                                        BlurRadius="30"
+                                        ShadowDepth="0"
+                                        Direction="0"
                                         Opacity="0.8"/>
                     </TextBlock.Effect>
                     <TextBlock.Foreground>
@@ -223,21 +355,21 @@
         </Border>
 
         <!-- Кнопка выхода -->
-        <Button x:Name="CloseButton" 
-                Width="40" 
-                Height="40" 
-                Margin="50,50,0,0" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Style="{StaticResource MaterialDesignFloatingActionButton}"
-                Background="#4B0082" 
-                BorderBrush="Transparent"
-                materialDesign:ButtonAssist.CornerRadius="20"
-                Click="CloseButton_Click">
-            <materialDesign:PackIcon Kind="Close" 
-                                   Width="24" 
-                                   Height="24" 
-                                   Foreground="White"/>
+        <Button x:Name="CloseButton"
+        Width="40"
+        Height="40"
+        Margin="50,50,0,0"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Style="{StaticResource MaterialDesignFloatingActionButton}"
+        Background="#9370DB"  
+            BorderBrush="#FFFFF0"
+            BorderThickness="1"
+            materialDesign:ButtonAssist.CornerRadius="20"
+        Click="CloseButton_Click">
+            <Image Source="pack://application:,,,/Images/otvetclose.jpg"
+           Width="24" Height="24" Margin="0,5,0,5"/>
         </Button>
+
     </Grid>
 </Page>

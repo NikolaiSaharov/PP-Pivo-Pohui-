@@ -117,16 +117,14 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="3"/>
-            <!-- Было 5, уменьшено до 5 / 1.5 ≈ 3 -->
             <Setter Property="Width" Value="220"/>
-            <!-- Было 300, уменьшено до 300 / 1.5 = 200 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ContextMenu">
                         <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="17" 
+                        CornerRadius="21" 
                             Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}">
                             <StackPanel IsItemsHost="True"/>
@@ -142,11 +140,8 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="FontSize" Value="15"/>
-            <!-- Было 18, уменьшено до 18 / 1.5 = 12 -->
             <Setter Property="Padding" Value="7,7"/>
-            <!-- Было 10,10, уменьшено до 10 / 1.5 ≈ 7 -->
             <Setter Property="MinHeight" Value="40"/>
-            <!-- Было 60, уменьшено до 60 / 1.5 = 40 -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="MenuItem">
@@ -154,22 +149,18 @@
                         Background="{TemplateBinding Background}"
                         Padding="{TemplateBinding Padding}"
                         CornerRadius="17">
-                            <!-- Было 25, уменьшено до 25 / 1.5 ≈ 17 -->
                             <Grid>
                                 <Rectangle x:Name="HoverRect" 
                                    Fill="{StaticResource MenuItemHoverGradient}"
                                    Opacity="0"
                                    Margin="-3" 
                                     RadiusX="17" RadiusY="17"/>
-                                <!-- Было 25, уменьшено до 17 -->
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
-                                        <!-- Было 60, уменьшено до 60 / 1.5 = 40 -->
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <ContentPresenter ContentSource="Icon" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,13,0"/>
-                                    <!-- Было 20, уменьшено до 20 / 1.5 ≈ 13 -->
                                     <ContentPresenter ContentSource="Header" Grid.Column="1" VerticalAlignment="Center"/>
                                 </Grid>
                             </Grid>

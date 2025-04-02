@@ -79,6 +79,22 @@ namespace CHOTOPOHOZEENASPOTIK
             // this.WindowState = WindowState.Maximized;
             // this.WindowStyle = WindowStyle.None;
         }
+        private void NavigateBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlanetFrame.CanGoBack)
+            {
+                PlanetFrame.GoBack();
+            }
+        }
+
+        private void NavigateForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlanetFrame.CanGoForward)
+            {
+                PlanetFrame.GoForward();
+            }
+        }
+
 
         private void ToggleInfoButton_MouseEnter(object sender, MouseEventArgs e)
         {
