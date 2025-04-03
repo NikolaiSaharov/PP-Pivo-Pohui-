@@ -452,88 +452,37 @@
 
 
                 <!-- Информационная панель -->
-                <Border x:Name="InfoPanel" 
+                <Frame x:Name="InfoPanel" 
                         HorizontalAlignment="Left"
                         Width="363"
-                        Background="#121212"
+                        Background="Transparent"
                         Panel.ZIndex="998" 
-                        Grid.RowSpan="2" Margin="-338,0,0,0" RenderTransformOrigin="0.5,0.5" 
-                        Visibility="Collapsed" CornerRadius="20">
-                    <Border.RenderTransform>
+                        Grid.RowSpan="2" 
+                        Margin="-338,0,0,0" 
+                        RenderTransformOrigin="0.5,0.5" 
+                        Visibility="Collapsed"
+                        NavigationUIVisibility="Hidden">
+                    <Frame.RenderTransform>
                         <TranslateTransform x:Name="InfoPanelTransform" X="363"/>
-                    </Border.RenderTransform>
-
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="15" 
-                                          Direction="-90" 
-                                          ShadowDepth="5" 
-                                          Opacity="0.3"/>
-                    </Border.Effect>
-                    <Grid>
-                        <StackPanel Margin="20">
-                            <TextBlock Text="Информация о треке"
-                                       Foreground="White"
-                                       FontSize="24"
-                                       FontWeight="Bold"
-                                       Margin="0,0,0,20"/>
-                            <StackPanel Margin="0,0,0,15">
-                                <TextBlock Text="Название:"
-                                           Foreground="#121212"
-                                           FontSize="16"
-                                           Margin="0,0,0,5"/>
-                                <TextBlock Text="Sample Track"
-                                           Foreground="White"
-                                           FontSize="18"
-                                           FontWeight="SemiBold"/>
-                            </StackPanel>
-                            <StackPanel Margin="0,0,0,15">
-                                <TextBlock Text="Исполнитель:"
-                                           Foreground="#121212"
-                                           FontSize="16"
-                                           Margin="0,0,0,5"/>
-                                <TextBlock Text="Sample Artist"
-                                           Foreground="White"
-                                           FontSize="18"
-                                           FontWeight="SemiBold"/>
-                            </StackPanel>
-                            <StackPanel Margin="0,0,0,15">
-                                <TextBlock Text="Альбом:"
-                                           Foreground="#121212"
-                                           FontSize="16"
-                                           Margin="0,0,0,5"/>
-                                <TextBlock Text="Sample Album"
-                                           Foreground="White"
-                                           FontSize="18"
-                                           FontWeight="SemiBold"/>
-                            </StackPanel>
-                            <StackPanel Margin="0,0,0,15">
-                                <TextBlock Text="Длительность:"
-                                           Foreground="#121212"
-                                           FontSize="16"
-                                           Margin="0,0,0,5"/>
-                                <TextBlock Text="3:45"
-                                           Foreground="White"
-                                           FontSize="18"
-                                           FontWeight="SemiBold"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
-                </Border>
+                    </Frame.RenderTransform>
+                </Frame>
 
                 <!-- Кнопка для информационной панели -->
                 <Button x:Name="ToggleInfoButton"
-        Style="{StaticResource MaterialDesignFlatButton}"
-        Height="40" Width="40"
-        Padding="0"
-        VerticalAlignment="Top"
-        HorizontalAlignment="Center"
-        Click="ToggleInfoPanel_Click"
-        MouseEnter="ToggleInfoButton_MouseEnter"
-        MouseLeave="ToggleInfoButton_MouseLeave"
-        Panel.ZIndex="1001" Margin="0,79,0,0" Grid.Row="1">
+                       Style="{StaticResource MaterialDesignFlatButton}"
+                       Height="40" Width="40"
+                       Padding="0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Click="ToggleInfoPanel_Click"
+                       MouseEnter="ToggleInfoButton_MouseEnter"
+                       MouseLeave="ToggleInfoButton_MouseLeave"
+                       Panel.ZIndex="1001" 
+                       Margin="0,79,0,0" 
+                       Grid.Row="1">
                     <materialDesign:PackIcon Kind="ChevronLeft"
-                             Height="24" Width="24"
-                             Foreground="White"/>
+                                           Height="24" Width="24"
+                                           Foreground="White"/>
                 </Button>
             </Grid>
 
@@ -788,7 +737,9 @@
             <Frame x:Name="PlanetFrame" Margin="0,0,5,5" 
                    Grid.Row="1" Grid.Column="1" 
                    Navigated="PlanetFrame_Navigated" 
-                   BorderBrush="Transparent" HorizontalAlignment="Right" Width="1776"/>
+                   BorderBrush="Transparent" 
+                   HorizontalAlignment="Right" 
+                   Width="1776"/>
         </Grid>
     </Grid>
 </Window>

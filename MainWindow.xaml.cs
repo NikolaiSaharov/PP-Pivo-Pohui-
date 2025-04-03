@@ -111,6 +111,10 @@ namespace CHOTOPOHOZEENASPOTIK
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
+            if (InfoPanel.Content == null)
+            {
+                InfoPanel.Navigate(new RightInfoPanel());
+            }
             InfoPanel.Visibility = Visibility.Visible;
             InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
         }
@@ -122,11 +126,19 @@ namespace CHOTOPOHOZEENASPOTIK
             var infoPanelAnimation = new DoubleAnimation
             {
                 From = InfoPanelTransform.X,
-                To = 500,
+                To = 338,
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
+            infoPanelAnimation.Completed += (s, ev) => 
+            {
+                if (!isInfoPanelExpanded)
+                {
+                    InfoPanel.Visibility = Visibility.Collapsed;
+                    InfoPanel.Content = null;
+                }
+            };
             InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelAnimation);
         }
 
@@ -230,6 +242,10 @@ namespace CHOTOPOHOZEENASPOTIK
 
             if (!isInfoPanelExpanded)
             {
+                // Показываем панель
+                InfoPanel.Navigate(new RightInfoPanel());
+                InfoPanel.Visibility = Visibility.Visible;
+
                 // Анимация панели
                 var infoPanelTranslateAnimation = new DoubleAnimation
                 {
@@ -239,7 +255,6 @@ namespace CHOTOPOHOZEENASPOTIK
                     EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
-                InfoPanel.Visibility = Visibility.Visible;
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
                 // Анимация контента внутри страницы
@@ -261,7 +276,11 @@ namespace CHOTOPOHOZEENASPOTIK
                     EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
-                infoPanelTranslateAnimation.Completed += (s, ev) => InfoPanel.Visibility = Visibility.Collapsed;
+                infoPanelTranslateAnimation.Completed += (s, ev) => 
+                {
+                    InfoPanel.Visibility = Visibility.Collapsed;
+                    InfoPanel.Content = null;
+                };
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
                 // Анимация контента внутри страницы

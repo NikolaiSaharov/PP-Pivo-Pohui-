@@ -54,6 +54,7 @@ C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Equal
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\LoginWindow.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainPageWindow.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\CommunityWindow.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainWindow.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Otvet.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\PhoneEntryWindow.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\Planet.g.cs
@@ -80,7 +81,6 @@ C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Mater
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainWindow.g.cs
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\App.baml
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\EqualizerControl.baml
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\MainWindow.baml
@@ -96,3 +96,5 @@ C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\First
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.csproj.Up2Date
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.exe
 C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\FirstTask.pdb
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\RightInfoPanel.g.cs
+C:\Users\КОЛЯКА\source\repos\PP-Pivo-Pohui--auth\FirstTask\obj\Debug\RightInfoPanel.baml
