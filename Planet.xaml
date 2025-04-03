@@ -173,7 +173,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border x:Name="BackgroundBorder" Grid.Row="0" CornerRadius="20" Margin="0,0,0,0">
+        <Border x:Name="BackgroundBorder" Grid.Row="0" CornerRadius="30" Margin="20,30,20,0">
             <Border.Background>
                 <LinearGradientBrush x:Name="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#B700FF" Offset="0"/>
@@ -189,9 +189,9 @@
             </Border.Background>
         </Border>
         <Image Source="pack://application:,,,/Images/logo.jpg"
-               Width="30" Height="29"
-               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="24,58,0,0"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-24,186,0,0" RenderTransformOrigin="0.5,0.5">
+               Width="44" Height="39"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,51,0,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-6,199,0,0" RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -215,7 +215,7 @@
                     </Grid.RowDefinitions>
                     <Grid Margin="0,0,0,64">
                         <Grid x:Name="Level1" Visibility="Visible">
-                            <StackPanel Margin="0,20,300,20" Orientation="Horizontal" HorizontalAlignment="Center" Width="542">
+                            <StackPanel Margin="0,40,0,0" Orientation="Horizontal" HorizontalAlignment="Center" Width="542">
                                 <materialDesign:Card Width="250" Height="250" Margin="10" Background="#FF2F2F2F" UniformCornerRadius="15">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -257,7 +257,7 @@
                             </StackPanel>
                         </Grid>
                         <Grid x:Name="Level2" Visibility="Collapsed">
-                            <StackPanel Margin="0,20,300,20" Orientation="Horizontal" HorizontalAlignment="Center" Width="542">
+                            <StackPanel Margin="300,60,300,20" Orientation="Horizontal" HorizontalAlignment="Center" Width="542">
                                 <materialDesign:Card Width="250" Height="250" Margin="10" Background="#FF2F2F2F" UniformCornerRadius="15">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -365,7 +365,7 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
-        <Border Grid.Row="2" CornerRadius="20" Background="#121212" ClipToBounds="True">
+        <Border Grid.Row="2" CornerRadius="30" Background="#121212" ClipToBounds="True">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
