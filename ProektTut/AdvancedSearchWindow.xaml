@@ -1,0 +1,107 @@
+﻿<Window x:Class="Sound_Player.AdvancedSearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:r="http://sharpvectors.codeplex.com/runtime/"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:local="clr-namespace:Sound_Player"
+        mc:Ignorable="d"
+        Title="AdvancedSearchWindow"
+        WindowStyle="None"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        AllowsTransparency="True"
+        Background="#99000000"
+        ShowInTaskbar="False"
+        KeyDown="Window_KeyDown"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <!-- Определяем стиль для кнопки -->
+        <Style x:Key="GradientButtonStyle" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#ED22FF" Offset="0.0"/>
+                        <GradientStop Color="#A40DF5" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="20"
+                                Padding="0,8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Top" 
+          Margin="0,70,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="15, 10"
+                CornerRadius="25">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#ED22FF" Offset="0.0"/>
+                    <GradientStop Color="#A40DF5" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Orientation="Horizontal">
+                <svgc:SvgViewbox Width="30" Height="30" Stretch="Uniform">
+                    <svgc:SvgCanvas Source="/Resources/Images/Logotype_White.svg"/>
+                </svgc:SvgViewbox>
+
+                <TextBox x:Name="searchTextBox" 
+                         GotFocus="SearchTextBox_GotFocus" LostFocus="SearchTextBox_LostFocus" PreviewMouseDown="TextBox_PreviewMouseDown"
+                         materialDesign:HintAssist.Hint="Что будем слушать?"
+                         Margin="15,0,0,0"
+                         Padding="5"
+                         VerticalAlignment="Center"
+                         Foreground="White" FontSize="14" FontWeight="Medium"
+                         BorderThickness="0"
+                         CaretBrush="#FFFFFF"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                         Style="{StaticResource MaterialDesignTextBox}"
+                         Width="700"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Background="Transparent" Margin="0,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Style="{StaticResource GradientButtonStyle}" Content="Создать плейлист" Margin="0,0,5,0"/>
+                <Button Grid.Column="1" Style="{StaticResource GradientButtonStyle}" Content="Рекомендации" Margin="2.5,0"/>
+                <Button Grid.Column="2" Style="{StaticResource GradientButtonStyle}" Content="Рассказать про..." Margin="5,0,2.5,0"/>
+                <Button Grid.Column="3" Style="{StaticResource GradientButtonStyle}" Content="Создать плейлист" Margin="5,0,0,0"/>
+            </Grid>
+        </Border>
+
+        <Frame x:Name="AdvancedTrackPanel"
+               Grid.Row="2"
+               Visibility="Collapsed" Width="Auto" Height="600"
+               BorderBrush="Transparent"/>
+    </Grid>
+</Window>
