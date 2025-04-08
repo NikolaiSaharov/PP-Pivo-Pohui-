@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Sound_Player.OknoPrivet"
+<UserControl x:Class="Sound_Player.OknoPrivet"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -57,7 +57,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontSize" Value="68"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="LogoTextStyle">
@@ -66,8 +66,8 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Archivo Black"/>
+            <Setter Property="FontSize" Value="47"/>
         </Style>
     </UserControl.Resources>
 
@@ -102,10 +102,10 @@
                 <StackPanel Orientation="Vertical" 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top" 
-                            Margin="0,120,0,0">
+                            Margin="0,60,0,0">
                     <!-- Иконка -->
                     <svgc:SvgViewbox Source="/Resources/Images/Logotype_White.svg"
-                                     Width="64" Height="64"
+                                     Width="83" Height="75"
                                      Margin="0,0,0,10" 
                                      HorizontalAlignment="Center"/>
                     <!-- Текст GILS -->
@@ -118,8 +118,8 @@
                             HorizontalAlignment="Center">
                     <!-- Аватарка пользователя (пустая) -->
                     <Border x:Name="UserAvatar"
-                            Width="80" Height="80" 
-                            CornerRadius="40"
+                            Width="103" Height="103" 
+                            CornerRadius="50"
                             Background="White"
                             Margin="0,0,0,20"
                             Opacity="0"
@@ -129,10 +129,10 @@
                     <TextBlock x:Name="WelcomeText" 
                                Text="Г'день, User Name"
                                Style="{StaticResource WelcomeTextStyle}"
-                               Opacity="0"/>
+                               Opacity="0"
+                               Margin="0,10,0,0"/>
                 </StackPanel>
             </Grid>
         </Grid>
     </Grid>
 </UserControl>
-
