@@ -1,4 +1,4 @@
-﻿using Microsoft.Xaml.Behaviors;
+using Microsoft.Xaml.Behaviors;
 using System;
 using System.Linq;
 using System.Windows;
@@ -30,13 +30,13 @@ namespace Sound_Player
         {
             try
             {
-                var mainGrid = (Grid)this.Content;
+                var mainBorder = (Border)this.Content;
+                var mainGrid = (Grid)mainBorder.Child;
                 var leftStackPanel = (StackPanel)mainGrid.Children[0];
                 var imageBorder = (Border)leftStackPanel.Children[0];
-                var gridInsideBorder = (Grid)imageBorder.Child;
-                var image = (Image)gridInsideBorder.Children[0];
+                var imageBrush = (ImageBrush)imageBorder.Background;
 
-                if (image.Source is BitmapSource bitmapSource)
+                if (imageBrush.ImageSource is BitmapSource bitmapSource)
                 {
                     albumColors = ColorExtractor.GetDominantColors(bitmapSource, 3);
                 }
@@ -63,8 +63,6 @@ namespace Sound_Player
 
         private void SetupUltraSmoothGradient()
         {
-            var grid = (Grid)this.Content;
-
             // Создаем градиент с увеличенным количеством стопов
             gradientBrush = new LinearGradientBrush
             {
@@ -82,7 +80,8 @@ namespace Sound_Player
                 gradientBrush.GradientStops.Add(new GradientStop(color, position));
             }
 
-            grid.Background = gradientBrush;
+            MainBorder.Background = gradientBrush;
+            MainBorder.BorderBrush = gradientBrush;
 
             // Настраиваем анимации
             SetupColorAnimations();
@@ -183,7 +182,8 @@ namespace Sound_Player
 
         private void InitializeEllipsisButton()
         {
-            var mainGrid = (Grid)this.Content;
+            var mainBorder = (Border)this.Content;
+            var mainGrid = (Grid)mainBorder.Child;
             var leftStackPanel = (StackPanel)mainGrid.Children[0];
             var imageBorder = (Border)leftStackPanel.Children[0];
 
