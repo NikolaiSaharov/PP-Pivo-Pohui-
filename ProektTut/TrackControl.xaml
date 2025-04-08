@@ -9,49 +9,49 @@
 			 xmlns:local="clr-namespace:Sound_Player"
              mc:Ignorable="d"
              d:DesignHeight="100" d:DesignWidth="400">
-	<Border x:Name="TrackBorder" Background="Transparent" Padding="10" Margin="5" Cursor="Hand" MouseLeftButtonDown="TrackBorder_MouseLeftButtonDown">
-		<Border.Style>
-			<Style TargetType="Border">
-				<Setter Property="Background" Value="Transparent"/>
-				<Style.Triggers>
-					<Trigger Property="IsMouseOver" Value="True">
-						<Setter Property="Background" Value="#090909"/>
-					</Trigger>
-				</Style.Triggers>
-			</Style>
-		</Border.Style>
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="30"/>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
-			<TextBlock x:Name="tbTrackNumber" Text="1" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Center"/>
-			<StackPanel Grid.Column="1" Orientation="Horizontal">
-				<Grid Width="60" Height="60" ClipToBounds="True">
-					<Border CornerRadius="20" Margin="5">
-						<Image x:Name="TrackImage"
-                               Source="Images/placeholder.jpg"
-                               Stretch="Uniform"/>
-					</Border>
-					<Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
-						<Button.Template>
-							<ControlTemplate TargetType="Button">
-								<Border Background="Transparent" CornerRadius="10" Padding="5">
-									<TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-								</Border>
-							</ControlTemplate>
-						</Button.Template>
-					</Button>
-				</Grid>
-				<StackPanel Margin="10,0,0,0">
-					<TextBlock x:Name="tbTrackTitle" Text="luther (with sza)" FontWeight="Bold" Foreground="White"/>
-					<TextBlock x:Name="tbTrackArtist" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B"/>
-				</StackPanel>
-			</StackPanel>
-			<ContentControl x:Name="AnimationPlaceholder" Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			<TextBlock x:Name="tbTrackDuration" Grid.Column="3" Text="03:20" HorizontalAlignment="Right" Width="50" Foreground="#9B9B9B" Margin="10,0,10,0"/>
-		</Grid>
-	</Border>
+    <Border x:Name="TrackBorder" Background="Transparent" Padding="10" Margin="5" Cursor="Hand" MouseLeftButtonDown="TrackBorder_MouseLeftButtonDown" CornerRadius="12">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="Transparent"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#1A1A1A"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="tbTrackNumber" Text="1" Foreground="White" Margin="9,27,0,27" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Grid Width="60" Height="60">
+                    <Border Width="60" Height="60" CornerRadius="15" ClipToBounds="True">
+                        <Image x:Name="TrackImage"
+                               Source="Resources/Images/placeholder.jpg"
+                               Stretch="UniformToFill"/>
+                    </Border>
+                    <Button Width="20" Height="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" Opacity="0.5">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="Transparent" CornerRadius="10" Padding="5">
+                                    <TextBlock Text="..." FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <StackPanel Margin="10,0,0,0" Height="44">
+                    <TextBlock x:Name="tbTrackTitle" Text="luther (with sza)" FontWeight="Bold" Foreground="White" Height="23"/>
+                    <TextBlock x:Name="tbTrackArtist" Text="Kendrick Lamar, SZA" FontSize="12" Foreground="#9B9B9B" Height="22" Width="108"/>
+                </StackPanel>
+            </StackPanel>
+            <ContentControl x:Name="AnimationPlaceholder" Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBlock x:Name="tbTrackDuration" Grid.Column="3" Text="03:20" HorizontalAlignment="Center" Width="50" Foreground="#9B9B9B" Margin="0,27,0,27"/>
+        </Grid>
+    </Border>
 </UserControl>
