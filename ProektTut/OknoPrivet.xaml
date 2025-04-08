@@ -7,47 +7,76 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <Storyboard x:Key="WelcomeAnimation">
-            <!-- Анимация затемнения -->
+            <!-- 0-1 секунда: Затемнение фона и появление окна -->
             <DoubleAnimation Storyboard.TargetName="BackgroundOverlay"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0" To="0.3" Duration="0:0:1"/>
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="0.3" Duration="0:0:1"
+                         DecelerationRatio="0.6"/>
 
             <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:1"/>
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                             Storyboard.TargetProperty="RenderTransform.ScaleX"
-                             From="0.8" To="1" Duration="0:0:1"/>
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                             Storyboard.TargetProperty="RenderTransform.ScaleY"
-                             From="0.8" To="1" Duration="0:0:1"/>
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:1"
+                         DecelerationRatio="0.6"/>
 
+            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
+                         Storyboard.TargetProperty="RenderTransform.ScaleX"
+                         From="0.9" To="1" Duration="0:0:1"
+                         DecelerationRatio="0.6"/>
+
+            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
+                         Storyboard.TargetProperty="RenderTransform.ScaleY"
+                         From="0.9" To="1" Duration="0:0:1"
+                         DecelerationRatio="0.6"/>
+
+            <!-- 1-3 секунды: Появление текста и аватарки -->
             <DoubleAnimation Storyboard.TargetName="WelcomeText"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:1"
-                             BeginTime="0:0:1"/>
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.8"
+                         BeginTime="0:0:1"
+                         DecelerationRatio="0.6"/>
+
             <ThicknessAnimation Storyboard.TargetName="WelcomeText"
-                               Storyboard.TargetProperty="Margin"
-                               From="0,20,0,0" To="0,0,0,0" Duration="0:0:1"
-                               BeginTime="0:0:1"/>
+                           Storyboard.TargetProperty="Margin"
+                           From="0,20,0,0" To="0,0,0,0" Duration="0:0:0.8"
+                           BeginTime="0:0:1"
+                           DecelerationRatio="0.6"/>
 
             <DoubleAnimation Storyboard.TargetName="UserAvatar"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:1"
-                             BeginTime="0:0:1.5"/>
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:0.8"
+                         BeginTime="0:0:1.2"
+                         DecelerationRatio="0.6"/>
+
             <ThicknessAnimation Storyboard.TargetName="UserAvatar"
-                               Storyboard.TargetProperty="Margin"
-                               From="0,20,0,0" To="0,0,0,0" Duration="0:0:1"
-                               BeginTime="0:0:1.5"/>
+                           Storyboard.TargetProperty="Margin"
+                           From="0,20,0,0" To="0,0,0,0" Duration="0:0:0.8"
+                           BeginTime="0:0:1.2"
+                           DecelerationRatio="0.6"/>
+
+            <!-- 3-5 секунды: Плавное исчезновение окна приветствия -->
+            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
+                 Storyboard.TargetProperty="Opacity"
+                 From="1" To="0" Duration="0:0:2"
+                 BeginTime="0:0:3"
+                 DecelerationRatio="0.3"/>
 
             <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                             Storyboard.TargetProperty="Opacity"
-                             From="1" To="0" Duration="0:0:1"
-                             BeginTime="0:0:4"/>
+                 Storyboard.TargetProperty="RenderTransform.ScaleX"
+                 From="1" To="0.95" Duration="0:0:2"
+                 BeginTime="0:0:3"
+                 DecelerationRatio="0.3"/>
+
+            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
+                 Storyboard.TargetProperty="RenderTransform.ScaleY"
+                 From="1" To="0.95" Duration="0:0:2"
+                 BeginTime="0:0:3"
+                 DecelerationRatio="0.3"/>
+
             <DoubleAnimation Storyboard.TargetName="BackgroundOverlay"
-                             Storyboard.TargetProperty="Opacity"
-                             From="0.3" To="0" Duration="0:0:1"
-                             BeginTime="0:0:2"/>
+                 Storyboard.TargetProperty="Opacity"
+                 From="0.3" To="0" Duration="0:0:2"
+                 BeginTime="0:0:3"
+                 DecelerationRatio="0.3"/>
         </Storyboard>
 
         <Style TargetType="TextBlock" x:Key="WelcomeTextStyle">
@@ -72,16 +101,13 @@
     </UserControl.Resources>
 
     <Grid x:Name="MainGrid">
-        <!-- Градиентный фон с более яркими и сочными цветами -->
+        <!-- Градиентный фон -->
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#2A4A9F" Offset="0"/>
-                    <!-- Насыщенный тёмно-синий -->
                     <GradientStop Color="#3E6BCF" Offset="0.5"/>
-                    <!-- Яркий средний синий -->
                     <GradientStop Color="#5A8CFF" Offset="1"/>
-                    <!-- Сочный светло-синий -->
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
@@ -95,28 +121,25 @@
                   Opacity="0"
                   RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                    <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
                 </Grid.RenderTransform>
 
-                <!-- Логотип GILS с иконкой (вверху) -->
+                <!-- Логотип GILS с иконкой -->
                 <StackPanel Orientation="Vertical" 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top" 
                             Margin="0,60,0,0">
-                    <!-- Иконка -->
                     <svgc:SvgViewbox Source="/Resources/Images/Logotype_White.svg"
                                      Width="83" Height="75"
                                      Margin="0,0,0,10" 
                                      HorizontalAlignment="Center"/>
-                    <!-- Текст GILS -->
                     <TextBlock Text="GILS"
                                Style="{StaticResource LogoTextStyle}"/>
                 </StackPanel>
 
-                <!-- Центральная часть с аватаркой и текстом (по центру) -->
+                <!-- Центральная часть с аватаркой и текстом -->
                 <StackPanel VerticalAlignment="Center" 
                             HorizontalAlignment="Center">
-                    <!-- Аватарка пользователя (пустая) -->
                     <Border x:Name="UserAvatar"
                             Width="103" Height="103" 
                             CornerRadius="50"
@@ -125,7 +148,6 @@
                             Opacity="0"
                             HorizontalAlignment="Center"/>
 
-                    <!-- Текст приветствия -->
                     <TextBlock x:Name="WelcomeText" 
                                Text="Г'день, User Name"
                                Style="{StaticResource WelcomeTextStyle}"
