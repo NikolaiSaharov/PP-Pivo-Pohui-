@@ -31,11 +31,9 @@ namespace Sound_Player
             HistoryPage = new HistoryOfSearchPage();
             this.Loaded += MainWindow_Loaded;
 
-            // При старте сразу показываем PlanetFrame
             PlanetFrame.Visibility = Visibility.Visible;
             PlanetFrame.Navigate(new Planet());
 
-            // Инициализация анимаций
             infoPanelAnimation = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.3),
@@ -48,15 +46,13 @@ namespace Sound_Player
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
-            // Инициализация Transform для правой панели
             _rightPanelTransform = new TranslateTransform();
             RightPanel.RenderTransform = _rightPanelTransform;
 
-            // Устанавливаем начальное положение панели за правым краем
             Loaded += (s, e) =>
             {
-                _rightPanelTransform.X = RightPanel.ActualWidth; // Скрываем за правым краем
-                RightPanel.Width = 338; // Фиксируем ширину панели (можно настроить)
+                _rightPanelTransform.X = RightPanel.ActualWidth;
+                RightPanel.Width = 338;
             };
 
             LoadSvgImage("/Resources/Images/Logotype_White.svg");
@@ -66,20 +62,13 @@ namespace Sound_Player
         {
             _advancedSearchWindow = new AdvancedSearchWindow(this);
 
-            // Создаём экземпляр OknoPrivet
             var welcomeWindow = new OknoPrivet();
-
-            // Устанавливаем имя пользователя (замени "User Name" на реальное имя, если есть)
             welcomeWindow.SetUserName("User Name");
-
-            // Добавляем OknoPrivet в OverlayGrid
             OverlayGrid.Children.Add(welcomeWindow);
 
-            // Подписываемся на событие завершения анимации в OknoPrivet
             var storyboard = (Storyboard)welcomeWindow.Resources["WelcomeAnimation"];
             storyboard.Completed += (s, args) =>
             {
-                // Скрываем затемнение фона после завершения анимации
                 OverlayBackground.Visibility = Visibility.Collapsed;
             };
         }
@@ -107,21 +96,15 @@ namespace Sound_Player
 
         private void SearchTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            // При получении фокуса отображаем Page
             History.Content = HistoryPage;
             History.Visibility = Visibility.Visible;
             AnimateFrame();
-
-            //Смена на синее изображение
             LoadSvgImage("/Resources/Images/Logotype_Blue.svg");
         }
 
         private void SearchTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            // При потере фокуса скрываем Page
             History.Visibility = Visibility.Collapsed;
-
-            //Возвращаем назад стандартное изображение
             LoadSvgImage("/Resources/Images/Logotype_White.svg");
         }
 
@@ -143,7 +126,6 @@ namespace Sound_Player
 
         private void AnimateFrame()
         {
-            // Создаем анимацию для свойства Height
             DoubleAnimation heightAnimation = new DoubleAnimation
             {
                 From = 0,
@@ -151,13 +133,10 @@ namespace Sound_Player
                 Duration = new Duration(TimeSpan.FromSeconds(0.2))
             };
 
-            // Создаем Storyboard и добавляем анимацию
             Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(heightAnimation);
             Storyboard.SetTarget(heightAnimation, History);
             Storyboard.SetTargetProperty(heightAnimation, new PropertyPath(FrameworkElement.HeightProperty));
-
-            // Запускаем анимацию
             storyboard.Begin();
         }
 
@@ -177,7 +156,7 @@ namespace Sound_Player
 
         private void SliderThumb_DragDelta(object sender, DragDeltaEventArgs e)
         {
-            double newHeight = 120 - e.VerticalChange; // 120 - полная высота слайдера
+            double newHeight = 120 - e.VerticalChange;
             if (newHeight < 0) newHeight = 0;
             if (newHeight > 120) newHeight = 120;
         }
@@ -189,18 +168,12 @@ namespace Sound_Player
 
         private void MiniPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для открытия мини-плеера
             MessageBox.Show("Мини-плеер открыт");
         }
 
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для перехода в полноэкранный режим
             MessageBox.Show("Полноэкранный режим");
-
-            // Пример реализации полноэкранного режима:
-            // this.WindowState = WindowState.Maximized;
-            // this.WindowStyle = WindowStyle.None;
         }
 
         private void NavigateBackButton_Click(object sender, RoutedEventArgs e)
@@ -270,8 +243,8 @@ namespace Sound_Player
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
             {
                 double sliderValue = (double)value;
-                double maxHeight = 120; // Максимальная высота слайдера
-                return sliderValue / 100 * maxHeight; // Преобразование значения (0-100) в высоту (0-120)
+                double maxHeight = 120;
+                return sliderValue / 100 * maxHeight;
             }
 
             public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -282,14 +255,11 @@ namespace Sound_Player
 
         private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            double volume = e.NewValue; // Значение от 0 до 100
+            double volume = e.NewValue;
             Console.WriteLine($"Громкость: {volume}");
-            // Здесь можно добавить логику для управления громкостью, например:
-            // mediaPlayer.Volume = volume / 100.0;
         }
 
-        // Обработчик кнопки переключения панели справа
-        private void ToggleRightPanel_Click(object sender, RoutedEventArgs e) // Переименовал для ясности
+        private void ToggleRightPanel_Click(object sender, RoutedEventArgs e)
         {
             ToggleRightPanel();
         }
@@ -314,13 +284,11 @@ namespace Sound_Player
 
             if (!isRightPanelExpanded)
             {
-                // Анимация панели
                 rightPanelAnimation.From = rightPanelWidth;
                 rightPanelAnimation.To = 0;
                 RightPanel.Visibility = Visibility.Visible;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
-                // Анимация контента внутри страницы
                 if (PlanetFrame.Content is Planet planetPage)
                 {
                     contentAnimation.From = new Thickness(0);
@@ -330,12 +298,10 @@ namespace Sound_Player
             }
             else
             {
-                // Анимация панели
                 rightPanelAnimation.From = 0;
                 rightPanelAnimation.To = rightPanelWidth;
                 _rightPanelTransform.BeginAnimation(TranslateTransform.XProperty, rightPanelAnimation);
 
-                // Анимация контента внутри страницы
                 if (PlanetFrame.Content is Planet planetPage)
                 {
                     contentAnimation.From = planetPage.ContentContainer.Margin;
@@ -349,12 +315,19 @@ namespace Sound_Player
             isRightPanelExpanded = !isRightPanelExpanded;
         }
 
-        // Обработчик кнопки информации
         private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
         {
             double panelWidth = 338;
 
-            var contentAnimation = new ThicknessAnimation
+            // Анимация для отступа справа у PlanetBorder
+            var borderMarginAnimation = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+            };
+
+            // Анимация для InfoPanel
+            var infoPanelTranslateAnimation = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
@@ -362,40 +335,24 @@ namespace Sound_Player
 
             if (!isInfoPanelExpanded)
             {
-                // Показываем панель
                 InfoPanel.Navigate(new RightInfoPanel());
                 InfoPanel.Visibility = Visibility.Visible;
 
-                // Анимация панели
-                var infoPanelTranslateAnimation = new DoubleAnimation
-                {
-                    From = panelWidth,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.3),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-                };
-
+                // Анимация панели (сдвиг с правого края)
+                infoPanelTranslateAnimation.From = panelWidth;
+                infoPanelTranslateAnimation.To = 0;
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
-                // Анимация контента внутри страницы
-                if (PlanetFrame.Content is Planet planetPage)
-                {
-                    contentAnimation.From = new Thickness(0);
-                    contentAnimation.To = new Thickness(0, 0, panelWidth, 0);
-                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
-                }
+                // Увеличиваем правый отступ PlanetBorder, чтобы сжать его справа
+                borderMarginAnimation.From = PlanetBorder.Margin; // Текущий отступ (0,0,10,0)
+                borderMarginAnimation.To = new Thickness(0, 0, panelWidth + 10, 0); // Добавляем panelWidth к существующему Margin.Right
+                PlanetBorder.BeginAnimation(Border.MarginProperty, borderMarginAnimation);
             }
             else
             {
-                // Анимация панели
-                var infoPanelTranslateAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = panelWidth,
-                    Duration = TimeSpan.FromSeconds(0.3),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
-                };
-
+                // Анимация панели (сдвиг обратно вправо)
+                infoPanelTranslateAnimation.From = 0;
+                infoPanelTranslateAnimation.To = panelWidth;
                 infoPanelTranslateAnimation.Completed += (s, ev) =>
                 {
                     InfoPanel.Visibility = Visibility.Collapsed;
@@ -403,13 +360,10 @@ namespace Sound_Player
                 };
                 InfoPanelTransform.BeginAnimation(TranslateTransform.XProperty, infoPanelTranslateAnimation);
 
-                // Анимация контента внутри страницы
-                if (PlanetFrame.Content is Planet planetPage)
-                {
-                    contentAnimation.From = planetPage.ContentContainer.Margin;
-                    contentAnimation.To = new Thickness(0);
-                    planetPage.ContentContainer.BeginAnimation(FrameworkElement.MarginProperty, contentAnimation);
-                }
+                // Возвращаем правый отступ к исходному (10)
+                borderMarginAnimation.From = PlanetBorder.Margin;
+                borderMarginAnimation.To = new Thickness(0, 0, 10, 0); // Исходный Margin.Right = 10
+                PlanetBorder.BeginAnimation(Border.MarginProperty, borderMarginAnimation);
             }
 
             isInfoPanelExpanded = !isInfoPanelExpanded;
@@ -417,21 +371,16 @@ namespace Sound_Player
 
         private void SetActiveButton(Button activeButton)
         {
-            // Сбросить цвет всех изображений на серый
             ResetButtonColors();
 
-            // Установить цвет активной кнопки на белый
             if (activeButton.Content is Image activeImage)
             {
-                // Меняем цвет изображения на белый
                 activeImage.Source = ImageColorChanger.ChangeColor(activeImage.Source, Colors.White);
             }
         }
-        
 
         private void ResetButtonColors()
         {
-            // Сбрасываем все изображения на серые
             if (PlanetButton.Content is Image planetImage)
             {
                 planetImage.Source = ImageColorChanger.ChangeColor(planetImage.Source, Colors.Gray);
@@ -482,25 +431,20 @@ namespace Sound_Player
 
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            // Проверяем, не открыта ли уже страница профиля
             if (PlanetFrame.Content is ProfilePage) return;
 
-            // Переходим на страницу профиля
             PlanetFrame.Visibility = Visibility.Visible;
             PlanetFrame.Navigate(new ProfilePage());
 
-            // Закрываем правую панель, если она открыта
             if (isRightPanelExpanded)
             {
                 ToggleRightPanel();
             }
 
-            // Закрываем информационную панель, если она открыта
             if (isInfoPanelExpanded)
             {
                 ToggleInfoPanel_Click(null, null);
@@ -543,12 +487,10 @@ namespace Sound_Player
 
         private void NotificationButton_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для кнопки уведомлений
         }
 
         private void CommunityButton_Click(object sender, RoutedEventArgs e)
         {
-            // Логика для кнопки "Вступить в Community"
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
@@ -569,10 +511,7 @@ namespace Sound_Player
 
         private void OnMeretMenuItemClick(object sender, RoutedEventArgs e)
         {
-            // Закрыть текущую страницу (если нужно)
             PlanetFrame.Visibility = Visibility.Collapsed;
-
-            // Навигация на страницу Otvet
             PlanetFrame.Navigate(new Otvet());
         }
 
@@ -580,7 +519,7 @@ namespace Sound_Player
         {
             ScreenContextMenu.PlacementTarget = ScreenButton;
             ScreenContextMenu.IsOpen = true;
-            e.Handled = true; // Предотвращаем всплытие события
+            e.Handled = true;
         }
     }
 }

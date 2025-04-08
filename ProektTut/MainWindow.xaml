@@ -20,7 +20,9 @@
         KeyDown="Window_KeyDown"
         Closed="Window_Closed">
     <Window.Resources>
+        <!-- Конвертер для высоты активной части слайдера -->
         <local:SliderValueToHeightConverter x:Key="HeightConverter"/>
+        <!-- Стиль для кнопки -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#171717"/>
             <Setter Property="Foreground" Value="Gray"/>
@@ -737,10 +739,10 @@
             </Border>
 
             <!-- Frame для контента -->
-            <Border Grid.Row="1" Grid.Column="1" Background="#121212" CornerRadius="50" Margin="0,0,10,0">
+            <Border x:Name="PlanetBorder" Grid.Row="1" Grid.Column="1" Background="#121212" CornerRadius="50" Margin="0,0,10,0">
                 <Frame x:Name="PlanetFrame"
-                       Navigated="PlanetFrame_Navigated" 
-                       BorderBrush="Transparent" HorizontalAlignment="Stretch"/>
+           Navigated="PlanetFrame_Navigated" 
+           BorderBrush="Transparent" HorizontalAlignment="Stretch"/>
             </Border>
 
             <Frame x:Name="History"
@@ -754,7 +756,7 @@
         <!-- Оверлей для приветственного окна -->
         <Grid x:Name="OverlayGrid" Panel.ZIndex="1000">
             <!-- Здесь будет отображаться OknoPrivet -->
-            <Rectangle x:Name="OverlayBackground" Fill="Black" Opacity="0.5" Visibility="Visible"/>
+            <Rectangle x:Name="OverlayBackground" Fill="Black" Opacity="0.5" Visibility="Visible" Margin="0,-10,0,10"/>
         </Grid>
     </Grid>
 </Window>

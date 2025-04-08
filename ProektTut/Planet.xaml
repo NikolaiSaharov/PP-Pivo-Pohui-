@@ -291,11 +291,11 @@
                             </StackPanel>
                         </Grid>
                         <Grid x:Name="Level3" Visibility="Collapsed">
-                            <TextBlock Text="Рекомендую к прослушиванию" Foreground="White" FontFamily="Inter" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,280"/>
+                            <TextBlock Text="Рекомендую к прослушиванию" Foreground="White" FontFamily="Inter" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,280"/>
                             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <materialDesign:Card Width="250" Height="250" Margin="20,150,50,0" Background="White" UniformCornerRadius="15"/>
-                                <materialDesign:Card Width="250" Height="250" Margin="100,150,50,0" Background="White" UniformCornerRadius="15"/>
-                                <materialDesign:Card Width="250" Height="250" Margin="100,150,50,0" Background="White" UniformCornerRadius="15"/>
+                                <materialDesign:Card Width="250" Height="250" Margin="20,110,50,0" Background="White" UniformCornerRadius="15"/>
+                                <materialDesign:Card Width="250" Height="250" Margin="100,110,50,0" Background="White" UniformCornerRadius="15"/>
+                                <materialDesign:Card Width="250" Height="250" Margin="100,110,50,0" Background="White" UniformCornerRadius="15"/>
                             </WrapPanel>
                         </Grid>
                         <Grid x:Name="Level4" Visibility="Collapsed">

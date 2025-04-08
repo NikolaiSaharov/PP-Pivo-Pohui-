@@ -151,9 +151,9 @@
             </StackPanel>
         </ScrollViewer>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Vertical" Margin="1150,35,0,0">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Vertical" Margin="1130,15,0,0">
             <!-- Кнопка вверх -->
-            <Button x:Name="UpArrowButton" Width="45" Height="45" Margin="0,0,0,17" Style="{StaticResource MaterialDesignFlatButton}" Background="#50000000" Click="UpArrowButton_Click">
+            <Button x:Name="UpArrowButton" Width="35" Height="35" Margin="0,0,0,17" Style="{StaticResource MaterialDesignFlatButton}" Background="#50000000" Click="UpArrowButton_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
@@ -162,11 +162,11 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-                <svgc:SvgViewbox Source="/Resources/Images/Arrow_Up_Samples.svg" Width="35" Height="35"/>
+                <svgc:SvgViewbox Source="/Resources/Images/Arrow_Up_Samples.svg" Width="17" Height="20"/>
             </Button>
 
             <!-- Кнопка вниз -->
-            <Button x:Name="DownArrowButton" Width="45" Height="45" Margin="0,17,0,0" Style="{StaticResource MaterialDesignFlatButton}" Background="#50000000" Click="DownArrowButton_Click">
+            <Button x:Name="DownArrowButton" Width="35" Height="35" Margin="0,17,0,0" Style="{StaticResource MaterialDesignFlatButton}" Background="#50000000" Click="DownArrowButton_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
@@ -175,7 +175,7 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-                <svgc:SvgViewbox Source="/Resources/Images/Arrow_Down_Samples.svg" Width="35" Height="35"/>
+                <svgc:SvgViewbox Source="/Resources/Images/Arrow_Down_Samples.svg" Width="17" Height="20" Cursor=""/>
             </Button>
         </StackPanel>
     </Grid>
