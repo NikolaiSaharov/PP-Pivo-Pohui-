@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -15,16 +15,15 @@ namespace Sound_Player
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            // Запускаем анимацию при загрузке
             var storyboard = (Storyboard)Resources["WelcomeAnimation"];
             storyboard.Completed += (s, args) =>
             {
-                // После завершения анимации удаляем элемент
                 var parent = Parent as Panel;
                 parent?.Children.Remove(this);
             };
             storyboard.Begin();
         }
+
 
         // Метод для установки имени пользователя
         public void SetUserName(string userName)
@@ -35,5 +34,6 @@ namespace Sound_Player
                 welcomeText.Text = $"G'день, {userName}!";
             }
         }
+
     }
 }
