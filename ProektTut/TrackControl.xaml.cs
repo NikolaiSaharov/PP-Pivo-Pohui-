@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -16,7 +16,7 @@ namespace Sound_Player
             {
                 if (!IsSelected)
                 {
-                    TrackBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#090909"));
+                    TrackBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9D1A1A1A"));
                 }
             };
 
@@ -37,7 +37,7 @@ namespace Sound_Player
             {
                 _isSelected = value;
                 TrackBorder.Background = value
-                    ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#090909"))
+                    ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9D1A1A1A"))
                     : Brushes.Transparent;
             }
         }
