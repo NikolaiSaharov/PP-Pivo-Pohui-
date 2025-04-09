@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using MaterialDesignThemes.Wpf;
@@ -27,6 +28,13 @@ namespace Sound_Player
         public MainWindow()
         {
             InitializeComponent();
+
+            // Запускаем анимацию после загрузки окна
+            Loaded += (s, e) =>
+            {
+                var storyboard = (Storyboard)FindResource("MainWindowShowAnimation");
+                storyboard.Begin();
+            };
 
             HistoryPage = new HistoryOfSearchPage();
             this.Loaded += MainWindow_Loaded;
@@ -62,14 +70,31 @@ namespace Sound_Player
         {
             _advancedSearchWindow = new AdvancedSearchWindow(this);
 
+            MainContentGrid.Opacity = 0; // Изначально скрыт
+            var blurEffect = MainContentGrid.Effect as BlurEffect;
+            if (blurEffect == null)
+            {
+                blurEffect = new BlurEffect();
+                MainContentGrid.Effect = blurEffect;
+            }
+            
+            blurEffect.Radius = 10; // Изначальное размытие
+
             var welcomeWindow = new OknoPrivet();
             welcomeWindow.SetUserName("User Name");
             OverlayGrid.Children.Add(welcomeWindow);
 
-            var storyboard = (Storyboard)welcomeWindow.Resources["WelcomeAnimation"];
+            var storyboard = (Storyboard)welcomeWindow.Resources["WelcomeAnimation"];  
             storyboard.Completed += (s, args) =>
             {
                 OverlayBackground.Visibility = Visibility.Collapsed;
+
+                // Анимация появления главного экрана
+                var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.7));
+                var blurOut = new DoubleAnimation(10, 0, TimeSpan.FromSeconds(0.7));
+
+                MainContentGrid.BeginAnimation(UIElement.OpacityProperty, fadeIn);
+                blurEffect.BeginAnimation(BlurEffect.RadiusProperty, blurOut);
             };
         }
 
