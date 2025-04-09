@@ -7,76 +7,51 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <Storyboard x:Key="WelcomeAnimation">
-            <!-- 0-1 секунда: Затемнение фона и появление окна -->
+            <!-- Начало: появление -->
             <DoubleAnimation Storyboard.TargetName="BackgroundOverlay"
-                         Storyboard.TargetProperty="Opacity"
-                         From="0" To="0.3" Duration="0:0:1"
-                         DecelerationRatio="0.6"/>
-
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="0.3" Duration="0:0:1"/>
             <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                         Storyboard.TargetProperty="Opacity"
-                         From="0" To="1" Duration="0:0:1"
-                         DecelerationRatio="0.6"/>
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1"/>
 
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                         Storyboard.TargetProperty="RenderTransform.ScaleX"
-                         From="0.9" To="1" Duration="0:0:1"
-                         DecelerationRatio="0.6"/>
+            <!-- Анимация логотипа -->
+            <DoubleAnimation Storyboard.TargetName="LogoContainer"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1"
+                             BeginTime="0:0:0.5"/>
+            <ThicknessAnimation Storyboard.TargetName="LogoContainer"
+                               Storyboard.TargetProperty="Margin"
+                               From="0,40,0,0" To="0,60,0,0" Duration="0:0:1"
+                               BeginTime="0:0:0.5"/>
 
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                         Storyboard.TargetProperty="RenderTransform.ScaleY"
-                         From="0.9" To="1" Duration="0:0:1"
-                         DecelerationRatio="0.6"/>
-
-            <!-- 1-3 секунды: Появление текста и аватарки -->
             <DoubleAnimation Storyboard.TargetName="WelcomeText"
-                         Storyboard.TargetProperty="Opacity"
-                         From="0" To="1" Duration="0:0:0.8"
-                         BeginTime="0:0:1"
-                         DecelerationRatio="0.6"/>
-
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1"
+                             BeginTime="0:0:1"/>
             <ThicknessAnimation Storyboard.TargetName="WelcomeText"
-                           Storyboard.TargetProperty="Margin"
-                           From="0,20,0,0" To="0,0,0,0" Duration="0:0:0.8"
-                           BeginTime="0:0:1"
-                           DecelerationRatio="0.6"/>
+                               Storyboard.TargetProperty="Margin"
+                               From="0,20,0,0" To="0,0,0,0" Duration="0:0:1"
+                               BeginTime="0:0:1"/>
 
             <DoubleAnimation Storyboard.TargetName="UserAvatar"
-                         Storyboard.TargetProperty="Opacity"
-                         From="0" To="1" Duration="0:0:0.8"
-                         BeginTime="0:0:1.2"
-                         DecelerationRatio="0.6"/>
-
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1"
+                             BeginTime="0:0:1.5"/>
             <ThicknessAnimation Storyboard.TargetName="UserAvatar"
-                           Storyboard.TargetProperty="Margin"
-                           From="0,20,0,0" To="0,0,0,0" Duration="0:0:0.8"
-                           BeginTime="0:0:1.2"
-                           DecelerationRatio="0.6"/>
+                               Storyboard.TargetProperty="Margin"
+                               From="0,20,0,0" To="0,0,0,0" Duration="0:0:1"
+                               BeginTime="0:0:1.5"/>
 
-            <!-- 3-5 секунды: Плавное исчезновение окна приветствия -->
+            <!-- Конец: плавное исчезновение (только затухание) -->
             <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                 Storyboard.TargetProperty="Opacity"
-                 From="1" To="0" Duration="0:0:2"
-                 BeginTime="0:0:3"
-                 DecelerationRatio="0.3"/>
-
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                 Storyboard.TargetProperty="RenderTransform.ScaleX"
-                 From="1" To="0.95" Duration="0:0:2"
-                 BeginTime="0:0:3"
-                 DecelerationRatio="0.3"/>
-
-            <DoubleAnimation Storyboard.TargetName="WelcomeWindow"
-                 Storyboard.TargetProperty="RenderTransform.ScaleY"
-                 From="1" To="0.95" Duration="0:0:2"
-                 BeginTime="0:0:3"
-                 DecelerationRatio="0.3"/>
-
+                             Storyboard.TargetProperty="Opacity"
+                             From="1" To="0" Duration="0:0:1"
+                             BeginTime="0:0:3"/>
             <DoubleAnimation Storyboard.TargetName="BackgroundOverlay"
-                 Storyboard.TargetProperty="Opacity"
-                 From="0.3" To="0" Duration="0:0:2"
-                 BeginTime="0:0:3"
-                 DecelerationRatio="0.3"/>
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.3" To="0" Duration="0:0:1"
+                             BeginTime="0:0:3"/>
         </Storyboard>
 
         <Style TargetType="TextBlock" x:Key="WelcomeTextStyle">
@@ -118,17 +93,14 @@
         <!-- Основной контейнер -->
         <Grid x:Name="WelcomeContainer" VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <Grid x:Name="WelcomeWindow" 
-                  Opacity="0"
-                  RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
-                </Grid.RenderTransform>
-
+                  Opacity="0">
                 <!-- Логотип GILS с иконкой -->
-                <StackPanel Orientation="Vertical" 
+                <StackPanel x:Name="LogoContainer"
+                            Orientation="Vertical" 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top" 
-                            Margin="0,60,0,0">
+                            Margin="0,60,0,0"
+                            Opacity="0">
                     <svgc:SvgViewbox Source="/Resources/Images/Logotype_White.svg"
                                      Width="83" Height="75"
                                      Margin="0,0,0,10" 
