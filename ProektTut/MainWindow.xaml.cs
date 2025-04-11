@@ -198,7 +198,44 @@ namespace Sound_Player
 
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Полноэкранный режим");
+            if (Fullscreen.Visibility == Visibility.Collapsed)
+            {
+                // Создаем и настраиваем FullPlayerPage
+                var fullPlayerPage = new FullPlayerPage();
+                fullPlayerPage.CloseRequested += (s, args) =>
+                {
+                    // Скрываем Fullscreen Frame
+                    Fullscreen.Visibility = Visibility.Collapsed;
+                    Fullscreen.Content = null;
+                    
+                    // Показываем основной контент
+                    PlanetFrame.Visibility = Visibility.Visible;
+                };
+
+                // Показываем Fullscreen Frame и загружаем FullPlayerPage
+                Fullscreen.Navigate(fullPlayerPage);
+                Fullscreen.Visibility = Visibility.Visible;
+
+                // Скрываем основное содержимое PlanetFrame, чтобы избежать наложения
+                PlanetFrame.Visibility = Visibility.Collapsed;
+
+                // Если боковые панели открыты, закрываем их
+                if (isRightPanelExpanded)
+                {
+                    ToggleRightPanel();
+                }
+                if (isInfoPanelExpanded)
+                {
+                    ToggleInfoPanel_Click(null, null);
+                }
+            }
+            else
+            {
+                // Скрываем Fullscreen Frame и возвращаем основное содержимое
+                Fullscreen.Visibility = Visibility.Collapsed;
+                Fullscreen.Content = null; // Очищаем содержимое для экономии ресурсов
+                PlanetFrame.Visibility = Visibility.Visible;
+            }
         }
 
         private void NavigateBackButton_Click(object sender, RoutedEventArgs e)
@@ -338,6 +375,12 @@ namespace Sound_Player
             }
 
             isRightPanelExpanded = !isRightPanelExpanded;
+        }
+        public void HideFullscreenFrame()
+        {
+            Fullscreen.Visibility = Visibility.Collapsed;
+            Fullscreen.Content = null; // Очищаем содержимое для экономии ресурсов
+            PlanetFrame.Visibility = Visibility.Visible;
         }
 
         private void ToggleInfoPanel_Click(object sender, RoutedEventArgs e)
