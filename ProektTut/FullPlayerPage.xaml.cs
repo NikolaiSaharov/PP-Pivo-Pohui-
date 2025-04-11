@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -14,7 +15,6 @@ namespace Sound_Player
         private bool isRepeat = false;
         private readonly SolidColorBrush defaultBackground = new SolidColorBrush(Color.FromRgb(0x12, 0x12, 0x12));
 
-        // Для управления активными кнопками
         private Button activeButton;
         private readonly SolidColorBrush activeBrush = new SolidColorBrush(Colors.White);
         private readonly SolidColorBrush inactiveBrush = new SolidColorBrush(Color.FromRgb(0x80, 0x80, 0x80));
@@ -25,22 +25,60 @@ namespace Sound_Player
         {
             InitializeComponent();
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
-
-            // Устанавливаем первую кнопку как активную по умолчанию
             SetActiveButton(PreviousButton);
+            BackgroundVideo.Volume = 0; // Отключаем звук видео
+            this.Loaded += FullPlayerPage_Loaded;
+        }
+
+        private void FullPlayerPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            PlayVideo(); // Автоматически запускаем видео при загрузке
+        }
+
+        private void PlayVideo()
+        {
+            try
+            {
+                string videoFileName = @"jujutsu.mp4";
+                string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, videoFileName);
+
+                if (File.Exists(fullPath))
+                {
+                    BackgroundVideo.Source = new Uri(fullPath);
+                    ShowVideo();
+                }
+                else
+                {
+                    MessageBox.Show("Видео не найдено по пути:\n" + fullPath);
+                    MainBorder.Background = defaultBackground;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при воспроизведении видео: {ex.Message}");
+            }
         }
 
         private void SetActiveButton(Button button)
         {
-            // Если уже есть активная кнопка - делаем её неактивной
             if (activeButton != null)
             {
                 activeButton.Foreground = inactiveBrush;
             }
-
-            // Устанавливаем новую активную кнопку
             activeButton = button;
             activeButton.Foreground = activeBrush;
+        }
+
+        private void ShowVideo()
+        {
+            BackgroundVideo.Visibility = Visibility.Visible;
+            BackgroundVideo.Play();
+        }
+
+        private void HideVideo()
+        {
+            BackgroundVideo.Stop();
+            BackgroundVideo.Visibility = Visibility.Collapsed;
         }
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
@@ -48,8 +86,8 @@ namespace Sound_Player
             SetActiveButton(PreviousButton);
             try
             {
+                PlayVideo(); // Перезапускаем видео
                 CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
-                MainBorder.Background = defaultBackground;
                 AnimateTrackCoverSize(400, 400);
             }
             catch (Exception ex)
@@ -75,6 +113,7 @@ namespace Sound_Player
                     UpdateBackgroundFromImage();
                 }
 
+                HideVideo();
                 CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
                 AnimateTrackCoverSize(400, 400);
             }
@@ -92,7 +131,7 @@ namespace Sound_Player
                 try
                 {
                     var colors = ColorExtractor.GetDominantColors(bitmapSource, 2);
-                    var gradientBrush = new LinearGradientBrush
+                    MainBorder.Background = new LinearGradientBrush
                     {
                         StartPoint = new Point(0, 0),
                         EndPoint = new Point(1, 1),
@@ -102,7 +141,6 @@ namespace Sound_Player
                             new GradientStop(colors[1], 1)
                         }
                     };
-                    MainBorder.Background = gradientBrush;
                 }
                 catch (Exception ex)
                 {
@@ -117,6 +155,7 @@ namespace Sound_Player
             SetActiveButton(NextButton);
             try
             {
+                HideVideo();
                 CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
                 UpdateBackgroundFromImage();
                 AnimateTrackCoverSize(450, 850);
@@ -135,9 +174,9 @@ namespace Sound_Player
             {
                 mediaPlayer.Stop();
                 isPlaying = false;
-
-                CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
+                HideVideo();
                 MainBorder.Background = defaultBackground;
+                CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
                 AnimateTrackCoverSize(400, 400);
                 CloseRequested?.Invoke(this, EventArgs.Empty);
             }
@@ -171,14 +210,10 @@ namespace Sound_Player
             TrackCoverBorder.BeginAnimation(Border.HeightProperty, heightAnimation);
         }
 
-        private void RepeatButton_Click(object sender, RoutedEventArgs e)
+        private void BackgroundVideo_MediaEnded(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            if (button != null && button.ContextMenu != null)
-            {
-                button.ContextMenu.PlacementTarget = button;
-                button.ContextMenu.IsOpen = true;
-            }
+            BackgroundVideo.Position = TimeSpan.Zero;
+            BackgroundVideo.Play();
         }
 
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
@@ -191,6 +226,16 @@ namespace Sound_Player
             else
             {
                 isPlaying = false;
+            }
+        }
+
+        private void RepeatButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null && button.ContextMenu != null)
+            {
+                button.ContextMenu.PlacementTarget = button;
+                button.ContextMenu.IsOpen = true;
             }
         }
 
