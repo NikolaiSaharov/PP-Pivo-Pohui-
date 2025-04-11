@@ -84,6 +84,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Storyboard x:Key="MainWindowShowAnimation">
+            <DoubleAnimation Storyboard.TargetName="MainContentGrid"
+                         Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" 
+                         Duration="0:0:1.5"
+                         BeginTime="0:0:3" 
+                         DecelerationRatio="0.6"/>
+        </Storyboard>
     </Window.Resources>
 
     <Grid>
@@ -751,6 +759,16 @@
                    BorderBrush="Transparent"
                    VerticalAlignment="Top"
                    Margin="-35,10,0,0"/>
+            <!-- Новый Fullscreen Frame -->
+            <Frame x:Name="Fullscreen"
+       Grid.Row="1"
+       Grid.Column="0"
+       Grid.ColumnSpan="3"
+       Background="Transparent"
+       BorderBrush="Transparent"
+       Panel.ZIndex="1001"
+       Visibility="Collapsed"
+       NavigationUIVisibility="Hidden"/>
         </Grid>
 
         <!-- Оверлей для приветственного окна -->
