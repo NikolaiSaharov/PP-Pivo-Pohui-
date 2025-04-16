@@ -11,10 +11,14 @@
       Background="Black">
     <Page.Resources>
         <LinearGradientBrush x:Key="MenuItemHoverGradient" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#FF6F61" Offset="0"/>
-            <GradientStop Color="#FF9A8B" Offset="0.5"/>
-            <GradientStop Color="#FF6F61" Offset="1"/>
+            <GradientStop Color="#0010C8" Offset="0"/>
+            <GradientStop Color="#46CFFF" Offset="0.4"/>
+            <GradientStop Color="#4E73FF" Offset="0.8"/>
+            <GradientStop Color="#B700FF" Offset="1"/>
+            <GradientStop Color="#D200FF" Offset="0.2"/>
         </LinearGradientBrush>
+        
+        <local:RectConverter x:Key="RectConverter" />
 
         <!-- Стиль для кнопок плеера -->
         <Style x:Key="PlayerButtonStyle" TargetType="Button">
@@ -138,13 +142,27 @@
     <Border x:Name="MainBorder" Background="#121212" CornerRadius="30" Margin="10,0,10,0">
         <Grid>
             <MediaElement x:Name="BackgroundVideo"
-                  Stretch="Fill" 
-                  HorizontalAlignment="Stretch" 
-                  VerticalAlignment="Stretch"
-                  LoadedBehavior="Manual"
-                  UnloadedBehavior="Stop"
-                  MediaEnded="BackgroundVideo_MediaEnded"
-                  Visibility="Visible"/>
+      Stretch="Fill" 
+      HorizontalAlignment="Stretch" 
+      VerticalAlignment="Stretch"
+      LoadedBehavior="Manual"
+      UnloadedBehavior="Stop"
+      MediaEnded="BackgroundVideo_MediaEnded"
+      Visibility="Visible">
+                <MediaElement.Effect>
+                    <BlurEffect Radius="200"/>
+                </MediaElement.Effect>
+                <MediaElement.Clip>
+                    <RectangleGeometry RadiusX="30" RadiusY="30">
+                        <RectangleGeometry.Rect>
+                            <MultiBinding Converter="{StaticResource RectConverter}">
+                                <Binding ElementName="BackgroundVideo" Path="ActualWidth"/>
+                                <Binding ElementName="BackgroundVideo" Path="ActualHeight"/>
+                            </MultiBinding>
+                        </RectangleGeometry.Rect>
+                    </RectangleGeometry>
+                </MediaElement.Clip>
+            </MediaElement>
             <Rectangle >
                 <Rectangle.Fill>
                     <VisualBrush Visual="{Binding ElementName=MainBorder}">
@@ -204,7 +222,27 @@
                 <Border.Background>
                     <ImageBrush x:Name="CoverImageBrush" ImageSource="/Resources/Images/FullPleer.jpg" Stretch="UniformToFill"/>
                 </Border.Background>
-                
+                <MediaElement x:Name="TrackVideoPlayer"
+  Stretch="UniformToFill"
+  LoadedBehavior="Manual"
+  UnloadedBehavior="Stop"
+  MediaEnded="TrackVideo_MediaEnded"
+  Visibility="Collapsed">
+                    <MediaElement.Effect>
+                        <BlurEffect Radius="200"/>
+                    </MediaElement.Effect>
+                    <MediaElement.Clip>
+                        <RectangleGeometry RadiusX="40" RadiusY="40">
+                            <RectangleGeometry.Rect>
+                                <MultiBinding Converter="{StaticResource RectConverter}">
+                                    <Binding ElementName="TrackCoverBorder" Path="ActualWidth"/>
+                                    <Binding ElementName="TrackCoverBorder" Path="ActualHeight"/>
+                                </MultiBinding>
+                            </RectangleGeometry.Rect>
+                        </RectangleGeometry>
+                    </MediaElement.Clip>
+                </MediaElement>
+
             </Border>
         </Grid>
     </Border>
