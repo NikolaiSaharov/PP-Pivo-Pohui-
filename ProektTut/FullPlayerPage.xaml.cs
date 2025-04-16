@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace Sound_Player
 {
@@ -86,7 +87,13 @@ namespace Sound_Player
             SetActiveButton(PreviousButton);
             try
             {
-                PlayVideo(); // Перезапускаем видео
+                // Останавливаем видео трека и показываем изображение
+                TrackVideoPlayer.Stop();
+                TrackVideoPlayer.Visibility = Visibility.Collapsed;
+                CoverImageBrush.Opacity = 1;
+
+                // Запускаем фоновое видео
+                PlayVideo();
                 CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
                 AnimateTrackCoverSize(400, 400);
             }
@@ -104,16 +111,25 @@ namespace Sound_Player
                 if (isPlaying)
                 {
                     mediaPlayer.Pause();
+                    TrackVideoPlayer.Pause();
                     isPlaying = false;
                 }
                 else
                 {
                     mediaPlayer.Play();
+                    if (TrackVideoPlayer.Visibility == Visibility.Visible)
+                    {
+                        TrackVideoPlayer.Play();
+                    }
                     isPlaying = true;
                     UpdateBackgroundFromImage();
                 }
 
                 HideVideo();
+                TrackVideoPlayer.Stop();
+                TrackVideoPlayer.Visibility = Visibility.Collapsed;
+                CoverImageBrush.Opacity = 1;
+                UpdateBackgroundFromImage();
                 CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
                 AnimateTrackCoverSize(400, 400);
             }
@@ -155,17 +171,128 @@ namespace Sound_Player
             SetActiveButton(NextButton);
             try
             {
+                // Скрываем фоновое видео
                 HideVideo();
-                CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
-                UpdateBackgroundFromImage();
+
+                // Загружаем и воспроизводим видео в TrackCoverBorder
+                PlayTrackVideo();
+
+                // Анимируем размер TrackCoverBorder
                 AnimateTrackCoverSize(450, 850);
+
+                // Обновляем фон на основе видео
+                UpdateBackgroundFromVideo();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка в NextButton: {ex.Message}");
-                CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
+                ShowDefaultTrackImage();
                 AnimateTrackCoverSize(400, 400);
             }
+        }
+        private void UpdateBackgroundFromVideo()
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    // Даем небольшой таймаут, чтобы видео точно было готово
+                    var timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
+                    timer.Tick += (s, args) =>
+                    {
+                        timer.Stop();
+                        var bitmapSource = GetVideoFrame(TrackVideoPlayer);
+                        if (bitmapSource != null)
+                        {
+                            var colors = ColorExtractor.GetDominantColors(bitmapSource, 2);
+                            MainBorder.Background = new LinearGradientBrush
+                            {
+                                StartPoint = new Point(0, 0),
+                                EndPoint = new Point(1, 1),
+                                GradientStops = new GradientStopCollection
+                        {
+                            new GradientStop(colors[0], 0),
+                            new GradientStop(colors[1], 1)
+                        }
+                            };
+                        }
+                    };
+                    timer.Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при обновлении фона из видео: {ex.Message}");
+                    MainBorder.Background = defaultBackground;
+                }
+            }));
+        }
+
+        private BitmapSource GetVideoFrame(MediaElement mediaElement)
+        {
+            if (mediaElement.Source == null || !mediaElement.HasVideo)
+                return null;
+
+            // Создаем RenderTargetBitmap с размерами видео
+            var renderTargetBitmap = new RenderTargetBitmap(
+                (int)mediaElement.ActualWidth,
+                (int)mediaElement.ActualHeight,
+                96, 96, PixelFormats.Pbgra32);
+
+            // Рендерим текущий кадр
+            renderTargetBitmap.Render(mediaElement);
+
+            return renderTargetBitmap;
+        }
+        private void PlayTrackVideo()
+        {
+            try
+            {
+                string videoFileName = @"jujutsu.mp4";
+                string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, videoFileName);
+
+                if (File.Exists(fullPath))
+                {
+                    TrackVideoPlayer.Volume = 0;
+                    // Подписываемся на событие открытия медиа
+                    TrackVideoPlayer.MediaOpened += TrackVideoPlayer_MediaOpened;
+
+                    // Скрываем изображение и показываем видео
+                    CoverImageBrush.Opacity = 0;
+                    TrackVideoPlayer.Source = new Uri(fullPath);
+                    TrackVideoPlayer.Visibility = Visibility.Visible;
+                    TrackVideoPlayer.Play();
+                }
+                else
+                {
+                    MessageBox.Show("Видео трека не найдено по пути:\n" + fullPath);
+                    ShowDefaultTrackImage();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при воспроизведении видео трека: {ex.Message}");
+                ShowDefaultTrackImage();
+            }
+        }
+        private void TrackVideoPlayer_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            // Отписываемся от события, чтобы не вызывалось многократно
+            TrackVideoPlayer.MediaOpened -= TrackVideoPlayer_MediaOpened;
+
+            // Обновляем фон на основе первого кадра видео
+            UpdateBackgroundFromVideo();
+        }
+        private void TrackVideo_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            TrackVideoPlayer.Position = TimeSpan.Zero;
+            TrackVideoPlayer.Play();
+        }
+
+        private void ShowDefaultTrackImage()
+        {
+            TrackVideoPlayer.Visibility = Visibility.Collapsed;
+            CoverImageBrush.Opacity = 1;
+            CoverImageBrush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/FullPleer.jpg"));
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
